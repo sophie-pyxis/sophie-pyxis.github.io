@@ -4,142 +4,361 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Sophie Pyxis — Engenheira de Plataforma e MLOps Sênior | AWS · Azure · Databricks · Terraform · Python"/>
-  <meta name="keywords" content="MLOps, Platform Engineering, AWS, Azure, Databricks, Terraform, Python, CI/CD, Machine Learning"/>
   <meta property="og:title" content="Sophie Pyxis — Senior MLOps & Platform Engineer"/>
-  <meta property="og:description" content="11+ years building scalable AI systems. AWS · Azure · Databricks · Terraform."/>
   <meta property="og:url" content="https://sophie-pyxis.github.io"/>
   <title>Sophie Pyxis — MLOps & Platform Engineer</title>
-  <link rel="stylesheet" href="css/styles.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ── Variables ── */
+    :root {
+      --navy:       #050a30;
+      --navy-mid:   #0a1045;
+      --navy-light: #111a5e;
+      --cyan:       #00ffff;
+      --magenta:    #ff00ff;
+      --gold:       #87ceeb;
+      --white:      #e2eaf5;
+      --muted:      #4a6080;
+      --border:     #1a2a6e;
+      --font-mono:  'Space Mono', monospace;
+      --font-body:  'DM Sans', sans-serif;
+      --ease:       0.25s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { color: var(--cyan); text-decoration: none; transition: color var(--ease); }
+    a:hover { color: var(--magenta); }
+
+    /* ── Grid BG ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,255,0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Lang Toggle ── */
+    .lang-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+    }
+    .lang-toggle button {
+      background: var(--navy-mid);
+      color: var(--muted);
+      border: none;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: all var(--ease);
+      letter-spacing: 0.05em;
+    }
+    .lang-toggle button.active { background: var(--cyan); color: var(--navy); font-weight: 700; }
+    .lang-toggle button:hover:not(.active) { background: var(--navy-light); color: var(--cyan); }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 220px;
+      height: 100vh;
+      background: rgba(5,10,48,0.97);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 1.5rem;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.15em; text-transform: uppercase; }
+    .nav-subtitle { font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; margin-bottom: 2.5rem; line-height: 1.6; }
+    .nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+    .nav-links a {
+      display: flex; align-items: center; gap: 0.65rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.55rem 0.7rem;
+      border-radius: 3px;
+      border-left: 2px solid transparent;
+      transition: all var(--ease);
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--cyan);
+      border-left-color: var(--cyan);
+      background: rgba(0,255,255,0.05);
+    }
+    .nav-links .ni { font-size: 0.8rem; width: 1rem; text-align: center; }
+    .nav-social { display: flex; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: auto; }
+    .nav-social a { color: var(--muted); font-size: 1rem; transition: color var(--ease); }
+    .nav-social a:hover { color: var(--cyan); }
+
+    /* ── Main ── */
+    main { margin-left: 220px; position: relative; z-index: 1; }
+    section { padding: 6rem 5rem; border-bottom: 1px solid var(--border); }
+
+    /* ── Labels ── */
+    .sec-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--cyan);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
+    .sec-title { font-family: var(--font-mono); font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 2.5rem; }
+    .sec-title span { color: var(--cyan); }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      right: -150px; top: 50%;
+      transform: translateY(-50%);
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(0,255,255,0.045) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--magenta); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
+    .hero-name { font-family: var(--font-mono); font-size: clamp(2.8rem,5.5vw,5rem); font-weight: 700; line-height: 1; color: var(--white); margin-bottom: 0.4rem; animation: fadeUp 0.6s ease 0.1s both; }
+    .glitch { position: relative; display: inline-block; }
+    .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .glitch::before { color: var(--cyan); animation: glitch1 4s infinite linear; clip-path: polygon(0 0,100% 0,100% 45%,0 45%); }
+    .glitch::after { color: var(--magenta); animation: glitch2 4s infinite linear; clip-path: polygon(0 55%,100% 55%,100% 100%,0 100%); }
+    .hero-role { font-family: var(--font-mono); font-size: clamp(0.9rem,1.8vw,1.25rem); color: var(--cyan); margin-bottom: 1.75rem; animation: fadeUp 0.6s ease 0.2s both; min-height: 1.8rem; }
+    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s infinite; }
+    .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.9; animation: fadeUp 0.6s ease 0.3s both; }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.5rem; animation: fadeUp 0.6s ease 0.4s both; }
+    .badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.28rem 0.65rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); }
+    .badge:hover, .badge.hi { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,255,255,0.2); }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.5s both; }
+    .btn { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; cursor: pointer; transition: all var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: var(--cyan); color: var(--navy); border: none; font-weight: 700; }
+    .btn-primary:hover { background: var(--magenta); color: var(--navy); box-shadow: 0 0 20px rgba(255,0,255,0.35); }
+    .btn-outline { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); }
+    .btn-outline:hover { background: rgba(0,255,255,0.07); box-shadow: 0 0 16px rgba(0,255,255,0.2); color: var(--cyan); }
+
+    /* ── Stats ── */
+    .stats-bar { display: flex; gap: 3rem; padding: 2rem 5rem; border-bottom: 1px solid var(--border); background: var(--navy-mid); flex-wrap: wrap; }
+    .stat-num { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--cyan); line-height: 1; }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* ── About ── */
+    #about { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; min-height: auto; }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.93rem; line-height: 1.9; }
+    .about-text strong { color: var(--white); }
+    .about-text em { color: var(--cyan); font-style: normal; }
+    .about-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; position: sticky; top: 4rem; }
+    .card-title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.5rem; }
+    .card-item { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.82rem; color: var(--muted); }
+    .card-item .ic { color: var(--magenta); margin-top: 0.15rem; flex-shrink: 0; }
+    .card-item strong { color: var(--white); display: block; font-size: 0.85rem; }
+
+    /* ── Timeline ── */
+    #experience { min-height: auto; }
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--cyan), var(--magenta), transparent); }
+    .tl-item { position: relative; padding: 0 0 3rem 2.5rem; opacity: 0; transform: translateX(-18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .tl-item.visible { opacity: 1; transform: translateX(0); }
+    .tl-item::before { content: ''; position: absolute; left: -0.33rem; top: 0.5rem; width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.5); }
+    .tl-period { font-family: var(--font-mono); font-size: 0.62rem; color: var(--magenta); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .tl-company { font-family: var(--font-mono); font-size: 1.05rem; color: var(--white); font-weight: 700; margin-bottom: 0.15rem; }
+    .tl-role { font-size: 0.82rem; color: var(--cyan); margin-bottom: 0.85rem; }
+    .tl-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.8; max-width: 660px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
+    .tag { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.06em; padding: 0.18rem 0.5rem; border: 1px solid var(--navy-light); border-radius: 2px; color: var(--muted); background: var(--navy-mid); }
+
+    /* ── Projects ── */
+    #projects { min-height: auto; }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
+    .proj-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.6rem;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease, border-color var(--ease), box-shadow var(--ease);
+    }
+    .proj-card.visible { opacity: 1; transform: translateY(0); }
+    .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--magenta)); transform: scaleX(0); transform-origin: left; transition: transform var(--ease); }
+    .proj-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,255,255,0.12); }
+    .proj-card:hover::before { transform: scaleX(1); }
+    .proj-type { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; color: var(--magenta); text-transform: uppercase; margin-bottom: 0.65rem; }
+    .proj-name { font-family: var(--font-mono); font-size: 0.88rem; color: var(--white); margin-bottom: 0.65rem; font-weight: 700; }
+    .proj-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
+    .proj-link { font-family: var(--font-mono); font-size: 0.62rem; color: var(--cyan); letter-spacing: 0.08em; text-transform: uppercase; }
+    .proj-link:hover { color: var(--magenta); }
+
+    /* ── Stack ── */
+    #stack { min-height: auto; }
+    .stack-groups { display: flex; flex-direction: column; gap: 2rem; }
+    .sg-title { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.75rem; }
+    .sg-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .sg-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .si { font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.04em; padding: 0.4rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); cursor: default; }
+    .si:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.15); transform: translateY(-2px); }
+
+    /* ── Contact ── */
+    #contact { min-height: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+    .contact-intro { font-size: 0.95rem; color: var(--muted); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .contact-links { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--border); padding: 0.55rem 1.1rem; border-radius: 2px; transition: all var(--ease); }
+    .contact-item:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 14px rgba(0,255,255,0.18); }
+
+    /* ── Footer ── */
+    footer { margin-left: 220px; padding: 1.25rem 5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; }
+
+    /* ── Keyframes ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes glitch1 { 0%,89%,100%{transform:translate(0)} 91%{transform:translate(-2px,1px)} 93%{transform:translate(2px,-1px)} 96%{transform:translate(-1px,2px)} }
+    @keyframes glitch2 { 0%,87%,100%{transform:translate(0)} 89%{transform:translate(2px,-2px)} 92%{transform:translate(-2px,2px)} 95%{transform:translate(1px,-1px)} }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
+    ::selection { background: rgba(0,255,255,0.18); color: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      nav { width: 190px; }
+      main, footer { margin-left: 190px; }
+      section { padding: 5rem 3rem; }
+      #about { grid-template-columns: 1fr; }
+      .stats-bar { padding: 2rem 3rem; }
+    }
+    @media (max-width: 768px) {
+      nav { width:100%; height:auto; flex-direction:row; align-items:center; padding:0.9rem 1.25rem; border-right:none; border-bottom:1px solid var(--border); }
+      .nav-subtitle { display:none; }
+      .nav-links { flex-direction:row; flex:1; justify-content:center; gap:0; flex-wrap:wrap; margin:0 0.75rem; }
+      .nav-label { display:none; }
+      .nav-links a { padding:0.45rem; border-left:none; border-bottom:2px solid transparent; }
+      .nav-links a:hover,.nav-links a.active { border-bottom-color:var(--cyan); border-left-color:transparent; background:transparent; }
+      .nav-social { padding-top:0; border-top:none; margin-top:0; }
+      main, footer { margin-left:0; margin-top:58px; }
+      section { padding:4rem 1.5rem; }
+      .stats-bar { padding:1.5rem; gap:1.25rem; }
+      .sec-title { font-size:1.7rem; }
+      .hero-name { font-size:2.6rem; }
+      .lang-toggle { top:auto; bottom:1.5rem; right:1.5rem; }
+      #contact { padding:4rem 1.5rem; }
+      footer { margin-left:0; padding:1rem 1.5rem; flex-direction:column; gap:0.4rem; text-align:center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Language Toggle -->
 <div class="lang-toggle">
   <button id="btn-pt" class="active" onclick="setLang('pt')">PT-BR</button>
   <button id="btn-en" onclick="setLang('en')">EN-UK</button>
 </div>
 
-<!-- Navigation -->
 <nav>
   <div>
     <div class="nav-logo">Sophie Pyxis</div>
-    <div class="nav-title" data-pt="Engenheira MLOps Sênior" data-en="Senior MLOps Engineer">Engenheira MLOps Sênior</div>
+    <div class="nav-subtitle" data-pt="Engenheira MLOps Sênior" data-en="Senior MLOps Engineer">Engenheira MLOps Sênior</div>
   </div>
-
   <ul class="nav-links">
-    <li><a href="#hero" class="active">
-      <span class="nav-icon"><i class="fa fa-terminal"></i></span>
-      <span class="nav-label" data-pt="Início" data-en="Home">Início</span>
-    </a></li>
-    <li><a href="#about">
-      <span class="nav-icon"><i class="fa fa-user"></i></span>
-      <span class="nav-label" data-pt="Sobre" data-en="About">Sobre</span>
-    </a></li>
-    <li><a href="#experience">
-      <span class="nav-icon"><i class="fa fa-briefcase"></i></span>
-      <span class="nav-label" data-pt="Experiência" data-en="Experience">Experiência</span>
-    </a></li>
-    <li><a href="#projects">
-      <span class="nav-icon"><i class="fa fa-code-branch"></i></span>
-      <span class="nav-label" data-pt="Projetos" data-en="Projects">Projetos</span>
-    </a></li>
-    <li><a href="#stack">
-      <span class="nav-icon"><i class="fa fa-layer-group"></i></span>
-      <span class="nav-label" data-pt="Stack" data-en="Stack">Stack</span>
-    </a></li>
-    <li><a href="#contact">
-      <span class="nav-icon"><i class="fa fa-envelope"></i></span>
-      <span class="nav-label" data-pt="Contato" data-en="Contact">Contato</span>
-    </a></li>
+    <li><a href="#hero" class="active"><span class="ni"><i class="fa fa-terminal"></i></span><span class="nav-label" data-pt="Início" data-en="Home">Início</span></a></li>
+    <li><a href="#about"><span class="ni"><i class="fa fa-user"></i></span><span class="nav-label" data-pt="Sobre" data-en="About">Sobre</span></a></li>
+    <li><a href="#experience"><span class="ni"><i class="fa fa-briefcase"></i></span><span class="nav-label" data-pt="Experiência" data-en="Experience">Experiência</span></a></li>
+    <li><a href="#projects"><span class="ni"><i class="fa fa-code-branch"></i></span><span class="nav-label" data-pt="Projetos" data-en="Projects">Projetos</span></a></li>
+    <li><a href="#stack"><span class="ni"><i class="fa fa-layer-group"></i></span><span class="nav-label">Stack</span></a></li>
+    <li><a href="#contact"><span class="ni"><i class="fa fa-envelope"></i></span><span class="nav-label" data-pt="Contato" data-en="Contact">Contato</span></a></li>
   </ul>
-
   <div class="nav-social">
-    <a href="https://github.com/sophie-pyxis" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://dev.to/sophie-pyxis" target="_blank" title="Dev.to"><i class="fab fa-dev"></i></a>
+    <a href="https://github.com/sophie-pyxis" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://dev.to/sophie-pyxis" target="_blank"><i class="fab fa-dev"></i></a>
   </div>
 </nav>
 
-<!-- Main -->
 <main>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-tag" data-pt="🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior" data-en="🏳️‍⚧️ trans woman · neurodivergent · senior engineer">
-      🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior
-    </div>
-    <h1 class="hero-name">
-      <span class="glitch" data-text="Sophie Pyxis">Sophie Pyxis</span>
-    </h1>
-    <div class="hero-role">
-      <span id="typing-text"></span><span class="cursor"></span>
-    </div>
+    <div class="hero-tag" data-pt="🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior" data-en="🏳️‍⚧️ trans woman · neurodivergent · senior engineer">🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior</div>
+    <h1 class="hero-name"><span class="glitch" data-text="Sophie Pyxis">Sophie Pyxis</span></h1>
+    <div class="hero-role"><span id="typing-text"></span><span class="cursor"></span></div>
     <p class="hero-desc"
       data-pt="Especialista em MLOps, Platform Engineering e Infraestrutura como Código. +11 anos construindo sistemas de IA escaláveis em ambientes regulados — AWS, Azure, Databricks, Terraform."
       data-en="Specialist in MLOps, Platform Engineering and Infrastructure as Code. 11+ years building scalable AI systems in regulated environments — AWS, Azure, Databricks, Terraform.">
       Especialista em MLOps, Platform Engineering e Infraestrutura como Código. +11 anos construindo sistemas de IA escaláveis em ambientes regulados — AWS, Azure, Databricks, Terraform.
     </p>
     <div class="hero-badges">
-      <span class="badge highlight">AWS</span>
-      <span class="badge highlight">Azure</span>
-      <span class="badge highlight">Databricks</span>
-      <span class="badge highlight">Terraform</span>
-      <span class="badge">Python</span>
-      <span class="badge">CI/CD</span>
-      <span class="badge">MLFlow</span>
-      <span class="badge">Docker</span>
-      <span class="badge">GitHub Actions</span>
-      <span class="badge">FinOps</span>
+      <span class="badge hi">AWS</span><span class="badge hi">Azure</span><span class="badge hi">Databricks</span>
+      <span class="badge hi">Terraform</span><span class="badge">Python</span><span class="badge">CI/CD</span>
+      <span class="badge">MLFlow</span><span class="badge">Docker</span><span class="badge">GitHub Actions</span><span class="badge">FinOps</span>
     </div>
     <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">
-        <i class="fa fa-code-branch"></i>
-        <span data-pt="Ver Projetos" data-en="View Projects">Ver Projetos</span>
-      </a>
-      <a href="#contact" class="btn btn-outline">
-        <i class="fa fa-envelope"></i>
-        <span data-pt="Entrar em Contato" data-en="Get in Touch">Entrar em Contato</span>
-      </a>
+      <a href="#projects" class="btn btn-primary"><i class="fa fa-code-branch"></i><span data-pt="Ver Projetos" data-en="View Projects">Ver Projetos</span></a>
+      <a href="#contact" class="btn btn-outline"><i class="fa fa-envelope"></i><span data-pt="Entrar em Contato" data-en="Get in Touch">Entrar em Contato</span></a>
     </div>
   </section>
 
   <!-- STATS -->
   <div class="stats-bar">
-    <div class="stat-item">
-      <span class="stat-number">11+</span>
-      <span class="stat-label" data-pt="Anos de Experiência" data-en="Years of Experience">Anos de Experiência</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">60%</span>
-      <span class="stat-label" data-pt="Redução de Time-to-Market" data-en="Time-to-Market Reduction">Redução de Time-to-Market</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">45%</span>
-      <span class="stat-label" data-pt="Redução de Custos Cloud" data-en="Cloud Cost Reduction">Redução de Custos Cloud</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">2.5k+</span>
-      <span class="stat-label" data-pt="Profissionais Trans Impactados" data-en="Trans Professionals Impacted">Profissionais Trans Impactados</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-number">4</span>
-      <span class="stat-label" data-pt="Países / Mercados" data-en="Countries / Markets">Países / Mercados</span>
-    </div>
+    <div><div class="stat-num">11+</div><div class="stat-lbl" data-pt="Anos de Experiência" data-en="Years of Experience">Anos de Experiência</div></div>
+    <div><div class="stat-num">60%</div><div class="stat-lbl" data-pt="Redução Time-to-Market" data-en="Time-to-Market Reduction">Redução Time-to-Market</div></div>
+    <div><div class="stat-num">45%</div><div class="stat-lbl" data-pt="Redução Custos Cloud" data-en="Cloud Cost Reduction">Redução Custos Cloud</div></div>
+    <div><div class="stat-num">2.5k+</div><div class="stat-lbl" data-pt="Profissionais Trans Impactados" data-en="Trans Professionals Impacted">Profissionais Trans Impactados</div></div>
+    <div><div class="stat-num">4</div><div class="stat-lbl" data-pt="Países / Mercados" data-en="Countries / Markets">Países / Mercados</div></div>
   </div>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
-      <div class="section-label" data-pt="// sobre mim" data-en="// about me">// sobre mim</div>
-      <h2 class="section-title" data-pt="Quem sou eu" data-en="Who I am">Quem sou eu</h2>
+      <div class="sec-label" data-pt="// sobre mim" data-en="// about me">// sobre mim</div>
+      <h2 class="sec-title" data-pt="Quem sou <span>eu</span>" data-en="Who <span>I am</span>">Quem sou <span>eu</span></h2>
       <p data-pt="Sou Engenheira de Plataforma e MLOps Sênior com mais de <strong>11 anos de experiência</strong> construindo ecossistemas de dados escaláveis, resilientes e auditáveis em ambientes de alta regulação — Fintech, Seguros, BACEN, SUSEP, HMRC."
          data-en="I am a Senior Platform and MLOps Engineer with over <strong>11 years of experience</strong> building scalable, resilient and auditable data ecosystems in highly regulated environments — Fintech, Insurance, BACEN, SUSEP, HMRC.">
         Sou Engenheira de Plataforma e MLOps Sênior com mais de <strong>11 anos de experiência</strong> construindo ecossistemas de dados escaláveis, resilientes e auditáveis em ambientes de alta regulação — Fintech, Seguros, BACEN, SUSEP, HMRC.
       </p>
       <p data-pt="Especialista em <em>infraestrutura como código (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> e Engenharia de Plataforma Cloud, com domínio em AWS, Azure e Databricks. Atuo no ciclo completo: da arquitetura serverless ao serving de modelos em produção, com foco em observabilidade, FinOps e CI/CD."
-         data-en="Specialist in <em>Infrastructure as Code (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> and Cloud Platform Engineering, with expertise in AWS, Azure and Databricks. I work across the full cycle: from serverless architecture to model serving in production, with a focus on observability, FinOps and CI/CD.">
-        Especialista em <em>infraestrutura como código (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> e Engenharia de Plataforma Cloud, com domínio em AWS, Azure e Databricks. Atuo no ciclo completo: da arquitetura serverless ao serving de modelos em produção, com foco em observabilidade, FinOps e CI/CD.
+         data-en="Specialist in <em>Infrastructure as Code (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> and Cloud Platform Engineering, with expertise in AWS, Azure and Databricks. I work across the full cycle: from serverless architecture to model serving in production, focusing on observability, FinOps and CI/CD.">
+        Especialista em <em>infraestrutura como código (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> e Engenharia de Plataforma Cloud, com domínio em AWS, Azure e Databricks.
       </p>
       <p data-pt="Além da técnica, atuei como <strong>Diretora Executiva do TransDevs</strong> — maior comunidade trans em TI do Brasil — impactando diretamente <strong>2.500+ profissionais Trans</strong> através da tecnologia."
          data-en="Beyond the technical, I served as <strong>Executive Director of TransDevs</strong> — Brazil's largest trans community in tech — directly impacting <strong>2,500+ trans professionals</strong> through technology.">
@@ -147,99 +366,68 @@
       </p>
     </div>
     <div class="about-card">
-      <div class="about-card-title">// info</div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-map-marker-alt"></i></span>
-        <div><strong data-pt="Localização" data-en="Location">Localização</strong><span data-pt="Piracicaba, SP, Brasil" data-en="Piracicaba, SP, Brazil">Piracicaba, SP, Brasil</span></div>
-      </div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-building"></i></span>
-        <div><strong data-pt="Empresa Atual" data-en="Current Company">Empresa Atual</strong><span>Natura & Co — Emana Pay</span></div>
-      </div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-language"></i></span>
-        <div><strong data-pt="Idiomas" data-en="Languages">Idiomas</strong><span data-pt="Português (nativo) · Inglês C2 · Espanhol" data-en="Portuguese (native) · English C2 · Spanish">Português (nativo) · Inglês C2 · Espanhol</span></div>
-      </div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-graduation-cap"></i></span>
-        <div><strong data-pt="Formação" data-en="Education">Formação</strong><span data-pt="BSc Geofísica · USP / ADS · Cruzeiro do Sul" data-en="BSc Geophysics · USP / ADS · Cruzeiro do Sul">BSc Geofísica · USP / ADS · Cruzeiro do Sul</span></div>
-      </div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-certificate"></i></span>
-        <div><strong data-pt="Certificações" data-en="Certifications">Certificações</strong><span data-pt="EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia" data-en="EF SET C2 · Scrum · Physics & Astronomy Olympiad Medal">EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia</span></div>
-      </div>
-      <div class="about-card-item">
-        <span class="icon"><i class="fa fa-heart"></i></span>
-        <div><strong data-pt="Impacto Social" data-en="Social Impact">Impacto Social</strong><span data-pt="TransDevs · DiversificaDev · 2.500+ profissionais Trans" data-en="TransDevs · DiversificaDev · 2,500+ trans professionals">TransDevs · DiversificaDev · 2.500+ profissionais Trans</span></div>
-      </div>
+      <div class="card-title">// info</div>
+      <div class="card-item"><span class="ic"><i class="fa fa-map-marker-alt"></i></span><div><strong data-pt="Localização" data-en="Location">Localização</strong><span data-pt="Piracicaba, SP, Brasil" data-en="Piracicaba, SP, Brazil">Piracicaba, SP, Brasil</span></div></div>
+      <div class="card-item"><span class="ic"><i class="fa fa-building"></i></span><div><strong data-pt="Empresa Atual" data-en="Current Company">Empresa Atual</strong><span>Natura & Co — Emana Pay</span></div></div>
+      <div class="card-item"><span class="ic"><i class="fa fa-language"></i></span><div><strong data-pt="Idiomas" data-en="Languages">Idiomas</strong><span data-pt="Português (nativo) · Inglês C2 · Espanhol" data-en="Portuguese (native) · English C2 · Spanish">Português (nativo) · Inglês C2 · Espanhol</span></div></div>
+      <div class="card-item"><span class="ic"><i class="fa fa-graduation-cap"></i></span><div><strong data-pt="Formação" data-en="Education">Formação</strong><span data-pt="BSc Geofísica · USP / ADS · Cruzeiro do Sul" data-en="BSc Geophysics · USP / ADS · Cruzeiro do Sul">BSc Geofísica · USP / ADS · Cruzeiro do Sul</span></div></div>
+      <div class="card-item"><span class="ic"><i class="fa fa-certificate"></i></span><div><strong data-pt="Certificações" data-en="Certifications">Certificações</strong><span data-pt="EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia" data-en="EF SET C2 · Scrum · Physics & Astronomy Olympiad Medal">EF SET C2 · Scrum · Medalha Olimpíadas</span></div></div>
+      <div class="card-item"><span class="ic"><i class="fa fa-heart"></i></span><div><strong data-pt="Impacto Social" data-en="Social Impact">Impacto Social</strong><span data-pt="TransDevs · DiversificaDev · 2.500+ profissionais Trans" data-en="TransDevs · DiversificaDev · 2,500+ trans professionals">TransDevs · DiversificaDev · 2.500+ Trans</span></div></div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-label" data-pt="// trajetória" data-en="// career">// trajetória</div>
-    <h2 class="section-title" data-pt="Experiência" data-en="Experience">Experiência</h2>
+    <div class="sec-label" data-pt="// trajetória" data-en="// career">// trajetória</div>
+    <h2 class="sec-title" data-pt="<span>Experiência</span>" data-en="<span>Experience</span>"><span>Experiência</span></h2>
     <div class="timeline">
 
-      <div class="timeline-item">
-        <div class="timeline-period">Jun 2025 – <span data-pt="Presente" data-en="Present">Presente</span> · São Paulo, BR</div>
-        <div class="timeline-company">Natura & Co — Emana Pay</div>
-        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
-        <div class="timeline-desc"
+      <div class="tl-item">
+        <div class="tl-period">Jun 2025 – <span data-pt="Presente" data-en="Present">Presente</span> · São Paulo, BR</div>
+        <div class="tl-company">Natura & Co — Emana Pay</div>
+        <div class="tl-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="tl-desc"
           data-pt="Liderança na engenharia de MLOps e infraestrutura de IA para o núcleo de pagamentos financeiros. Reestruturação completa dos pipelines CI/CD (Jenkins, Bitbucket), arquitetura de serving com Databricks Endpoint Serving e gestão de FinOps em AWS."
           data-en="Leading MLOps engineering and AI infrastructure for the financial payments core. Full restructuring of CI/CD pipelines (Jenkins, Bitbucket), serving architecture with Databricks Endpoint Serving and FinOps management on AWS.">
-          Liderança na engenharia de MLOps e infraestrutura de IA para o núcleo de pagamentos financeiros. Reestruturação completa dos pipelines CI/CD (Jenkins, Bitbucket), arquitetura de serving com Databricks Endpoint Serving e gestão de FinOps em AWS.
+          Liderança na engenharia de MLOps e infraestrutura de IA para o núcleo de pagamentos financeiros. Reestruturação completa dos pipelines CI/CD, arquitetura de serving com Databricks Endpoint Serving e gestão de FinOps em AWS.
         </div>
-        <div class="timeline-tags">
-          <span class="tag">AWS</span><span class="tag">Databricks</span><span class="tag">Jenkins</span>
-          <span class="tag">MLFlow</span><span class="tag">Datadog</span><span class="tag">FinOps</span><span class="tag">Python</span>
-        </div>
+        <div class="tags"><span class="tag">AWS</span><span class="tag">Databricks</span><span class="tag">Jenkins</span><span class="tag">MLFlow</span><span class="tag">Datadog</span><span class="tag">FinOps</span><span class="tag">Python</span></div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-period">Ago 2024 – Jun 2025 · São Paulo, BR</div>
-        <div class="timeline-company">Zurich Santander Insurance America</div>
-        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
-        <div class="timeline-desc"
-          data-pt="Construção do zero da plataforma de MLOps sob regulação BACEN e SUSEP. Redução de 60% no time-to-market. Cobertura de testes de 0% para 80%+."
-          data-en="Built the MLOps platform from scratch under BACEN and SUSEP regulation. 60% time-to-market reduction. Test coverage raised from 0% to 80%+.">
+      <div class="tl-item">
+        <div class="tl-period">Ago 2024 – Jun 2025 · São Paulo, BR</div>
+        <div class="tl-company">Zurich Santander Insurance America</div>
+        <div class="tl-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="tl-desc"
+          data-pt="Construção do zero da plataforma de MLOps sob regulação BACEN e SUSEP. Redução de 60% no time-to-market de deploy de modelos. Cobertura de testes elevada de 0% para 80%+ com PyTest, SonarQube e Snyk."
+          data-en="Built the MLOps platform from scratch under BACEN and SUSEP regulation. 60% reduction in model deployment time-to-market. Test coverage raised from 0% to 80%+ with PyTest, SonarQube and Snyk.">
           Construção do zero da plataforma de MLOps sob regulação BACEN e SUSEP. Redução de 60% no time-to-market. Cobertura de testes de 0% para 80%+.
         </div>
-        <div class="timeline-tags">
-          <span class="tag">Azure ML</span><span class="tag">Databricks</span><span class="tag">Azure DevOps</span>
-          <span class="tag">MLFlow</span><span class="tag">Unity Catalog</span><span class="tag">Docker</span><span class="tag">PyTest</span>
-        </div>
+        <div class="tags"><span class="tag">Azure ML</span><span class="tag">Databricks</span><span class="tag">Azure DevOps</span><span class="tag">MLFlow</span><span class="tag">Unity Catalog</span><span class="tag">Docker</span><span class="tag">PyTest</span></div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-period">Jan 2024 – Ago 2024 · Campinas, BR</div>
-        <div class="timeline-company">AB InBev — Global Martech</div>
-        <div class="timeline-role" data-pt="Engenheira de Plataforma e Dados Sênior" data-en="Senior Platform & Data Engineer">Engenheira de Plataforma e Dados Sênior</div>
-        <div class="timeline-desc"
-          data-pt="Pipelines ELT processando +2TB/trimestre. Redução de 45% em custos de infraestrutura. Framework ETL replicado para 5 mercados globais."
-          data-en="ELT pipelines processing 2TB+/quarter. 45% infrastructure cost reduction. ETL framework replicated across 5 global markets.">
+      <div class="tl-item">
+        <div class="tl-period">Jan 2024 – Ago 2024 · Campinas, BR</div>
+        <div class="tl-company">AB InBev — Global Martech</div>
+        <div class="tl-role" data-pt="Engenheira de Plataforma e Dados Sênior" data-en="Senior Platform & Data Engineer">Engenheira de Plataforma e Dados Sênior</div>
+        <div class="tl-desc"
+          data-pt="Pipelines ELT processando +2TB/trimestre com Azure Databricks e PySpark. Redução de 45% em custos de infraestrutura. Framework ETL replicado para 5 mercados globais em 12+ subsidiárias."
+          data-en="ELT pipelines processing 2TB+/quarter with Azure Databricks and PySpark. 45% infrastructure cost reduction. ETL framework replicated across 5 global markets in 12+ subsidiaries.">
           Pipelines ELT processando +2TB/trimestre. Redução de 45% em custos de infraestrutura. Framework ETL replicado para 5 mercados globais.
         </div>
-        <div class="timeline-tags">
-          <span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span>
-          <span class="tag">Snowflake</span><span class="tag">Azure DevOps</span><span class="tag">Delta Lake</span>
-        </div>
+        <div class="tags"><span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span><span class="tag">Snowflake</span><span class="tag">Azure DevOps</span><span class="tag">Delta Lake</span></div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-period">Fev 2022 – Jan 2024 · Northern Ireland, UK 🇬🇧</div>
-        <div class="timeline-company">Pie</div>
-        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
-        <div class="timeline-desc"
-          data-pt="Co-liderança da arquitetura AWS em fintech britânica (HMRC). Infraestrutura serverless via Terraform com 100% de compliance. Automação de 95% do onboarding com AWS Lambda + API Gateway + FastAPI."
-          data-en="Co-led AWS architecture at a British fintech (HMRC). Serverless infrastructure via Terraform with 100% compliance. 95% onboarding automation with AWS Lambda + API Gateway + FastAPI.">
-          Co-liderança da arquitetura AWS em fintech britânica (HMRC). Infraestrutura serverless via Terraform com 100% de compliance. Automação de 95% do onboarding com AWS Lambda + API Gateway + FastAPI.
+      <div class="tl-item">
+        <div class="tl-period">Fev 2022 – Jan 2024 · Northern Ireland, UK 🇬🇧</div>
+        <div class="tl-company">Pie</div>
+        <div class="tl-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="tl-desc"
+          data-pt="Co-liderança da arquitetura AWS em fintech britânica regulada pelo HMRC. Infraestrutura serverless via Terraform com 100% de compliance auditado. Automação de 95% do onboarding com AWS Lambda + API Gateway + FastAPI."
+          data-en="Co-led AWS architecture at a British fintech regulated by HMRC. Serverless infrastructure via Terraform with 100% audited compliance. 95% onboarding automation with AWS Lambda + API Gateway + FastAPI.">
+          Co-liderança da arquitetura AWS em fintech britânica (HMRC). Infraestrutura serverless via Terraform com 100% de compliance. Automação de 95% do onboarding.
         </div>
-        <div class="timeline-tags">
-          <span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span>
-          <span class="tag">ECR</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span>
-          <span class="tag">FastAPI</span><span class="tag">TensorFlow</span>
-        </div>
+        <div class="tags"><span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span><span class="tag">ECR</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">FastAPI</span><span class="tag">TensorFlow</span></div>
       </div>
 
     </div>
@@ -247,116 +435,72 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
-    <h2 class="section-title" data-pt="Projetos" data-en="Projects">Projetos</h2>
-    <div class="projects-grid">
+    <div class="sec-label" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
+    <h2 class="sec-title" data-pt="<span>Projetos</span>" data-en="<span>Projects</span>"><span>Projetos</span></h2>
+    <div class="proj-grid">
 
-      <div class="project-card">
-        <div class="project-type">// MLOps · <span data-pt="Desafio Técnico" data-en="Technical Challenge">Desafio Técnico</span></div>
-        <div class="project-name">mlops_engineer_test_01</div>
-        <div class="project-desc"
-          data-pt="API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR."
-          data-en="Serverless ML inference API with AWS Lambda, API Gateway, DynamoDB and Terraform. Clean Architecture, CI/CD with GitHub Actions and Container Image via ECR.">
-          API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Python</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/mlops_engineer_test_01" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// MLOps · <span data-pt="Desafio Técnico" data-en="Technical Challenge">Desafio Técnico</span></div>
+        <div class="proj-name">mlops_engineer_test_01</div>
+        <div class="proj-desc" data-pt="API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR." data-en="Serverless ML inference API with AWS Lambda, API Gateway, DynamoDB and Terraform. Clean Architecture, CI/CD with GitHub Actions and Container Image via ECR.">API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture e Container Image via ECR.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Python</span><span class="tag">Scikit-learn</span></div>
+        <a href="https://github.com/sophie-pyxis/mlops_engineer_test_01" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
-      <div class="project-card">
-        <div class="project-type">// Data Engineering · AB InBev</div>
-        <div class="project-name">data-engineering-test-01-spark</div>
-        <div class="project-desc"
-          data-pt="Teste de engenharia de dados e ETL com PySpark para a AB InBev."
-          data-en="Data engineering and ETL test with PySpark for AB InBev.">
-          Teste de engenharia de dados e ETL com PySpark para a AB InBev.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">PySpark</span><span class="tag">ETL</span><span class="tag">Python</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/data-engineering-test-01-spark" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// Data Engineering · AB InBev</div>
+        <div class="proj-name">data-engineering-test-01-spark</div>
+        <div class="proj-desc" data-pt="Teste de engenharia de dados e ETL com PySpark para a AB InBev. Pipeline de processamento distribuído com Spark." data-en="Data engineering and ETL test with PySpark for AB InBev. Distributed processing pipeline with Spark.">Teste de engenharia de dados e ETL com PySpark para a AB InBev.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">PySpark</span><span class="tag">ETL</span><span class="tag">Python</span></div>
+        <a href="https://github.com/sophie-pyxis/data-engineering-test-01-spark" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
-      <div class="project-card">
-        <div class="project-type">// Data Analyst · MarTech</div>
-        <div class="project-name">data-analyst-test-01-martech</div>
-        <div class="project-desc"
-          data-pt="Análise de plataforma de anúncios com SQL e Seaborn."
-          data-en="Advertising platform analysis with SQL and Seaborn.">
-          Análise de plataforma de anúncios com SQL e Seaborn.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">SQL</span><span class="tag">Seaborn</span><span class="tag">Python</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/data-analyst-test-01-martech" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// Data Analyst · MarTech</div>
+        <div class="proj-name">data-analyst-test-01-martech</div>
+        <div class="proj-desc" data-pt="Análise de plataforma de anúncios com SQL e Seaborn. Usuários, transações e promoção histórica." data-en="Advertising platform analysis with SQL and Seaborn. Users, transactions and historical promotion.">Análise de plataforma de anúncios com SQL e Seaborn.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">SQL</span><span class="tag">Seaborn</span><span class="tag">Python</span></div>
+        <a href="https://github.com/sophie-pyxis/data-analyst-test-01-martech" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
-      <div class="project-card">
-        <div class="project-type">// Data Science · NLP</div>
-        <div class="project-name">data-scientist-test-02-nlp</div>
-        <div class="project-desc"
-          data-pt="Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico."
-          data-en="NLP challenge for Lexter.ai applied to the legal domain.">
-          Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">NLP</span><span class="tag">Python</span><span class="tag">ML</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/data-scientist-test-02-nlp" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// Data Scientist · Geo</div>
+        <div class="proj-name">data-scientist-test-01-geo</div>
+        <div class="proj-desc" data-pt="Teste para cargo de Cientista de Dados com foco em análise geoespacial." data-en="Data Scientist role test focusing on geospatial analysis.">Teste para cargo de Cientista de Dados com análise geoespacial.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">Geoespacial</span><span class="tag">ML</span></div>
+        <a href="https://github.com/sophie-pyxis/data-scientist-test-01-geo" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
-      <div class="project-card">
-        <div class="project-type">// <span data-pt="Pesquisa" data-en="Research">Pesquisa</span> · USP · CNPq</div>
-        <div class="project-name">IAG_USP-GRARED-v2</div>
-        <div class="project-desc"
-          data-pt="Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq."
-          data-en="PIBIC project at IAG-USP. Gravimetric data reduction software published at CNPq.">
-          Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">Python</span><span class="tag">Geofísica</span><span class="tag">CNPq</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/IAG_USP-GRARED-v2" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// Data Scientist · NLP</div>
+        <div class="proj-name">data-scientist-test-02-nlp</div>
+        <div class="proj-desc" data-pt="Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico." data-en="NLP challenge for Lexter.ai applied to the legal domain.">Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">NLP</span><span class="tag">Python</span><span class="tag">ML</span></div>
+        <a href="https://github.com/sophie-pyxis/data-scientist-test-02-nlp" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
-      <div class="project-card">
-        <div class="project-type">// <span data-pt="Comunidade" data-en="Community">Comunidade</span> · TransDevs</div>
-        <div class="project-name">aulas_transdevs</div>
-        <div class="project-desc"
-          data-pt="Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados."
-          data-en="TransDevs lesson notebooks — Brazil's largest trans community in tech. 2,500+ professionals impacted.">
-          Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados.
-        </div>
-        <div class="timeline-tags" style="margin-bottom:1.25rem">
-          <span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">DE&I</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/sophie-pyxis/aulas_transdevs" target="_blank" class="project-link">
-            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
-          </a>
-        </div>
+      <div class="proj-card">
+        <div class="proj-type">// <span data-pt="Pesquisa" data-en="Research">Pesquisa</span> · USP · CNPq</div>
+        <div class="proj-name">IAG_USP-GRARED-v2</div>
+        <div class="proj-desc" data-pt="Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq." data-en="PIBIC project at IAG-USP. Gravimetric data reduction software published at CNPq.">Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos (CNPq).</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">Geofísica</span><span class="tag">CNPq</span></div>
+        <a href="https://github.com/sophie-pyxis/IAG_USP-GRARED-v2" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">// <span data-pt="Comunidade" data-en="Community">Comunidade</span> · TransDevs</div>
+        <div class="proj-name">aulas_transdevs</div>
+        <div class="proj-desc" data-pt="Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados." data-en="TransDevs lesson notebooks — Brazil's largest trans community in tech. 2,500+ professionals impacted.">Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ impactados.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">DE&I</span></div>
+        <a href="https://github.com/sophie-pyxis/aulas_transdevs" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">// <span data-pt="Dados & ML" data-en="Data & ML">Dados & ML</span> · Games</div>
+        <div class="proj-name">dados_de_fato-predict_lol</div>
+        <div class="proj-desc" data-pt="Projeto colaborativo da comunidade Dados de Fato. Predição de resultados em League of Legends." data-en="Collaborative project from the Dados de Fato community. Match result prediction in League of Legends.">Projeto colaborativo Dados de Fato. Predição de resultados em League of Legends.</div>
+        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">ML</span><span class="tag">EDA</span></div>
+        <a href="https://github.com/sophie-pyxis/dados_de_fato-predict_lol" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
       </div>
 
     </div>
@@ -364,91 +508,33 @@
 
   <!-- STACK -->
   <section id="stack">
-    <div class="section-label" data-pt="// tecnologias" data-en="// technologies">// tecnologias</div>
-    <h2 class="section-title">Stack</h2>
+    <div class="sec-label" data-pt="// tecnologias" data-en="// technologies">// tecnologias</div>
+    <h2 class="sec-title">Stack</h2>
     <div class="stack-groups">
-      <div>
-        <div class="stack-group-title">☁️ Cloud & IaC</div>
-        <div class="stack-items">
-          <span class="stack-item">AWS</span><span class="stack-item">Microsoft Azure</span>
-          <span class="stack-item">Terraform</span><span class="stack-item">Docker</span>
-          <span class="stack-item">Kubernetes</span><span class="stack-item">Linux</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">⚙️ AWS Services</div>
-        <div class="stack-items">
-          <span class="stack-item">Lambda</span><span class="stack-item">API Gateway</span>
-          <span class="stack-item">DynamoDB</span><span class="stack-item">ECR</span>
-          <span class="stack-item">CloudWatch</span><span class="stack-item">S3</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">🤖 MLOps & <span data-pt="Plataforma" data-en="Platform">Plataforma</span></div>
-        <div class="stack-items">
-          <span class="stack-item">Databricks</span><span class="stack-item">MLFlow</span>
-          <span class="stack-item">Snowflake</span><span class="stack-item">PySpark</span>
-          <span class="stack-item">Azure Data Factory</span><span class="stack-item">Delta Lake</span>
-          <span class="stack-item">Unity Catalog</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">🧠 Machine Learning & IA</div>
-        <div class="stack-items">
-          <span class="stack-item">Scikit-learn</span><span class="stack-item">TensorFlow</span>
-          <span class="stack-item">Keras</span><span class="stack-item">PyTorch</span>
-          <span class="stack-item">BERT / NLP</span><span class="stack-item">Computer Vision</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">🐍 Python & <span data-pt="Engenharia" data-en="Engineering">Engenharia</span></div>
-        <div class="stack-items">
-          <span class="stack-item">Python</span><span class="stack-item">FastAPI</span>
-          <span class="stack-item">Flask</span><span class="stack-item">Pandas</span>
-          <span class="stack-item">NumPy</span><span class="stack-item">OpenAPI</span>
-          <span class="stack-item">Selenium</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">🔁 CI/CD & DevOps</div>
-        <div class="stack-items">
-          <span class="stack-item">GitHub Actions</span><span class="stack-item">Jenkins</span>
-          <span class="stack-item">Azure DevOps</span><span class="stack-item">Bitbucket</span>
-          <span class="stack-item">SonarQube</span><span class="stack-item">Snyk</span><span class="stack-item">PyTest</span>
-        </div>
-      </div>
-      <div>
-        <div class="stack-group-title">📊 <span data-pt="Observabilidade" data-en="Observability">Observabilidade</span></div>
-        <div class="stack-items">
-          <span class="stack-item">Datadog</span><span class="stack-item">Grafana</span>
-          <span class="stack-item">Power BI</span><span class="stack-item">Jupyter</span>
-        </div>
-      </div>
+      <div><div class="sg-title">☁️ Cloud & IaC</div><div class="sg-items"><span class="si">AWS</span><span class="si">Microsoft Azure</span><span class="si">Terraform</span><span class="si">Docker</span><span class="si">Kubernetes</span><span class="si">Linux</span></div></div>
+      <div><div class="sg-title">⚙️ AWS Services</div><div class="sg-items"><span class="si">Lambda</span><span class="si">API Gateway</span><span class="si">DynamoDB</span><span class="si">ECR</span><span class="si">CloudWatch</span><span class="si">S3</span></div></div>
+      <div><div class="sg-title">🤖 MLOps & <span data-pt="Plataforma" data-en="Platform">Plataforma</span></div><div class="sg-items"><span class="si">Databricks</span><span class="si">MLFlow</span><span class="si">Snowflake</span><span class="si">PySpark</span><span class="si">Azure Data Factory</span><span class="si">Delta Lake</span><span class="si">Unity Catalog</span></div></div>
+      <div><div class="sg-title">🧠 Machine Learning & IA</div><div class="sg-items"><span class="si">Scikit-learn</span><span class="si">TensorFlow</span><span class="si">Keras</span><span class="si">PyTorch</span><span class="si">BERT / NLP</span><span class="si">Computer Vision</span><span class="si">IBM Watson</span></div></div>
+      <div><div class="sg-title">🐍 Python & <span data-pt="Engenharia" data-en="Engineering">Engenharia</span></div><div class="sg-items"><span class="si">Python</span><span class="si">FastAPI</span><span class="si">Flask</span><span class="si">Pandas</span><span class="si">NumPy</span><span class="si">OpenAPI</span><span class="si">Selenium</span></div></div>
+      <div><div class="sg-title">🔁 CI/CD & DevOps</div><div class="sg-items"><span class="si">GitHub Actions</span><span class="si">Jenkins</span><span class="si">Azure DevOps</span><span class="si">Bitbucket</span><span class="si">SonarQube</span><span class="si">Snyk</span><span class="si">PyTest</span></div></div>
+      <div><div class="sg-title">📊 <span data-pt="Observabilidade" data-en="Observability">Observabilidade</span></div><div class="sg-items"><span class="si">Datadog</span><span class="si">Grafana</span><span class="si">Power BI</span><span class="si">Jupyter</span></div></div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label" data-pt="// contato" data-en="// contact">// contato</div>
-    <h2 class="section-title" data-pt="Vamos conversar" data-en="Let's connect">Vamos conversar</h2>
+    <div class="sec-label" data-pt="// contato" data-en="// contact">// contato</div>
+    <h2 class="sec-title" data-pt="Vamos <span>conversar</span>" data-en="Let's <span>connect</span>">Vamos <span>conversar</span></h2>
     <p class="contact-intro"
       data-pt="Aberta a oportunidades em MLOps, Platform Engineering e Arquitetura Cloud. Também disponível para mentorias e iniciativas de DE&I."
       data-en="Open to opportunities in MLOps, Platform Engineering and Cloud Architecture. Also available for mentoring and DE&I initiatives.">
       Aberta a oportunidades em MLOps, Platform Engineering e Arquitetura Cloud. Também disponível para mentorias e iniciativas de DE&I.
     </p>
     <div class="contact-links">
-      <a class="contact-item" href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-      </a>
-      <a class="contact-item" href="https://github.com/sophie-pyxis" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a class="contact-item" href="https://dev.to/sophie-pyxis" target="_blank">
-        <i class="fab fa-dev"></i> Dev.to
-      </a>
-      <a class="contact-item" href="mailto:sophia.helena.paula@gmail.com">
-        <i class="fa fa-envelope"></i> sophia.helena.paula@gmail.com
-      </a>
+      <a class="contact-item" href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a class="contact-item" href="https://github.com/sophie-pyxis" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a class="contact-item" href="https://dev.to/sophie-pyxis" target="_blank"><i class="fab fa-dev"></i> Dev.to</a>
+      <a class="contact-item" href="mailto:sophia.helena.paula@gmail.com"><i class="fa fa-envelope"></i> sophia.helena.paula@gmail.com</a>
     </div>
     <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" class="btn btn-primary">
       <i class="fab fa-linkedin"></i>
@@ -458,69 +544,63 @@
 
 </main>
 
-<!-- Footer -->
 <footer>
   <span>sophie-pyxis.github.io</span>
-  <span data-pt="// construído com HTML + CSS + JS · sem frameworks" data-en="// built with HTML + CSS + JS · no frameworks">// construído com HTML + CSS + JS · sem frameworks</span>
+  <span data-pt="// HTML + CSS + JS · sem frameworks" data-en="// HTML + CSS + JS · no frameworks">// HTML + CSS + JS · sem frameworks</span>
   <span>🏳️‍⚧️ trans rights are human rights</span>
 </footer>
 
 <script>
-let currentLang = 'pt';
+  let lang = 'pt';
 
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-GB';
-  document.querySelectorAll('[data-pt]').forEach(el => {
-    const text = lang === 'pt' ? el.dataset.pt : el.dataset.en;
-    if (text !== undefined) el.innerHTML = text;
-  });
+  function setLang(l) {
+    lang = l;
+    document.getElementById('btn-pt').classList.toggle('active', l === 'pt');
+    document.getElementById('btn-en').classList.toggle('active', l === 'en');
+    document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en-GB';
+    document.querySelectorAll('[data-pt]').forEach(el => {
+      const v = l === 'pt' ? el.dataset.pt : el.dataset.en;
+      if (v !== undefined) el.innerHTML = v;
+    });
+    startTyping();
+  }
+
+  const roles = {
+    pt: ['Engenheira MLOps Sênior','Platform Engineer','Arquiteta Cloud AWS & Azure','Especialista em IaC & Terraform','FinOps & Data Governance'],
+    en: ['Senior MLOps Engineer','Platform Engineer','AWS & Azure Cloud Architect','IaC & Terraform Specialist','FinOps & Data Governance']
+  };
+
+  let ri = 0, ci = 0, del = false, tt;
+
+  function startTyping() {
+    ri = 0; ci = 0; del = false;
+    clearTimeout(tt);
+    document.getElementById('typing-text').textContent = '';
+    type();
+  }
+
+  function type() {
+    const list = roles[lang];
+    const cur = list[ri];
+    if (del) ci--; else ci++;
+    document.getElementById('typing-text').textContent = cur.substring(0, ci);
+    let d = del ? 38 : 75;
+    if (!del && ci === cur.length) { d = 1900; del = true; }
+    else if (del && ci === 0) { del = false; ri = (ri + 1) % list.length; d = 380; }
+    tt = setTimeout(type, d);
+  }
+
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+  document.querySelectorAll('.tl-item, .proj-card').forEach(el => obs.observe(el));
+
+  const secs = document.querySelectorAll('section[id]');
+  const nls = document.querySelectorAll('.nav-links a');
+  const sObs = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) nls.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id)); });
+  }, { threshold: 0.4 });
+  secs.forEach(s => sObs.observe(s));
+
   startTyping();
-}
-
-const roles = {
-  pt: ['Engenheira MLOps Sênior','Platform Engineer','Arquiteta Cloud AWS & Azure','Especialista em IaC & Terraform','FinOps & Data Governance'],
-  en: ['Senior MLOps Engineer','Platform Engineer','AWS & Azure Cloud Architect','IaC & Terraform Specialist','FinOps & Data Governance']
-};
-
-let roleIndex = 0, charIndex = 0, isDeleting = false, typingTimeout;
-
-function startTyping() {
-  roleIndex = 0; charIndex = 0; isDeleting = false;
-  clearTimeout(typingTimeout);
-  document.getElementById('typing-text').textContent = '';
-  type();
-}
-
-function type() {
-  const list = roles[currentLang];
-  const current = list[roleIndex];
-  if (isDeleting) charIndex--; else charIndex++;
-  document.getElementById('typing-text').textContent = current.substring(0, charIndex);
-  let delay = isDeleting ? 40 : 80;
-  if (!isDeleting && charIndex === current.length) { delay = 2000; isDeleting = true; }
-  else if (isDeleting && charIndex === 0) { isDeleting = false; roleIndex = (roleIndex + 1) % list.length; delay = 400; }
-  typingTimeout = setTimeout(type, delay);
-}
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.timeline-item, .project-card').forEach(el => observer.observe(el));
-
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-const scrollObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
-  });
-}, { threshold: 0.4 });
-sections.forEach(s => scrollObs.observe(s));
-
-startTyping();
 </script>
 </body>
 </html>
