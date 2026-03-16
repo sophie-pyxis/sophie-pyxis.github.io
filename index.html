@@ -1,367 +1,526 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sophie Pyxis - Tech Lead, Data Scientist and ML Engineer</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Sophie Pyxis — Engenheira de Plataforma e MLOps Sênior | AWS · Azure · Databricks · Terraform · Python"/>
+  <meta name="keywords" content="MLOps, Platform Engineering, AWS, Azure, Databricks, Terraform, Python, CI/CD, Machine Learning"/>
+  <meta property="og:title" content="Sophie Pyxis — Senior MLOps & Platform Engineer"/>
+  <meta property="og:description" content="11+ years building scalable AI systems. AWS · Azure · Databricks · Terraform."/>
+  <meta property="og:url" content="https://sophie-pyxis.github.io"/>
+  <title>Sophie Pyxis — MLOps & Platform Engineer</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#">Sophie Pyxis</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Language Toggle -->
+<div class="lang-toggle">
+  <button id="btn-pt" class="active" onclick="setLang('pt')">PT-BR</button>
+  <button id="btn-en" onclick="setLang('en')">EN-UK</button>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div>
+    <div class="nav-logo">Sophie Pyxis</div>
+    <div class="nav-title" data-pt="Engenheira MLOps Sênior" data-en="Senior MLOps Engineer">Engenheira MLOps Sênior</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="#hero" class="active">
+      <span class="nav-icon"><i class="fa fa-terminal"></i></span>
+      <span class="nav-label" data-pt="Início" data-en="Home">Início</span>
+    </a></li>
+    <li><a href="#about">
+      <span class="nav-icon"><i class="fa fa-user"></i></span>
+      <span class="nav-label" data-pt="Sobre" data-en="About">Sobre</span>
+    </a></li>
+    <li><a href="#experience">
+      <span class="nav-icon"><i class="fa fa-briefcase"></i></span>
+      <span class="nav-label" data-pt="Experiência" data-en="Experience">Experiência</span>
+    </a></li>
+    <li><a href="#projects">
+      <span class="nav-icon"><i class="fa fa-code-branch"></i></span>
+      <span class="nav-label" data-pt="Projetos" data-en="Projects">Projetos</span>
+    </a></li>
+    <li><a href="#stack">
+      <span class="nav-icon"><i class="fa fa-layer-group"></i></span>
+      <span class="nav-label" data-pt="Stack" data-en="Stack">Stack</span>
+    </a></li>
+    <li><a href="#contact">
+      <span class="nav-icon"><i class="fa fa-envelope"></i></span>
+      <span class="nav-label" data-pt="Contato" data-en="Contact">Contato</span>
+    </a></li>
+  </ul>
+
+  <div class="nav-social">
+    <a href="https://github.com/sophie-pyxis" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://dev.to/sophie-pyxis" target="_blank" title="Dev.to"><i class="fab fa-dev"></i></a>
+  </div>
+</nav>
+
+<!-- Main -->
+<main>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag" data-pt="🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior" data-en="🏳️‍⚧️ trans woman · neurodivergent · senior engineer">
+      🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior
+    </div>
+    <h1 class="hero-name">
+      <span class="glitch" data-text="Sophie Pyxis">Sophie Pyxis</span>
+    </h1>
+    <div class="hero-role">
+      <span id="typing-text"></span><span class="cursor"></span>
+    </div>
+    <p class="hero-desc"
+      data-pt="Especialista em MLOps, Platform Engineering e Infraestrutura como Código. +11 anos construindo sistemas de IA escaláveis em ambientes regulados — AWS, Azure, Databricks, Terraform."
+      data-en="Specialist in MLOps, Platform Engineering and Infrastructure as Code. 11+ years building scalable AI systems in regulated environments — AWS, Azure, Databricks, Terraform.">
+      Especialista em MLOps, Platform Engineering e Infraestrutura como Código. +11 anos construindo sistemas de IA escaláveis em ambientes regulados — AWS, Azure, Databricks, Terraform.
+    </p>
+    <div class="hero-badges">
+      <span class="badge highlight">AWS</span>
+      <span class="badge highlight">Azure</span>
+      <span class="badge highlight">Databricks</span>
+      <span class="badge highlight">Terraform</span>
+      <span class="badge">Python</span>
+      <span class="badge">CI/CD</span>
+      <span class="badge">MLFlow</span>
+      <span class="badge">Docker</span>
+      <span class="badge">GitHub Actions</span>
+      <span class="badge">FinOps</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fa fa-code-branch"></i>
+        <span data-pt="Ver Projetos" data-en="View Projects">Ver Projetos</span>
+      </a>
+      <a href="#contact" class="btn btn-outline">
+        <i class="fa fa-envelope"></i>
+        <span data-pt="Entrar em Contato" data-en="Get in Touch">Entrar em Contato</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-number">11+</span>
+      <span class="stat-label" data-pt="Anos de Experiência" data-en="Years of Experience">Anos de Experiência</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">60%</span>
+      <span class="stat-label" data-pt="Redução de Time-to-Market" data-en="Time-to-Market Reduction">Redução de Time-to-Market</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">45%</span>
+      <span class="stat-label" data-pt="Redução de Custos Cloud" data-en="Cloud Cost Reduction">Redução de Custos Cloud</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">2.5k+</span>
+      <span class="stat-label" data-pt="Profissionais Trans Impactados" data-en="Trans Professionals Impacted">Profissionais Trans Impactados</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">4</span>
+      <span class="stat-label" data-pt="Países / Mercados" data-en="Countries / Markets">Países / Mercados</span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text">
+      <div class="section-label" data-pt="// sobre mim" data-en="// about me">// sobre mim</div>
+      <h2 class="section-title" data-pt="Quem sou eu" data-en="Who I am">Quem sou eu</h2>
+      <p data-pt="Sou Engenheira de Plataforma e MLOps Sênior com mais de <strong>11 anos de experiência</strong> construindo ecossistemas de dados escaláveis, resilientes e auditáveis em ambientes de alta regulação — Fintech, Seguros, BACEN, SUSEP, HMRC."
+         data-en="I am a Senior Platform and MLOps Engineer with over <strong>11 years of experience</strong> building scalable, resilient and auditable data ecosystems in highly regulated environments — Fintech, Insurance, BACEN, SUSEP, HMRC.">
+        Sou Engenheira de Plataforma e MLOps Sênior com mais de <strong>11 anos de experiência</strong> construindo ecossistemas de dados escaláveis, resilientes e auditáveis em ambientes de alta regulação — Fintech, Seguros, BACEN, SUSEP, HMRC.
+      </p>
+      <p data-pt="Especialista em <em>infraestrutura como código (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> e Engenharia de Plataforma Cloud, com domínio em AWS, Azure e Databricks. Atuo no ciclo completo: da arquitetura serverless ao serving de modelos em produção, com foco em observabilidade, FinOps e CI/CD."
+         data-en="Specialist in <em>Infrastructure as Code (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> and Cloud Platform Engineering, with expertise in AWS, Azure and Databricks. I work across the full cycle: from serverless architecture to model serving in production, with a focus on observability, FinOps and CI/CD.">
+        Especialista em <em>infraestrutura como código (IaC)</em>, <em>Machine Learning Operations (MLOps)</em> e Engenharia de Plataforma Cloud, com domínio em AWS, Azure e Databricks. Atuo no ciclo completo: da arquitetura serverless ao serving de modelos em produção, com foco em observabilidade, FinOps e CI/CD.
+      </p>
+      <p data-pt="Além da técnica, atuei como <strong>Diretora Executiva do TransDevs</strong> — maior comunidade trans em TI do Brasil — impactando diretamente <strong>2.500+ profissionais Trans</strong> através da tecnologia."
+         data-en="Beyond the technical, I served as <strong>Executive Director of TransDevs</strong> — Brazil's largest trans community in tech — directly impacting <strong>2,500+ trans professionals</strong> through technology.">
+        Além da técnica, atuei como <strong>Diretora Executiva do TransDevs</strong> — maior comunidade trans em TI do Brasil — impactando diretamente <strong>2.500+ profissionais Trans</strong> através da tecnologia.
+      </p>
+    </div>
+    <div class="about-card">
+      <div class="about-card-title">// info</div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-map-marker-alt"></i></span>
+        <div><strong data-pt="Localização" data-en="Location">Localização</strong><span data-pt="Piracicaba, SP, Brasil" data-en="Piracicaba, SP, Brazil">Piracicaba, SP, Brasil</span></div>
+      </div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-building"></i></span>
+        <div><strong data-pt="Empresa Atual" data-en="Current Company">Empresa Atual</strong><span>Natura & Co — Emana Pay</span></div>
+      </div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-language"></i></span>
+        <div><strong data-pt="Idiomas" data-en="Languages">Idiomas</strong><span data-pt="Português (nativo) · Inglês C2 · Espanhol" data-en="Portuguese (native) · English C2 · Spanish">Português (nativo) · Inglês C2 · Espanhol</span></div>
+      </div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-graduation-cap"></i></span>
+        <div><strong data-pt="Formação" data-en="Education">Formação</strong><span data-pt="BSc Geofísica · USP / ADS · Cruzeiro do Sul" data-en="BSc Geophysics · USP / ADS · Cruzeiro do Sul">BSc Geofísica · USP / ADS · Cruzeiro do Sul</span></div>
+      </div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-certificate"></i></span>
+        <div><strong data-pt="Certificações" data-en="Certifications">Certificações</strong><span data-pt="EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia" data-en="EF SET C2 · Scrum · Physics & Astronomy Olympiad Medal">EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia</span></div>
+      </div>
+      <div class="about-card-item">
+        <span class="icon"><i class="fa fa-heart"></i></span>
+        <div><strong data-pt="Impacto Social" data-en="Social Impact">Impacto Social</strong><span data-pt="TransDevs · DiversificaDev · 2.500+ profissionais Trans" data-en="TransDevs · DiversificaDev · 2,500+ trans professionals">TransDevs · DiversificaDev · 2.500+ profissionais Trans</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label" data-pt="// trajetória" data-en="// career">// trajetória</div>
+    <h2 class="section-title" data-pt="Experiência" data-en="Experience">Experiência</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-period">Jun 2025 – <span data-pt="Presente" data-en="Present">Presente</span> · São Paulo, BR</div>
+        <div class="timeline-company">Natura & Co — Emana Pay</div>
+        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="timeline-desc"
+          data-pt="Liderança na engenharia de MLOps e infraestrutura de IA para o núcleo de pagamentos financeiros. Reestruturação completa dos pipelines CI/CD (Jenkins, Bitbucket), arquitetura de serving com Databricks Endpoint Serving e gestão de FinOps em AWS."
+          data-en="Leading MLOps engineering and AI infrastructure for the financial payments core. Full restructuring of CI/CD pipelines (Jenkins, Bitbucket), serving architecture with Databricks Endpoint Serving and FinOps management on AWS.">
+          Liderança na engenharia de MLOps e infraestrutura de IA para o núcleo de pagamentos financeiros. Reestruturação completa dos pipelines CI/CD (Jenkins, Bitbucket), arquitetura de serving com Databricks Endpoint Serving e gestão de FinOps em AWS.
         </div>
-    </nav>
-
-    <!-- Header Section -->
-    <header class="header-section d-flex align-items-center justify-content-center text-center">
-        <div class="container">
-            <h1 class="display-4">Sophie Pyxis</h1>
-            <p class="lead">Senior Machine Learning Engineer @ Natura &CO.</p>
-            <p class="skills"> Data Tech Lead, Data Scientist, Machine Learning Engineer | Python, SQL, Spark/PySpark, Databricks, TensorFlow, Pandas, NLP/LLM, ETL/ELT, Azure/AWS</p>
+        <div class="timeline-tags">
+          <span class="tag">AWS</span><span class="tag">Databricks</span><span class="tag">Jenkins</span>
+          <span class="tag">MLFlow</span><span class="tag">Datadog</span><span class="tag">FinOps</span><span class="tag">Python</span>
         </div>
-    </header>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center">About Me</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <p>Hello! I'm Sophie Pyxis, a 26-year-old, highly analytical, and data-driven professional with over 11 years of hands-on experience molding data into actionable insights. Currently, I work as a Senior Machine Learning Engineer at Natura & CO.</p>
-                    <p>My journey began in April 2014, and since then, I've been at the forefront of leveraging cutting-edge technologies like Python, PySpark/Spark, Pandas, CI/CD, SQL, ETL modeling, and Cloud (AWS and Azure) to tackle complex challenges across diverse industries. I'm deeply passionate about the evolving landscape of the data stack, where data engineering seamlessly integrates with data science and analysis.</p>
-                </div>
-            </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Ago 2024 – Jun 2025 · São Paulo, BR</div>
+        <div class="timeline-company">Zurich Santander Insurance America</div>
+        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="timeline-desc"
+          data-pt="Construção do zero da plataforma de MLOps sob regulação BACEN e SUSEP. Redução de 60% no time-to-market. Cobertura de testes de 0% para 80%+."
+          data-en="Built the MLOps platform from scratch under BACEN and SUSEP regulation. 60% time-to-market reduction. Test coverage raised from 0% to 80%+.">
+          Construção do zero da plataforma de MLOps sob regulação BACEN e SUSEP. Redução de 60% no time-to-market. Cobertura de testes de 0% para 80%+.
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="bg-black py-5">
-        <div class="container">
-            <h2 class="section-title text-center">Experience</h2>
-            <!-- Natura & CO. -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Senior Machine Learning Engineer @ Natura &CO.</h3>
-                    <!-- Still to add -->
-                    <h5>Technologies Used:</h5>  
-                    <ul>  
-                    <li>MLOps Architecture Design (Databricks MLOPS Stacks)</li>  
-                    <li>Databricks with Unity Catalog</li>  
-                    <li>CI/CD Orchestration</li>  
-                    <li>Model Governance (MLFlow)</li>  
-                    <li>PySpark · Docker · Snyk</li>  
-                    <li>Checks of Regulatory Compliance via Azure DevOps</li>  
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Zurich Santander -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Senior Machine Learning Engineer @ Zurich Santander</h3>
-                    <strong>Technical Leadership</strong> - Spearheaded the creation of ML Engineering & MLOps division from zero:<br>  
-                    • Architected enterprise ML stack (Azure/MLFlow/Databricks)<br>  
-                    • Drove 60% faster model deployment via CI/CD automation<br>  
-                    • Implemented governance framework with Unity Catalog<br>  
-                    <strong>Team Transformation:</strong> Elevated engineering standards:<br>  
-                    • Scaled test coverage from 0% → 80% through SOLID/PyTest adoption<br>  
-                    • Established regulatory compliance pipelines (BACEN/SUSEP)  
-                    </p>  
-                    <h5>Technologies Used:</h5>  
-                    <ul>  
-                    <li>MLOps Architecture Design (Databricks MLOPS Stacks)</li>  
-                    <li>Databricks with Unity Catalog</li>  
-                    <li>CI/CD Orchestration</li>  
-                    <li>Model Governance (MLFlow)</li>  
-                    <li>PySpark · Docker · Snyk</li>  
-                    <li>Checks of Regulatory Compliance via Azure DevOps</li>  
-                    </ul>
-                </div>
-            </div>
-
-            <!-- AB InBev -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Senior Data Engineer @ AB InBev</h3>
-                    <p class="card-text">Extracted and transformed high-volume data from various sources, ensured data quality, and loaded data into Data Warehouses like Snowflake and Azure Synapse Analytics. Developed CI/CD pipelines using GitHub Actions and Azure DevOps to automate software and data product deployments. Prioritized data and code quality through peer reviews, unit tests, and internal metrics.</p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>PySpark/Spark</li>
-                        <li>SQL</li>
-                        <li>Snowflake</li>
-                        <li>Azure Synapse Analytics</li>
-                        <li>GitHub Actions</li>
-                        <li>Azure DevOps</li>
-                        <li>ETL/ELT Modeling</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Pie -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Senior Data Scientist @ Pie</h3>
-                    <p class="card-text">Led the integration of models into production on Amazon AWS, implemented Clean Code guidelines, and conducted statistical analyses to optimize machine learning models. Developed Python APIs with FastAPI, performed web scraping with Beautiful Soup and Selenium, and applied NLP and sentiment analysis using NLTK and BERT. Explored OCR technologies with Keras OCR and Tesseract.</p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>FastAPI</li>
-                        <li>Beautiful Soup</li>
-                        <li>Selenium</li>
-                        <li>NLP (NLTK, BERT)</li>
-                        <li>Keras OCR</li>
-                        <li>Tesseract</li>
-                        <li>Amazon AWS</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- OPT -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Data Scientist @ OPT</h3>
-                    <p class="card-text">
-                        Solved real-world problems for multiple clients by managing the end-to-end ETL process, from data extraction and transformation to model adjustment and data visualization. Utilized Python for geospatial data science, including Jupyter notebooks, Pandas/GeoPandas, Scikit-learn, and TensorFlow/Keras. Tuned deep learning models for image classification, adjusted regression models for plant growth prediction, and classification models to predict weed competition. Created and modified SQL databases for data analysis and performed data visualization using Power BI and Grafana.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>Pandas/GeoPandas</li>
-                        <li>Scikit-learn</li>
-                        <li>TensorFlow/Keras</li>
-                        <li>Deep Learning</li>
-                        <li>ETL/ELT</li>
-                        <li>SQL</li>
-                        <li>Power BI</li>
-                        <li>Grafana</li>
-                        <li>Jupyter</li>
-                        <li>Geospatial Data Science</li>
-                        <li>Containerization/Docker</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Tech - Inovação Tecnológica para a Agropecuária -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Data Science Intern @ Tech </h3>
-                    <p class="card-text">
-                        Worked within the PoultryTrader project, focusing on data science initiatives. Utilized Python for data science tasks, including Jupyter notebooks, Pandas, Scikit-learn, PyTorch, and TensorFlow/Keras. Performed descriptive statistics, outlier analysis, data cleaning, and feature engineering. Adjusted regression models to predict weight growth and adapted/migrated code from R to Python. Employed Agile methodologies to enhance project development and collaboration.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>Pandas</li>
-                        <li>Scikit-learn</li>
-                        <li>PyTorch</li>
-                        <li>TensorFlow/Keras</li>
-                        <li>Deep Learning</li>
-                        <li>Feature Engineering</li>
-                        <li>R to Python Migration</li>
-                        <li>ETL/ELT</li>
-                        <li>Jupyter</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- TRGEO Engenharia -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Geodesy and Cartography Intern @ TRGEO</h3>
-                    <p class="card-text">
-                        Provided planialtimetric surveying services and utilized Computer Aided Design (CAD, CAD Earth, TopoEVN) for project development. Prepared documents for real estate registration using ArcGIS and QGIS. Developed thematic maps with GIS and geoprocessing tools, including aerial photographs from drones (Pix4D). Created Python scripts to automate calculations and processes, and updated the company's website database using JavaScript, Elementor, and the Mapbox API.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>CAD</li>
-                        <li>Geoprocessing</li>
-                        <li>REST APIs</li>
-                        <li>ETL (Extract, Transform, Load)</li>
-                        <li>Topography</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP - Geodesy and Cartography Intern -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Geodesy and Cartography Intern @ IAG-USP</h3>
-                    <p class="card-text">
-                        Developed software for gravimetric reduction using Python, including libraries such as Pandas, Jupyter, and Tkinter. Adapted and migrated code from Fortran to Python, performed descriptive statistics, feature correlation analysis, and data cleaning. Implemented tide calculation algorithms (lunar and solar) and conducted GNSS and magnetometric surveys.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>Pandas</li>
-                        <li>Jupyter</li>
-                        <li>Fortran to Python Migration</li>
-                        <li>Tide Calculation Algorithms</li>
-                        <li>Research and Development (R&D)</li>
-                        <li>ETL/ELT</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Instituto de Astronomia, Geofísica e Ciências Atmosféricas da USP - Student of Scientific Initiation, PIBIC, CNPQ -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Student of Scientific Initiation, PIBIC, CNPQ @ IAG-USP</h3>
-                    <p class="card-text">
-                        Advised by Prof. Dr. Marta Silva Maria Mantovani, worked on the project "Program construction for reducing gravimetric data". Developed and optimized analytical methodologies focused on the sanitary and environmental area. Applied deep learning techniques and conducted research and development in data science and statistics.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Python</li>
-                        <li>Pandas</li>
-                        <li>Jupyter</li>
-                        <li>Fortran to Python Migration</li>
-                        <li>Tide Calculation Algorithms</li>
-                        <li>Research and Development (R&D)</li>
-                        <li>ETL/ELT</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Universidade Estadual de Campinas - Student of Scientific Initiation, PIBIC, CNPQ -->
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h3 class="card-title">Student of Scientific Initiation, PIBIC, CNPQ @ UNICAMP</h3>
-                    <p class="card-text">
-                        Advised by Prof. Dr. Enelton Fagnani, worked on the project "Development and optimization of analytical methodologies focused on the sanitary and environmental area". Engaged in laboratory skills, academic writing, data analytics, and statistics. Utilized mass spectrometry for research and development in environmental chemistry and sanitary engineering.
-                    </p>
-                    <h5>Technologies Used:</h5>
-                    <ul>
-                        <li>Mass Spectrometry</li>
-                        <li>Python</li>
-                        <li>Data Analytics</li>
-                        <li>Statistics</li>
-                        <li>Research and Development (R&D)</li>
-                        <li>ETL/ELT</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <!-- Add more experiences if needed -->
+        <div class="timeline-tags">
+          <span class="tag">Azure ML</span><span class="tag">Databricks</span><span class="tag">Azure DevOps</span>
+          <span class="tag">MLFlow</span><span class="tag">Unity Catalog</span><span class="tag">Docker</span><span class="tag">PyTest</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center">Projects</h2>
-            <div class="row g-4">
-                <!-- Project 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">IAG_USP-GRARED - Potential Methods Lab Project</h5>
-                            <p class="card-text">A project focused on developing potential methods for data analysis and machine learning applications.</p>
-                            <a href="https://github.com/sophia-katze/IAG_USP-GRARED-v2" target="_blank" class="btn btn-project mt-auto">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Predict LOL - Community Challenge</h5>
-                            <p class="card-text">Participated in a community challenge to predict outcomes in the League of Legends game using machine learning techniques.</p>
-                            <a href="https://github.com/sophia-katze/dados_de_fato-predict_lol" target="_blank" class="btn btn-project mt-auto">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Data Scientist Test - Geo Analysis</h5>
-                            <p class="card-text">Conducted geographical data analysis to derive meaningful insights and patterns.</p>
-                            <a href="https://github.com/sophia-katze/data-scientist-test-01-geo" target="_blank" class="btn btn-project mt-auto">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Data Scientist Test - NLP Challenge</h5>
-                            <p class="card-text">Worked on natural language processing challenges to improve text analysis and sentiment detection.</p>
-                            <a href="https://github.com/sophia-katze/data-scientist-test-02-nlp" target="_blank" class="btn btn-project mt-auto">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Data Engineering Test - Spark & ETL</h5>
-                            <p class="card-text">Developed ETL processes using Spark to handle large datasets efficiently.</p>
-                            <a href="https://github.com/sophia-katze/data-engineering-test-01-spark" target="_blank" class="btn btn-project mt-auto">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="timeline-item">
+        <div class="timeline-period">Jan 2024 – Ago 2024 · Campinas, BR</div>
+        <div class="timeline-company">AB InBev — Global Martech</div>
+        <div class="timeline-role" data-pt="Engenheira de Plataforma e Dados Sênior" data-en="Senior Platform & Data Engineer">Engenheira de Plataforma e Dados Sênior</div>
+        <div class="timeline-desc"
+          data-pt="Pipelines ELT processando +2TB/trimestre. Redução de 45% em custos de infraestrutura. Framework ETL replicado para 5 mercados globais."
+          data-en="ELT pipelines processing 2TB+/quarter. 45% infrastructure cost reduction. ETL framework replicated across 5 global markets.">
+          Pipelines ELT processando +2TB/trimestre. Redução de 45% em custos de infraestrutura. Framework ETL replicado para 5 mercados globais.
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-black py-5">
-        <div class="container text-center">
-            <h2 class="section-title">Contact</h2>
-            <p>Let's connect!</p>
-            <div class="d-flex justify-content-center gap-3">
-                
-                <!-- Linkedin -->
-                <a href="https://www.linkedin.com/in/sophia-katze/" target="_blank" class="btn btn-outline-project">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                
-            </div>
+        <div class="timeline-tags">
+          <span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span>
+          <span class="tag">Snowflake</span><span class="tag">Azure DevOps</span><span class="tag">Delta Lake</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-black text-center text-white py-3">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Sophia Helena. All rights reserved.</p>
+      <div class="timeline-item">
+        <div class="timeline-period">Fev 2022 – Jan 2024 · Northern Ireland, UK 🇬🇧</div>
+        <div class="timeline-company">Pie</div>
+        <div class="timeline-role" data-pt="Engenheira de Plataforma e MLOps Sênior" data-en="Senior Platform & MLOps Engineer">Engenheira de Plataforma e MLOps Sênior</div>
+        <div class="timeline-desc"
+          data-pt="Co-liderança da arquitetura AWS em fintech britânica (HMRC). Infraestrutura serverless via Terraform com 100% de compliance. Automação de 95% do onboarding com AWS Lambda + API Gateway + FastAPI."
+          data-en="Co-led AWS architecture at a British fintech (HMRC). Serverless infrastructure via Terraform with 100% compliance. 95% onboarding automation with AWS Lambda + API Gateway + FastAPI.">
+          Co-liderança da arquitetura AWS em fintech britânica (HMRC). Infraestrutura serverless via Terraform com 100% de compliance. Automação de 95% do onboarding com AWS Lambda + API Gateway + FastAPI.
         </div>
-    </footer>
+        <div class="timeline-tags">
+          <span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span>
+          <span class="tag">ECR</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span>
+          <span class="tag">FastAPI</span><span class="tag">TensorFlow</span>
+        </div>
+      </div>
 
-    <!-- Font Awesome for Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS (with Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
+    <h2 class="section-title" data-pt="Projetos" data-en="Projects">Projetos</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-type">// MLOps · <span data-pt="Desafio Técnico" data-en="Technical Challenge">Desafio Técnico</span></div>
+        <div class="project-name">mlops_engineer_test_01</div>
+        <div class="project-desc"
+          data-pt="API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR."
+          data-en="Serverless ML inference API with AWS Lambda, API Gateway, DynamoDB and Terraform. Clean Architecture, CI/CD with GitHub Actions and Container Image via ECR.">
+          API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Python</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/mlops_engineer_test_01" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-type">// Data Engineering · AB InBev</div>
+        <div class="project-name">data-engineering-test-01-spark</div>
+        <div class="project-desc"
+          data-pt="Teste de engenharia de dados e ETL com PySpark para a AB InBev."
+          data-en="Data engineering and ETL test with PySpark for AB InBev.">
+          Teste de engenharia de dados e ETL com PySpark para a AB InBev.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">PySpark</span><span class="tag">ETL</span><span class="tag">Python</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/data-engineering-test-01-spark" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-type">// Data Analyst · MarTech</div>
+        <div class="project-name">data-analyst-test-01-martech</div>
+        <div class="project-desc"
+          data-pt="Análise de plataforma de anúncios com SQL e Seaborn."
+          data-en="Advertising platform analysis with SQL and Seaborn.">
+          Análise de plataforma de anúncios com SQL e Seaborn.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">SQL</span><span class="tag">Seaborn</span><span class="tag">Python</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/data-analyst-test-01-martech" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-type">// Data Science · NLP</div>
+        <div class="project-name">data-scientist-test-02-nlp</div>
+        <div class="project-desc"
+          data-pt="Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico."
+          data-en="NLP challenge for Lexter.ai applied to the legal domain.">
+          Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">NLP</span><span class="tag">Python</span><span class="tag">ML</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/data-scientist-test-02-nlp" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-type">// <span data-pt="Pesquisa" data-en="Research">Pesquisa</span> · USP · CNPq</div>
+        <div class="project-name">IAG_USP-GRARED-v2</div>
+        <div class="project-desc"
+          data-pt="Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq."
+          data-en="PIBIC project at IAG-USP. Gravimetric data reduction software published at CNPq.">
+          Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">Python</span><span class="tag">Geofísica</span><span class="tag">CNPq</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/IAG_USP-GRARED-v2" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-type">// <span data-pt="Comunidade" data-en="Community">Comunidade</span> · TransDevs</div>
+        <div class="project-name">aulas_transdevs</div>
+        <div class="project-desc"
+          data-pt="Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados."
+          data-en="TransDevs lesson notebooks — Brazil's largest trans community in tech. 2,500+ professionals impacted.">
+          Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados.
+        </div>
+        <div class="timeline-tags" style="margin-bottom:1.25rem">
+          <span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">DE&I</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/sophie-pyxis/aulas_transdevs" target="_blank" class="project-link">
+            <i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack">
+    <div class="section-label" data-pt="// tecnologias" data-en="// technologies">// tecnologias</div>
+    <h2 class="section-title">Stack</h2>
+    <div class="stack-groups">
+      <div>
+        <div class="stack-group-title">☁️ Cloud & IaC</div>
+        <div class="stack-items">
+          <span class="stack-item">AWS</span><span class="stack-item">Microsoft Azure</span>
+          <span class="stack-item">Terraform</span><span class="stack-item">Docker</span>
+          <span class="stack-item">Kubernetes</span><span class="stack-item">Linux</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">⚙️ AWS Services</div>
+        <div class="stack-items">
+          <span class="stack-item">Lambda</span><span class="stack-item">API Gateway</span>
+          <span class="stack-item">DynamoDB</span><span class="stack-item">ECR</span>
+          <span class="stack-item">CloudWatch</span><span class="stack-item">S3</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">🤖 MLOps & <span data-pt="Plataforma" data-en="Platform">Plataforma</span></div>
+        <div class="stack-items">
+          <span class="stack-item">Databricks</span><span class="stack-item">MLFlow</span>
+          <span class="stack-item">Snowflake</span><span class="stack-item">PySpark</span>
+          <span class="stack-item">Azure Data Factory</span><span class="stack-item">Delta Lake</span>
+          <span class="stack-item">Unity Catalog</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">🧠 Machine Learning & IA</div>
+        <div class="stack-items">
+          <span class="stack-item">Scikit-learn</span><span class="stack-item">TensorFlow</span>
+          <span class="stack-item">Keras</span><span class="stack-item">PyTorch</span>
+          <span class="stack-item">BERT / NLP</span><span class="stack-item">Computer Vision</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">🐍 Python & <span data-pt="Engenharia" data-en="Engineering">Engenharia</span></div>
+        <div class="stack-items">
+          <span class="stack-item">Python</span><span class="stack-item">FastAPI</span>
+          <span class="stack-item">Flask</span><span class="stack-item">Pandas</span>
+          <span class="stack-item">NumPy</span><span class="stack-item">OpenAPI</span>
+          <span class="stack-item">Selenium</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">🔁 CI/CD & DevOps</div>
+        <div class="stack-items">
+          <span class="stack-item">GitHub Actions</span><span class="stack-item">Jenkins</span>
+          <span class="stack-item">Azure DevOps</span><span class="stack-item">Bitbucket</span>
+          <span class="stack-item">SonarQube</span><span class="stack-item">Snyk</span><span class="stack-item">PyTest</span>
+        </div>
+      </div>
+      <div>
+        <div class="stack-group-title">📊 <span data-pt="Observabilidade" data-en="Observability">Observabilidade</span></div>
+        <div class="stack-items">
+          <span class="stack-item">Datadog</span><span class="stack-item">Grafana</span>
+          <span class="stack-item">Power BI</span><span class="stack-item">Jupyter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label" data-pt="// contato" data-en="// contact">// contato</div>
+    <h2 class="section-title" data-pt="Vamos conversar" data-en="Let's connect">Vamos conversar</h2>
+    <p class="contact-intro"
+      data-pt="Aberta a oportunidades em MLOps, Platform Engineering e Arquitetura Cloud. Também disponível para mentorias e iniciativas de DE&I."
+      data-en="Open to opportunities in MLOps, Platform Engineering and Cloud Architecture. Also available for mentoring and DE&I initiatives.">
+      Aberta a oportunidades em MLOps, Platform Engineering e Arquitetura Cloud. Também disponível para mentorias e iniciativas de DE&I.
+    </p>
+    <div class="contact-links">
+      <a class="contact-item" href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a class="contact-item" href="https://github.com/sophie-pyxis" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a class="contact-item" href="https://dev.to/sophie-pyxis" target="_blank">
+        <i class="fab fa-dev"></i> Dev.to
+      </a>
+      <a class="contact-item" href="mailto:sophia.helena.paula@gmail.com">
+        <i class="fa fa-envelope"></i> sophia.helena.paula@gmail.com
+      </a>
+    </div>
+    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" class="btn btn-primary">
+      <i class="fab fa-linkedin"></i>
+      <span data-pt="Conectar no LinkedIn" data-en="Connect on LinkedIn">Conectar no LinkedIn</span>
+    </a>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  <span>sophie-pyxis.github.io</span>
+  <span data-pt="// construído com HTML + CSS + JS · sem frameworks" data-en="// built with HTML + CSS + JS · no frameworks">// construído com HTML + CSS + JS · sem frameworks</span>
+  <span>🏳️‍⚧️ trans rights are human rights</span>
+</footer>
+
+<script>
+let currentLang = 'pt';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en-GB';
+  document.querySelectorAll('[data-pt]').forEach(el => {
+    const text = lang === 'pt' ? el.dataset.pt : el.dataset.en;
+    if (text !== undefined) el.innerHTML = text;
+  });
+  startTyping();
+}
+
+const roles = {
+  pt: ['Engenheira MLOps Sênior','Platform Engineer','Arquiteta Cloud AWS & Azure','Especialista em IaC & Terraform','FinOps & Data Governance'],
+  en: ['Senior MLOps Engineer','Platform Engineer','AWS & Azure Cloud Architect','IaC & Terraform Specialist','FinOps & Data Governance']
+};
+
+let roleIndex = 0, charIndex = 0, isDeleting = false, typingTimeout;
+
+function startTyping() {
+  roleIndex = 0; charIndex = 0; isDeleting = false;
+  clearTimeout(typingTimeout);
+  document.getElementById('typing-text').textContent = '';
+  type();
+}
+
+function type() {
+  const list = roles[currentLang];
+  const current = list[roleIndex];
+  if (isDeleting) charIndex--; else charIndex++;
+  document.getElementById('typing-text').textContent = current.substring(0, charIndex);
+  let delay = isDeleting ? 40 : 80;
+  if (!isDeleting && charIndex === current.length) { delay = 2000; isDeleting = true; }
+  else if (isDeleting && charIndex === 0) { isDeleting = false; roleIndex = (roleIndex + 1) % list.length; delay = 400; }
+  typingTimeout = setTimeout(type, delay);
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.timeline-item, .project-card').forEach(el => observer.observe(el));
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const scrollObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id));
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => scrollObs.observe(s));
+
+startTyping();
+</script>
 </body>
 </html>
