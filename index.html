@@ -36,7 +36,7 @@
       background: var(--navy);
       color: var(--white);
       font-family: var(--font-body);
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.7;
       overflow-x: hidden;
     }
@@ -67,7 +67,7 @@
       border-radius: 4px;
       overflow: hidden;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.8rem;
     }
     .lang-toggle button {
       background: var(--navy-mid);
@@ -95,14 +95,14 @@
       z-index: 100;
       backdrop-filter: blur(12px);
     }
-    .nav-logo { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.15em; text-transform: uppercase; }
-    .nav-subtitle { font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; margin-bottom: 2.5rem; line-height: 1.6; }
+    .nav-logo { font-family: var(--font-mono); font-size: 1rem; color: var(--cyan); letter-spacing: 0.15em; text-transform: uppercase; }
+    .nav-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; margin-bottom: 2.5rem; line-height: 1.6; }
     .nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
     .nav-links a {
       display: flex; align-items: center; gap: 0.65rem;
       color: var(--muted);
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.85rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 0.55rem 0.7rem;
@@ -115,9 +115,9 @@
       border-left-color: var(--cyan);
       background: rgba(0,255,255,0.05);
     }
-    .nav-links .ni { font-size: 0.8rem; width: 1rem; text-align: center; }
+    .nav-links .ni { font-size: 1.1rem; width: 1rem; text-align: center; }
     .nav-social { display: flex; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: auto; }
-    .nav-social a { color: var(--muted); font-size: 1rem; transition: color var(--ease); }
+    .nav-social a { color: var(--muted); font-size: 1.2rem; transition: color var(--ease); }
     .nav-social a:hover { color: var(--cyan); }
 
     /* ── Main ── */
@@ -127,7 +127,7 @@
     /* ── Labels ── */
     .sec-label {
       font-family: var(--font-mono);
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       color: var(--cyan);
       letter-spacing: 0.3em;
       text-transform: uppercase;
@@ -135,7 +135,7 @@
       display: flex; align-items: center; gap: 0.75rem;
     }
     .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
-    .sec-title { font-family: var(--font-mono); font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 2.5rem; }
+    .sec-title { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 2.5rem; }
     .sec-title span { color: var(--cyan); }
 
     /* ── Hero ── */
@@ -156,20 +156,20 @@
       background: radial-gradient(circle, rgba(0,255,255,0.045) 0%, transparent 70%);
       pointer-events: none;
     }
-    .hero-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--magenta); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
-    .hero-name { font-family: var(--font-mono); font-size: clamp(2.8rem,5.5vw,5rem); font-weight: 700; line-height: 1; color: var(--white); margin-bottom: 0.4rem; animation: fadeUp 0.6s ease 0.1s both; }
+    .hero-tag { font-family: var(--font-mono); font-size: 0.85rem; color: var(--magenta); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
+    .hero-name { font-family: var(--font-mono); font-size: clamp(3.2rem,6vw,5.5rem); font-weight: 700; line-height: 1; color: var(--white); margin-bottom: 0.4rem; animation: fadeUp 0.6s ease 0.1s both; }
     .glitch { position: relative; display: inline-block; }
     .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     .glitch::before { color: var(--cyan); animation: glitch1 4s infinite linear; clip-path: polygon(0 0,100% 0,100% 45%,0 45%); }
     .glitch::after { color: var(--magenta); animation: glitch2 4s infinite linear; clip-path: polygon(0 55%,100% 55%,100% 100%,0 100%); }
-    .hero-role { font-family: var(--font-mono); font-size: clamp(0.9rem,1.8vw,1.25rem); color: var(--cyan); margin-bottom: 1.75rem; animation: fadeUp 0.6s ease 0.2s both; min-height: 1.8rem; }
+    .hero-role { font-family: var(--font-mono); font-size: clamp(1.1rem,2vw,1.4rem); color: var(--cyan); margin-bottom: 1.75rem; animation: fadeUp 0.6s ease 0.2s both; min-height: 1.8rem; }
     .cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s infinite; }
-    .hero-desc { font-size: 0.95rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.9; animation: fadeUp 0.6s ease 0.3s both; }
+    .hero-desc { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.9; animation: fadeUp 0.6s ease 0.3s both; }
     .hero-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.5rem; animation: fadeUp 0.6s ease 0.4s both; }
-    .badge { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; padding: 0.28rem 0.65rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); }
+    .badge { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; padding: 0.28rem 0.65rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); }
     .badge:hover, .badge.hi { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,255,255,0.2); }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.5s both; }
-    .btn { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; cursor: pointer; transition: all var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; cursor: pointer; transition: all var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; }
     .btn-primary { background: var(--cyan); color: var(--navy); border: none; font-weight: 700; }
     .btn-primary:hover { background: var(--magenta); color: var(--navy); box-shadow: 0 0 20px rgba(255,0,255,0.35); }
     .btn-outline { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); }
@@ -177,19 +177,19 @@
 
     /* ── Stats ── */
     .stats-bar { display: flex; gap: 3rem; padding: 2rem 5rem; border-bottom: 1px solid var(--border); background: var(--navy-mid); flex-wrap: wrap; }
-    .stat-num { font-family: var(--font-mono); font-size: 2rem; font-weight: 700; color: var(--cyan); line-height: 1; }
-    .stat-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 0.2rem; }
+    .stat-num { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: var(--cyan); line-height: 1; }
+    .stat-lbl { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
 
     /* ── About ── */
     #about { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; min-height: auto; }
-    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 0.93rem; line-height: 1.9; }
+    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.15rem; line-height: 1.9; }
     .about-text strong { color: var(--white); }
     .about-text em { color: var(--cyan); font-style: normal; }
     .about-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; position: sticky; top: 4rem; }
-    .card-title { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.5rem; }
-    .card-item { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.82rem; color: var(--muted); }
+    .card-title { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.5rem; }
+    .card-item { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.95rem; color: var(--muted); }
     .card-item .ic { color: var(--magenta); margin-top: 0.15rem; flex-shrink: 0; }
-    .card-item strong { color: var(--white); display: block; font-size: 0.85rem; }
+    .card-item strong { color: var(--white); display: block; font-size: 1rem; }
 
     /* ── Timeline ── */
     #experience { min-height: auto; }
@@ -198,12 +198,12 @@
     .tl-item { position: relative; padding: 0 0 3rem 2.5rem; opacity: 0; transform: translateX(-18px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .tl-item.visible { opacity: 1; transform: translateX(0); }
     .tl-item::before { content: ''; position: absolute; left: -0.33rem; top: 0.5rem; width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.5); }
-    .tl-period { font-family: var(--font-mono); font-size: 0.62rem; color: var(--magenta); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
-    .tl-company { font-family: var(--font-mono); font-size: 1.05rem; color: var(--white); font-weight: 700; margin-bottom: 0.15rem; }
-    .tl-role { font-size: 0.82rem; color: var(--cyan); margin-bottom: 0.85rem; }
-    .tl-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.8; max-width: 660px; }
+    .tl-period { font-family: var(--font-mono); font-size: 0.8rem; color: var(--magenta); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .tl-company { font-family: var(--font-mono); font-size: 1.2rem; color: var(--white); font-weight: 700; margin-bottom: 0.15rem; }
+    .tl-role { font-size: 1rem; color: var(--cyan); margin-bottom: 0.85rem; }
+    .tl-desc { font-size: 1.05rem; color: var(--muted); line-height: 1.8; max-width: 660px; }
     .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
-    .tag { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.06em; padding: 0.18rem 0.5rem; border: 1px solid var(--navy-light); border-radius: 2px; color: var(--muted); background: var(--navy-mid); }
+    .tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; padding: 0.18rem 0.5rem; border: 1px solid var(--navy-light); border-radius: 2px; color: var(--muted); background: var(--navy-mid); }
 
     /* ── Projects ── */
     #projects { min-height: auto; }
@@ -223,30 +223,30 @@
     .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--magenta)); transform: scaleX(0); transform-origin: left; transition: transform var(--ease); }
     .proj-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,255,255,0.12); }
     .proj-card:hover::before { transform: scaleX(1); }
-    .proj-type { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; color: var(--magenta); text-transform: uppercase; margin-bottom: 0.65rem; }
-    .proj-name { font-family: var(--font-mono); font-size: 0.88rem; color: var(--white); margin-bottom: 0.65rem; font-weight: 700; }
-    .proj-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
-    .proj-link { font-family: var(--font-mono); font-size: 0.62rem; color: var(--cyan); letter-spacing: 0.08em; text-transform: uppercase; }
+    .proj-type { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; color: var(--magenta); text-transform: uppercase; margin-bottom: 0.65rem; }
+    .proj-name { font-family: var(--font-mono); font-size: 1.1rem; color: var(--white); margin-bottom: 0.65rem; font-weight: 700; }
+    .proj-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
+    .proj-link { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.08em; text-transform: uppercase; }
     .proj-link:hover { color: var(--magenta); }
 
     /* ── Stack ── */
     #stack { min-height: auto; }
     .stack-groups { display: flex; flex-direction: column; gap: 2rem; }
-    .sg-title { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.75rem; }
+    .sg-title { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.75rem; }
     .sg-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
     .sg-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .si { font-family: var(--font-mono); font-size: 0.67rem; letter-spacing: 0.04em; padding: 0.4rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); cursor: default; }
+    .si { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.04em; padding: 0.4rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); cursor: default; }
     .si:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.15); transform: translateY(-2px); }
 
     /* ── Contact ── */
     #contact { min-height: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .contact-intro { font-size: 0.95rem; color: var(--muted); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .contact-intro { font-size: 1.15rem; color: var(--muted); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
     .contact-links { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
-    .contact-item { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--border); padding: 0.55rem 1.1rem; border-radius: 2px; transition: all var(--ease); }
+    .contact-item { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--border); padding: 0.55rem 1.1rem; border-radius: 2px; transition: all var(--ease); }
     .contact-item:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 14px rgba(0,255,255,0.18); }
 
     /* ── Footer ── */
-    footer { margin-left: 220px; padding: 1.25rem 5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.58rem; color: var(--muted); letter-spacing: 0.08em; }
+    footer { margin-left: 220px; padding: 1.25rem 5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
 
     /* ── Keyframes ── */
     @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
@@ -280,8 +280,8 @@
       main, footer { margin-left:0; margin-top:58px; }
       section { padding:4rem 1.5rem; }
       .stats-bar { padding:1.5rem; gap:1.25rem; }
-      .sec-title { font-size:1.7rem; }
-      .hero-name { font-size:2.6rem; }
+      .sec-title { font-size:2rem; }
+      .hero-name { font-size:3rem; }
       .lang-toggle { top:auto; bottom:1.5rem; right:1.5rem; }
       #contact { padding:4rem 1.5rem; }
       footer { margin-left:0; padding:1rem 1.5rem; flex-direction:column; gap:0.4rem; text-align:center; }
@@ -317,7 +317,6 @@
 
 <main>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-tag" data-pt="🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior" data-en="🏳️‍⚧️ trans woman · neurodivergent · senior engineer">🏳️‍⚧️ mulher trans · neurodivergente · engenheira sênior</div>
     <h1 class="hero-name"><span class="glitch" data-text="Sophie Pyxis">Sophie Pyxis</span></h1>
@@ -338,7 +337,6 @@
     </div>
   </section>
 
-  <!-- STATS -->
   <div class="stats-bar">
     <div><div class="stat-num">11+</div><div class="stat-lbl" data-pt="Anos de Experiência" data-en="Years of Experience">Anos de Experiência</div></div>
     <div><div class="stat-num">60%</div><div class="stat-lbl" data-pt="Redução Time-to-Market" data-en="Time-to-Market Reduction">Redução Time-to-Market</div></div>
@@ -347,7 +345,6 @@
     <div><div class="stat-num">4</div><div class="stat-lbl" data-pt="Países / Mercados" data-en="Countries / Markets">Países / Mercados</div></div>
   </div>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <div class="sec-label" data-pt="// sobre mim" data-en="// about me">// sobre mim</div>
@@ -376,7 +373,6 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="sec-label" data-pt="// trajetória" data-en="// career">// trajetória</div>
     <h2 class="sec-title" data-pt="<span>Experiência</span>" data-en="<span>Experience</span>"><span>Experiência</span></h2>
@@ -433,7 +429,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="sec-label" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
     <h2 class="sec-title" data-pt="<span>Projetos</span>" data-en="<span>Projects</span>"><span>Projetos</span></h2>
@@ -506,7 +501,6 @@
     </div>
   </section>
 
-  <!-- STACK -->
   <section id="stack">
     <div class="sec-label" data-pt="// tecnologias" data-en="// technologies">// tecnologias</div>
     <h2 class="sec-title">Stack</h2>
@@ -521,7 +515,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="sec-label" data-pt="// contato" data-en="// contact">// contato</div>
     <h2 class="sec-title" data-pt="Vamos <span>conversar</span>" data-en="Let's <span>connect</span>">Vamos <span>conversar</span></h2>
