@@ -1,622 +1,800 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Sophie Pyxis — Senior Enterprise Solutions Architect · Grupo Fleury · IT, Digital & Innovation | AWS · Azure · GCP · Databricks · Terraform · Kubernetes · MLOps"/>
-  <meta property="og:title" content="Sophie Pyxis — Senior Enterprise Solutions Architect · Grupo Fleury"/>
-  <meta property="og:url" content="https://sophie-pyxis.github.io"/>
-  <title>Sophie Pyxis — Principal AI Architect</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-  <link rel="preconnect" href="https://fonts.bunny.net"/>
-  <link href="https://fonts.bunny.net/css?family=josefin-sans:300,400,600,700,400i" rel="stylesheet"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Sophie Pyxis — Manager, Data & AI na Pupila Brand Studio. Estratégia de dados e IA, liderança de time, arquitetura corporativa e MLOps/LLMOps em ambientes regulados. AWS · Databricks · Midjourney · Metabase."/>
+<meta property="og:title" content="Sophie Pyxis — Manager, Data & AI · Pupila Brand Studio"/>
+<meta property="og:description" content="Estratégia de dados e IA, liderança de time e arquitetura corporativa. 11+ anos, 3 organizações reguladas."/>
+<meta property="og:url" content="https://sophie-pyxis.github.io"/>
+<meta property="og:type" content="website"/>
+<title>Sophie Pyxis — Manager, Data &amp; AI</title>
 
-  <style>
-    /* ── Variables ── */
-    :root {
-      --navy:       #050a30;
-      --navy-mid:   #0a1045;
-      --navy-light: #111a5e;
-      --cyan:       #00ffff;
-      --magenta:    #ff00ff;
-      --gold:       #87ceeb;
-      --white:      #e2eaf5;
-      --muted:      #4a6080;
-      --border:     #1a2a6e;
-      --font-mono:  'Space Mono', monospace;
-      --font-body:  'Josefin Sans', sans-serif;
-      --ease:       0.25s cubic-bezier(0.4,0,0.2,1);
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Archivo:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 
-    /* ── Reset ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--navy);
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 18px;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-    a { color: var(--cyan); text-decoration: none; transition: color var(--ease); }
-    a:hover { color: var(--magenta); }
+<style>
+/* ═══ tokens ═══ */
+:root{
+  --basalt:#101318;      /* fundo */
+  --strata:#171B23;      /* superfícies elevadas */
+  --strata-2:#1C212B;
+  --seam:#272E3A;        /* hairlines */
+  --chalk:#E6E3DC;       /* texto primário, papel de levantamento */
+  --graphite:#98A0AE;    /* texto secundário */
+  --shade:#5F6979;       /* texto terciário / labels */
+  --azure:#7FB3D5;       /* acento primário */
+  --madder:#D98FA6;      /* acento secundário */
 
-    /* ── Grid BG ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,255,255,0.025) 1px, transparent 1px);
-      background-size: 50px 50px;
-      pointer-events: none;
-      z-index: 0;
-    }
+  --display:'Fraunces',Georgia,serif;
+  --body:'Archivo',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
 
-    /* ── Lang Toggle ── */
-    .lang-toggle {
-      position: fixed;
-      top: 1.5rem;
-      right: 1.5rem;
-      z-index: 1000;
-      display: flex;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-    }
-    .lang-toggle button {
-      background: var(--navy-mid);
-      color: var(--muted);
-      border: none;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      transition: all var(--ease);
-      letter-spacing: 0.05em;
-    }
-    .lang-toggle button.active { background: var(--cyan); color: var(--navy); font-weight: 700; }
-    .lang-toggle button:hover:not(.active) { background: var(--navy-light); color: var(--cyan); }
+  --ease:.32s cubic-bezier(.2,.6,.2,1);
+  --rail:78px;
+}
 
-    /* ── Nav ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0;
-      width: 220px;
-      height: 100vh;
-      background: rgba(5,10,48,0.97);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      padding: 2.5rem 1.5rem;
-      z-index: 100;
-      backdrop-filter: blur(12px);
-    }
-    .nav-logo { font-family: var(--font-mono); font-size: 1rem; color: var(--cyan); letter-spacing: 0.15em; text-transform: uppercase; }
-    .nav-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; margin-bottom: 2.5rem; line-height: 1.6; }
-    .nav-links { list-style: none; display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
-    .nav-links a {
-      display: flex; align-items: center; gap: 0.65rem;
-      color: var(--muted);
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.55rem 0.7rem;
-      border-radius: 3px;
-      border-left: 2px solid transparent;
-      transition: all var(--ease);
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--cyan);
-      border-left-color: var(--cyan);
-      background: rgba(0,255,255,0.05);
-    }
-    .nav-links .ni { font-size: 1.1rem; width: 1rem; text-align: center; }
-    .nav-social { display: flex; gap: 0.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); margin-top: auto; }
-    .nav-social a { color: var(--muted); font-size: 1.2rem; transition: color var(--ease); }
-    .nav-social a:hover { color: var(--cyan); }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--basalt);color:var(--chalk);
+  font-family:var(--body);font-size:17px;font-weight:300;line-height:1.72;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(127,179,213,.22)}
+:focus-visible{outline:2px solid var(--azure);outline-offset:3px;border-radius:2px}
 
-    /* ── Main ── */
-    main { margin-left: 220px; position: relative; z-index: 1; }
-    section { padding: 6rem 5rem; border-bottom: 1px solid var(--border); }
+/* ═══ topbar ═══ */
+.top{
+  position:fixed;inset:0 0 auto 0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;padding:0 2.5rem;height:56px;
+  background:rgba(16,19,24,.86);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--seam);
+}
+.depth{position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--azure);transition:width .1s linear}
+.wordmark{font-family:var(--display);font-size:1.06rem;font-weight:500;letter-spacing:.01em;white-space:nowrap}
+.wordmark em{font-style:italic;color:var(--azure)}
+.menu{display:flex;gap:.3rem;list-style:none}
+.menu a{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--shade);padding:.42rem .6rem;border-bottom:1px solid transparent;transition:all var(--ease);
+}
+.menu a:hover,.menu a.on{color:var(--chalk);border-bottom-color:var(--madder)}
+.lang{display:flex;font-family:var(--mono);font-size:.68rem;border:1px solid var(--seam);border-radius:2px;overflow:hidden}
+.lang button{
+  background:transparent;color:var(--shade);border:0;cursor:pointer;
+  padding:.3rem .5rem;letter-spacing:.1em;transition:all var(--ease);
+}
+.lang button.on{background:var(--azure);color:var(--basalt);font-weight:500}
+.lang button:hover:not(.on){color:var(--chalk)}
 
-    /* ── Labels ── */
-    .sec-label {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--cyan);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); max-width: 80px; }
-    .sec-title { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 2.5rem; }
-    .sec-title span { color: var(--cyan); }
+/* ═══ estrutura em estratos ═══ */
+.layer{padding:6.5rem 2.5rem 6.5rem var(--rail);border-bottom:1px solid var(--seam);position:relative}
+.layer::before{
+  content:attr(data-depth);position:absolute;left:2.5rem;top:6.6rem;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--shade);
+  writing-mode:vertical-rl;text-orientation:mixed;
+}
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--madder);margin-bottom:.9rem;
+}
+.h2{
+  font-family:var(--display);font-size:clamp(2rem,3.6vw,2.9rem);font-weight:400;
+  line-height:1.12;letter-spacing:-.015em;margin-bottom:2.6rem;max-width:22ch;
+}
+.h2 i{font-style:italic;color:var(--azure)}
+.prose{max-width:64ch}
+.prose p{color:var(--graphite);margin-bottom:1.15rem}
+.prose strong{color:var(--chalk);font-weight:500}
+.prose em{font-style:normal;color:var(--azure)}
 
-    /* ── Hero ── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    #hero::after {
-      content: '';
-      position: absolute;
-      right: -150px; top: 50%;
-      transform: translateY(-50%);
-      width: 550px; height: 550px;
-      background: radial-gradient(circle, rgba(0,255,255,0.045) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-tag { font-family: var(--font-mono); font-size: 0.85rem; color: var(--magenta); letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 1.25rem; animation: fadeUp 0.6s ease both; }
-    .hero-name { font-family: var(--font-mono); font-size: clamp(3.2rem,6vw,5.5rem); font-weight: 700; line-height: 1; color: var(--white); margin-bottom: 0.4rem; animation: fadeUp 0.6s ease 0.1s both; }
-    .glitch { position: relative; display: inline-block; }
-    .glitch::before, .glitch::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .glitch::before { color: var(--cyan); animation: glitch1 4s infinite linear; clip-path: polygon(0 0,100% 0,100% 45%,0 45%); }
-    .glitch::after { color: var(--magenta); animation: glitch2 4s infinite linear; clip-path: polygon(0 55%,100% 55%,100% 100%,0 100%); }
-    .hero-role { font-family: var(--font-mono); font-size: clamp(1.1rem,2vw,1.4rem); color: var(--cyan); margin-bottom: 1.75rem; animation: fadeUp 0.6s ease 0.2s both; min-height: 1.8rem; }
-    .cursor { display: inline-block; width: 2px; height: 1em; background: var(--cyan); margin-left: 2px; vertical-align: text-bottom; animation: blink 1s infinite; }
-    .hero-desc { font-size: 1.15rem; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; line-height: 1.9; animation: fadeUp 0.6s ease 0.3s both; }
-    .hero-badges { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 2.5rem; animation: fadeUp 0.6s ease 0.4s both; }
-    .badge { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; padding: 0.28rem 0.65rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); }
-    .badge:hover, .badge.hi { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,255,255,0.2); }
-    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s ease 0.5s both; }
-    .btn { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; cursor: pointer; transition: all var(--ease); display: inline-flex; align-items: center; gap: 0.5rem; }
-    .btn-primary { background: var(--cyan); color: var(--navy); border: none; font-weight: 700; }
-    .btn-primary:hover { background: var(--magenta); color: var(--navy); box-shadow: 0 0 20px rgba(255,0,255,0.35); }
-    .btn-outline { background: transparent; color: var(--cyan); border: 1px solid var(--cyan); }
-    .btn-outline:hover { background: rgba(0,255,255,0.07); box-shadow: 0 0 16px rgba(0,255,255,0.2); color: var(--cyan); }
+/* ═══ hero ═══ */
+#hero{
+  min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) 268px;
+  gap:4.5rem;align-items:center;padding-top:9rem;
+}
+#hero::before{content:none}
+.ident{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;color:var(--shade);
+  margin-bottom:1.6rem;display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;
+}
+.ident span{color:var(--madder)}
+.name{
+  font-family:var(--display);font-size:clamp(3.4rem,8vw,6.4rem);font-weight:400;
+  line-height:.94;letter-spacing:-.03em;margin-bottom:.5rem;
+}
+.name i{font-style:italic;color:var(--azure)}
+.role{
+  font-family:var(--mono);font-size:clamp(.88rem,1.5vw,1.02rem);letter-spacing:.05em;
+  color:var(--chalk);padding-bottom:1.5rem;margin-bottom:1.5rem;
+  border-bottom:1px solid var(--seam);max-width:44ch;
+}
+.role b{color:var(--azure);font-weight:500}
+.lede{font-size:1.1rem;color:var(--graphite);max-width:54ch;margin-bottom:2rem}
+.scope{display:flex;flex-wrap:wrap;gap:0 2.4rem;margin-bottom:2.4rem}
+.scope div{padding:.2rem 0}
+.scope dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--shade)}
+.scope dd{font-size:.94rem;color:var(--chalk)}
+.acts{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.72rem 1.35rem;border-radius:2px;transition:all var(--ease);display:inline-block;
+}
+.btn-solid{background:var(--chalk);color:var(--basalt);font-weight:500}
+.btn-solid:hover{background:var(--azure)}
+.btn-ghost{border:1px solid var(--seam);color:var(--graphite)}
+.btn-ghost:hover{border-color:var(--azure);color:var(--chalk)}
 
-    /* ── Stats ── */
-    .stats-bar { display: flex; gap: 3rem; padding: 2rem 5rem; border-bottom: 1px solid var(--border); background: var(--navy-mid); flex-wrap: wrap; }
-    .stat-num { font-family: var(--font-mono); font-size: 2.4rem; font-weight: 700; color: var(--cyan); line-height: 1; }
-    .stat-lbl { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
+/* coluna estratigráfica — assinatura */
+.column{align-self:center}
+.column-cap{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--shade);margin-bottom:.8rem;
+}
+.band{opacity:0;transform:translateY(10px)}
+.loaded .band{animation:settle .7s cubic-bezier(.2,.7,.2,1) forwards}
+.loaded .band:nth-child(1){animation-delay:.15s}
+.loaded .band:nth-child(2){animation-delay:.28s}
+.loaded .band:nth-child(3){animation-delay:.41s}
+.loaded .band:nth-child(4){animation-delay:.54s}
+.loaded .band:nth-child(5){animation-delay:.67s}
+@keyframes settle{to{opacity:1;transform:translateY(0)}}
+.band-label{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;fill:var(--graphite);text-transform:uppercase}
+.band-rule{stroke:var(--seam);stroke-width:1}
 
-    /* ── About ── */
-    #about { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; min-height: auto; }
-    .about-text p { color: var(--muted); margin-bottom: 1.2rem; font-size: 1.15rem; line-height: 1.9; }
-    .about-text strong { color: var(--white); }
-    .about-text em { color: var(--cyan); font-style: normal; }
-    .about-card { background: var(--navy-mid); border: 1px solid var(--border); border-radius: 4px; padding: 2rem; position: sticky; top: 4rem; }
-    .card-title { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cyan); margin-bottom: 1.5rem; }
-    .card-item { display: flex; align-items: flex-start; gap: 0.7rem; margin-bottom: 0.9rem; font-size: 0.95rem; color: var(--muted); }
-    .card-item .ic { color: var(--magenta); margin-top: 0.15rem; flex-shrink: 0; }
-    .card-item strong { color: var(--white); display: block; font-size: 1rem; }
+/* ═══ métricas ═══ */
+#metrics{padding:0;border-bottom:1px solid var(--seam)}
+.grid-m{display:grid;grid-template-columns:repeat(3,1fr)}
+.metric{padding:2.1rem 2rem;border-right:1px solid var(--seam);border-bottom:1px solid var(--seam)}
+.metric:nth-child(3n){border-right:0}
+.metric:nth-child(n+4){border-bottom:0}
+.metric-n{
+  font-family:var(--mono);font-size:2rem;font-weight:500;color:var(--chalk);
+  line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.metric-n s{text-decoration:none;color:var(--azure)}
+.metric-l{font-size:.88rem;color:var(--shade);margin-top:.45rem;line-height:1.5}
 
-    /* ── Timeline ── */
-    #experience { min-height: auto; }
-    .timeline { position: relative; padding-left: 2rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--cyan), var(--magenta), transparent); }
-    .tl-item { position: relative; padding: 0 0 3rem 2.5rem; opacity: 0; transform: translateX(-18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .tl-item.visible { opacity: 1; transform: translateX(0); }
-    .tl-item::before { content: ''; position: absolute; left: -0.33rem; top: 0.5rem; width: 0.65rem; height: 0.65rem; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.5); }
-    .tl-period { font-family: var(--font-mono); font-size: 0.8rem; color: var(--magenta); letter-spacing: 0.08em; margin-bottom: 0.3rem; }
-    .tl-company { font-family: var(--font-mono); font-size: 1.2rem; color: var(--white); font-weight: 700; margin-bottom: 0.15rem; }
-    .tl-role { font-size: 1rem; color: var(--cyan); margin-bottom: 0.85rem; }
-    .tl-desc { font-size: 1.05rem; color: var(--muted); line-height: 1.8; max-width: 660px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.7rem; }
-    .tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.06em; padding: 0.18rem 0.5rem; border: 1px solid var(--navy-light); border-radius: 2px; color: var(--muted); background: var(--navy-mid); }
+/* ═══ sobre ═══ */
+.split{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:4.5rem;align-items:start}
+.dossier{border:1px solid var(--seam);background:var(--strata);padding:1.9rem;position:sticky;top:5.5rem}
+.dossier-t{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--madder);margin-bottom:1.4rem}
+.dossier dl{display:grid;gap:1.05rem}
+.dossier dt{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--shade)}
+.dossier dd{font-size:.93rem;color:var(--chalk);line-height:1.55}
 
-    /* ── Projects ── */
-    #projects { min-height: auto; }
-    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.25rem; }
-    .proj-card {
-      background: var(--navy-mid);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1.6rem;
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.5s ease, transform 0.5s ease, border-color var(--ease), box-shadow var(--ease);
-    }
-    .proj-card.visible { opacity: 1; transform: translateY(0); }
-    .proj-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--cyan), var(--magenta)); transform: scaleX(0); transform-origin: left; transition: transform var(--ease); }
-    .proj-card:hover { border-color: var(--cyan); box-shadow: 0 0 20px rgba(0,255,255,0.12); }
-    .proj-card:hover::before { transform: scaleX(1); }
-    .proj-type { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.18em; color: var(--magenta); text-transform: uppercase; margin-bottom: 0.65rem; }
-    .proj-name { font-family: var(--font-mono); font-size: 1.1rem; color: var(--white); margin-bottom: 0.65rem; font-weight: 700; }
-    .proj-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
-    .proj-link { font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); letter-spacing: 0.08em; text-transform: uppercase; }
-    .proj-link:hover { color: var(--magenta); }
+/* ═══ liderança ═══ */
+.tenets{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1px;background:var(--seam);border:1px solid var(--seam)}
+.tenet{background:var(--basalt);padding:1.8rem;transition:background var(--ease)}
+.tenet:hover{background:var(--strata)}
+.tenet-k{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--madder);margin-bottom:.9rem}
+.tenet-h{font-family:var(--display);font-size:1.24rem;font-weight:400;line-height:1.28;margin-bottom:.6rem}
+.tenet-p{font-size:.94rem;color:var(--graphite);line-height:1.68}
 
-    /* ── Stack ── */
-    #stack { min-height: auto; }
-    .stack-groups { display: flex; flex-direction: column; gap: 2rem; }
-    .sg-title { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.18em; color: var(--cyan); text-transform: uppercase; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.75rem; }
-    .sg-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-    .sg-items { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-    .si { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.04em; padding: 0.4rem 0.85rem; border: 1px solid var(--border); border-radius: 2px; color: var(--muted); background: var(--navy-mid); transition: all var(--ease); cursor: default; }
-    .si:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(0,255,255,0.15); transform: translateY(-2px); }
+/* ═══ trajetória ═══ */
+.log{position:relative;padding-left:1.9rem}
+.log::before{content:'';position:absolute;left:0;top:.45rem;bottom:2rem;width:1px;background:linear-gradient(var(--azure),var(--madder) 55%,transparent)}
+.post{position:relative;padding:0 0 3.2rem 1.9rem;opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.post.seen{opacity:1;transform:none}
+.post::before{content:'';position:absolute;left:-4px;top:.55rem;width:9px;height:9px;border-radius:50%;background:var(--basalt);border:1px solid var(--azure)}
+.post.now::before{background:var(--azure)}
+.post-when{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--madder);margin-bottom:.35rem}
+.post-org{font-family:var(--display);font-size:1.42rem;font-weight:500;letter-spacing:-.01em}
+.post-role{font-family:var(--mono);font-size:.86rem;color:var(--azure);margin:.15rem 0 .95rem}
+.post-body{font-size:1rem;color:var(--graphite);max-width:66ch}
+.facts{display:flex;flex-wrap:wrap;gap:.35rem 2rem;margin:1rem 0 .2rem;padding:.9rem 0;border-top:1px solid var(--seam);border-bottom:1px solid var(--seam);max-width:66ch}
+.facts dt{font-family:var(--mono);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--shade)}
+.facts dd{font-size:.88rem;color:var(--chalk)}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.95rem}
+.chip{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;padding:.2rem .52rem;border:1px solid var(--seam);color:var(--shade);border-radius:2px}
+.roots{border-top:1px solid var(--seam);padding-top:1.6rem;margin-top:.4rem}
+.root{display:grid;grid-template-columns:150px 1fr;gap:1.2rem;padding:.75rem 0;font-size:.94rem;color:var(--graphite);border-bottom:1px solid var(--seam)}
+.root:last-child{border-bottom:0}
+.root b{font-family:var(--mono);font-size:.73rem;letter-spacing:.08em;color:var(--shade);font-weight:400}
+.root i{font-style:normal;color:var(--chalk)}
 
-    /* ── Contact ── */
-    #contact { min-height: auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .contact-intro { font-size: 1.15rem; color: var(--muted); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
-    .contact-links { display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2.5rem; }
-    .contact-item { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--border); padding: 0.55rem 1.1rem; border-radius: 2px; transition: all var(--ease); }
-    .contact-item:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 14px rgba(0,255,255,0.18); }
+/* ═══ projetos ═══ */
+.works{display:grid;grid-template-columns:repeat(auto-fill,minmax(298px,1fr));gap:1px;background:var(--seam);border:1px solid var(--seam)}
+.work{background:var(--basalt);padding:1.7rem;display:flex;flex-direction:column;opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease,background var(--ease)}
+.work.seen{opacity:1;transform:none}
+.work:hover{background:var(--strata)}
+.work-k{font-family:var(--mono);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--madder);margin-bottom:.8rem}
+.work-n{font-family:var(--mono);font-size:.98rem;font-weight:500;color:var(--chalk);margin-bottom:.65rem;word-break:break-word}
+.work-p{font-size:.92rem;color:var(--graphite);line-height:1.66;margin-bottom:1.1rem;flex:1}
+.work-a{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--azure);transition:color var(--ease)}
+.work-a:hover{color:var(--madder)}
 
-    /* ── Footer ── */
-    footer { margin-left: 220px; padding: 1.25rem 5rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 0.08em; }
+/* ═══ stack ═══ */
+.kits{display:grid;gap:1.7rem}
+.kit-h{font-family:var(--mono);font-size:.71rem;letter-spacing:.16em;text-transform:uppercase;color:var(--azure);margin-bottom:.75rem;display:flex;align-items:center;gap:.85rem}
+.kit-h::after{content:'';flex:1;height:1px;background:var(--seam)}
+.kit-i{display:flex;flex-wrap:wrap;gap:.4rem}
+.tool{font-family:var(--mono);font-size:.8rem;padding:.34rem .7rem;border:1px solid var(--seam);color:var(--graphite);border-radius:2px;transition:all var(--ease)}
+.tool:hover{border-color:var(--azure);color:var(--chalk)}
 
-    /* ── Keyframes ── */
-    @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-    @keyframes glitch1 { 0%,89%,100%{transform:translate(0)} 91%{transform:translate(-2px,1px)} 93%{transform:translate(2px,-1px)} 96%{transform:translate(-1px,2px)} }
-    @keyframes glitch2 { 0%,87%,100%{transform:translate(0)} 89%{transform:translate(2px,-2px)} 92%{transform:translate(-2px,2px)} 95%{transform:translate(1px,-1px)} }
+/* ═══ contato ═══ */
+.reach{display:flex;flex-wrap:wrap;gap:.5rem;margin:2rem 0 0}
+.reach a{
+  font-family:var(--mono);font-size:.79rem;letter-spacing:.06em;color:var(--graphite);
+  border:1px solid var(--seam);padding:.6rem 1.05rem;border-radius:2px;transition:all var(--ease);
+}
+.reach a:hover{border-color:var(--azure);color:var(--chalk)}
 
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--navy); }
-    ::-webkit-scrollbar-thumb { background: var(--navy-light); border-radius: 2px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
-    ::selection { background: rgba(0,255,255,0.18); color: var(--white); }
+/* ═══ footer ═══ */
+.foot{
+  padding:1.3rem 2.5rem 1.3rem var(--rail);display:flex;flex-wrap:wrap;gap:.6rem 2rem;
+  justify-content:space-between;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--shade);
+}
 
-    /* ── Responsive ── */
-    @media (max-width: 1024px) {
-      nav { width: 190px; }
-      main, footer { margin-left: 190px; }
-      section { padding: 5rem 3rem; }
-      #about { grid-template-columns: 1fr; }
-      .stats-bar { padding: 2rem 3rem; }
-    }
-    @media (max-width: 768px) {
-      nav { width:100%; height:auto; flex-direction:row; align-items:center; padding:0.9rem 1.25rem; border-right:none; border-bottom:1px solid var(--border); }
-      .nav-subtitle { display:none; }
-      .nav-links { flex-direction:row; flex:1; justify-content:center; gap:0; flex-wrap:wrap; margin:0 0.75rem; }
-      .nav-label { display:none; }
-      .nav-links a { padding:0.45rem; border-left:none; border-bottom:2px solid transparent; }
-      .nav-links a:hover,.nav-links a.active { border-bottom-color:var(--cyan); border-left-color:transparent; background:transparent; }
-      .nav-social { padding-top:0; border-top:none; margin-top:0; }
-      main, footer { margin-left:0; margin-top:58px; }
-      section { padding:4rem 1.5rem; }
-      .stats-bar { padding:1.5rem; gap:1.25rem; }
-      .sec-title { font-size:2rem; }
-      .hero-name { font-size:3rem; }
-      .lang-toggle { top:auto; bottom:1.5rem; right:1.5rem; }
-      #contact { padding:4rem 1.5rem; }
-      footer { margin-left:0; padding:1rem 1.5rem; flex-direction:column; gap:0.4rem; text-align:center; }
-    }
-  </style>
+/* ═══ responsivo ═══ */
+@media (max-width:960px){
+  #hero{grid-template-columns:1fr;gap:3rem;padding-top:7.5rem;min-height:0}
+  .column{max-width:300px}
+  .split{grid-template-columns:1fr;gap:2.6rem}
+  .dossier{position:static}
+  .grid-m{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(3n){border-right:1px solid var(--seam)}
+  .metric:nth-child(2n){border-right:0}
+  .metric:nth-child(n+4){border-bottom:1px solid var(--seam)}
+  .metric:nth-child(n+5){border-bottom:0}
+}
+@media (max-width:760px){
+  :root{--rail:1.4rem}
+  body{font-size:16px}
+  .top{padding:0 1.4rem;height:auto;flex-wrap:wrap;gap:.5rem;padding-top:.5rem;padding-bottom:.5rem}
+  .menu{order:3;width:100%;justify-content:flex-start;gap:0;overflow-x:auto;padding-bottom:.15rem}
+  .menu a{padding:.35rem .5rem;font-size:.68rem}
+  .layer{padding:4.6rem 1.4rem}
+  .layer::before{display:none}
+  #hero{padding-top:8.5rem}
+  .grid-m{grid-template-columns:1fr}
+  .metric{border-right:0!important;border-bottom:1px solid var(--seam)!important;padding:1.6rem 1.4rem}
+  .metric:last-child{border-bottom:0!important}
+  .root{grid-template-columns:1fr;gap:.2rem}
+  .foot{padding:1.3rem 1.4rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  .band{opacity:1;transform:none}
+  .post,.work{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
 
-<div class="lang-toggle">
-  <button id="btn-pt" class="active" onclick="setLang('pt')">PT-BR</button>
-  <button id="btn-en" onclick="setLang('en')">EN-UK</button>
-</div>
-
-<nav>
-  <div>
-    <div class="nav-logo">Sophie Pyxis</div>
-    <div class="nav-subtitle" data-pt="Principal AI Architect · Pupila Brand Studio" data-en="Principal AI Architect · Pupila Brand Studio">Principal AI Architect · Pupila Brand Studio</div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#hero" class="active"><span class="ni"><i class="fa fa-terminal"></i></span><span class="nav-label" data-pt="Início" data-en="Home">Início</span></a></li>
-    <li><a href="#about"><span class="ni"><i class="fa fa-user"></i></span><span class="nav-label" data-pt="Sobre" data-en="About">Sobre</span></a></li>
-    <li><a href="#experience"><span class="ni"><i class="fa fa-briefcase"></i></span><span class="nav-label" data-pt="Experiência" data-en="Experience">Experiência</span></a></li>
-    <li><a href="#projects"><span class="ni"><i class="fa fa-code-branch"></i></span><span class="nav-label" data-pt="Projetos" data-en="Projects">Projetos</span></a></li>
-    <li><a href="#stack"><span class="ni"><i class="fa fa-layer-group"></i></span><span class="nav-label">Stack</span></a></li>
-    <li><a href="#contact"><span class="ni"><i class="fa fa-envelope"></i></span><span class="nav-label" data-pt="Contato" data-en="Contact">Contato</span></a></li>
+<header class="top">
+  <div class="depth" id="depth"></div>
+  <a href="#hero" class="wordmark">Sophie <em>Pyxis</em></a>
+  <ul class="menu">
+    <li><a href="#about" data-pt="Sobre" data-en="About">Sobre</a></li>
+    <li><a href="#lead" data-pt="Liderança" data-en="Leadership">Liderança</a></li>
+    <li><a href="#log" data-pt="Trajetória" data-en="Track record">Trajetória</a></li>
+    <li><a href="#works" data-pt="Projetos" data-en="Work">Projetos</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#reach" data-pt="Contato" data-en="Contact">Contato</a></li>
   </ul>
-  <div class="nav-social">
-    <a href="https://github.com/sophie-pyxis" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://dev.to/sophie-pyxis" target="_blank"><i class="fab fa-dev"></i></a>
+  <div class="lang">
+    <button id="b-pt" class="on" onclick="setLang('pt')">PT</button>
+    <button id="b-en" onclick="setLang('en')">EN</button>
   </div>
-</nav>
+</header>
 
 <main>
 
-  <section id="hero">
-    <div class="hero-tag" data-pt="🏳️‍⚧️ mulher trans · neurodivergente · principal ai architect" data-en="🏳️‍⚧️ trans woman · neurodivergent · principal ai architect">🏳️‍⚧️ mulher trans · neurodivergente · principal ai architect</div>
-    <h1 class="hero-name"><span class="glitch" data-text="Sophie Pyxis">Sophie Pyxis</span></h1>
-    <div class="hero-role"><span id="typing-text"></span><span class="cursor"></span></div>
-    <p class="hero-desc"
-      data-pt="Principal AI Architect na Pupila Brand Studio, uma plataforma de branding com IA. +11 anos desenhando plataformas cloud, infraestrutura de IA e ecossistemas MLOps em ambientes altamente regulados — ANVISA, HMRC, LGPD, GDPR — sobre AWS, Azure, GCP e Databricks."
-      data-en="Principal AI Architect at Pupila Brand Studio, an AI-powered branding platform. 11+ years designing cloud platforms, AI infrastructure and MLOps ecosystems in highly regulated environments — ANVISA, HMRC, LGPD, GDPR — across AWS, Azure, GCP and Databricks.">
-      Principal AI Architect na Pupila Brand Studio, uma plataforma de branding com IA. +11 anos desenhando plataformas cloud, infraestrutura de IA e ecossistemas MLOps em ambientes altamente regulados — ANVISA, HMRC, LGPD, GDPR.
-    </p>
-    <div class="hero-badges">
-      <span class="badge hi">AWS</span><span class="badge hi">Azure</span><span class="badge hi">GCP</span><span class="badge hi">Databricks</span>
-      <span class="badge hi">Terraform</span><span class="badge hi">Kubernetes</span><span class="badge">Python</span><span class="badge">CI/CD</span>
-      <span class="badge">MLFlow</span><span class="badge">Docker</span><span class="badge">GitHub Actions</span><span class="badge">FinOps</span>
+<!-- ══════════ HERO ══════════ -->
+<section class="layer" id="hero">
+  <div>
+    <div class="ident">
+      <span>🏳️‍⚧️</span>
+      <em data-pt="mulher trans" data-en="trans woman" style="font-style:normal">mulher trans</em>
+      <span>·</span>
+      <em data-pt="neurodivergente" data-en="neurodivergent" style="font-style:normal">neurodivergente</em>
+      <span>·</span>
+      <em data-pt="Piracicaba, SP" data-en="Piracicaba, SP, Brazil" style="font-style:normal">Piracicaba, SP</em>
     </div>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary"><i class="fa fa-code-branch"></i><span data-pt="Ver Projetos" data-en="View Projects">Ver Projetos</span></a>
-      <a href="#contact" class="btn btn-outline"><i class="fa fa-envelope"></i><span data-pt="Entrar em Contato" data-en="Get in Touch">Entrar em Contato</span></a>
-    </div>
-  </section>
 
-  <div class="stats-bar">
-    <div><div class="stat-num">11+</div><div class="stat-lbl" data-pt="Anos de Experiência" data-en="Years of Experience">Anos de Experiência</div></div>
-    <div><div class="stat-num">~630</div><div class="stat-lbl" data-pt="Pessoas Impactadas pela Arquitetura (Fleury)" data-en="People Shaped by Architecture (Fleury)">Pessoas Impactadas pela Arquitetura (Fleury)</div></div>
-    <div><div class="stat-num">60%</div><div class="stat-lbl" data-pt="Redução Time-to-Market" data-en="Time-to-Market Reduction">Redução Time-to-Market</div></div>
-    <div><div class="stat-num">45%</div><div class="stat-lbl" data-pt="Redução Custos Cloud" data-en="Cloud Cost Reduction">Redução Custos Cloud</div></div>
-    <div><div class="stat-num">23</div><div class="stat-lbl" data-pt="Mercados Globais (AB InBev)" data-en="Global Markets (AB InBev)">Mercados Globais (AB InBev)</div></div>
-    <div><div class="stat-num">2.5k+</div><div class="stat-lbl" data-pt="Profissionais Trans Impactados (DiversificaDev)" data-en="Trans Professionals Impacted (DiversificaDev)">Profissionais Trans Impactados (DiversificaDev)</div></div>
+    <h1 class="name">Sophie <i>Pyxis</i></h1>
+
+    <p class="role" data-pt="Manager, <b>Data &amp; AI</b> — Pupila Brand Studio" data-en="Manager, <b>Data &amp; AI</b> — Pupila Brand Studio">Manager, <b>Data &amp; AI</b> — Pupila Brand Studio</p>
+
+    <p class="lede"
+      data-pt="Eu não só desenho práticas de arquitetura — lidero os times que as executam. Há 11 anos traduzo objetivo de negócio em plataforma de dados e IA que roda em produção, em ambientes regulados por ANVISA, HMRC, LGPD e GDPR."
+      data-en="I don't just design architecture practices — I lead the teams that run them. For 11 years I've turned business objectives into data and AI platforms that run in production, inside environments regulated by ANVISA, HMRC, LGPD and GDPR.">
+      Eu não só desenho práticas de arquitetura — lidero os times que as executam. Há 11 anos traduzo objetivo de negócio em plataforma de dados e IA que roda em produção, em ambientes regulados por ANVISA, HMRC, LGPD e GDPR.
+    </p>
+
+    <dl class="scope">
+      <div>
+        <dt data-pt="Reporte" data-en="Reports to">Reporte</dt>
+        <dd data-pt="CTO e CEO" data-en="CTO and CEO">CTO e CEO</dd>
+      </div>
+      <div>
+        <dt data-pt="Time" data-en="Team">Time</dt>
+        <dd data-pt="2 engenheiros" data-en="2 engineers">2 engenheiros</dd>
+      </div>
+      <div>
+        <dt data-pt="Domínio" data-en="Domain">Domínio</dt>
+        <dd data-pt="Dados, IA e analytics" data-en="Data, AI and analytics">Dados, IA e analytics</dd>
+      </div>
+    </dl>
+
+    <div class="acts">
+      <a href="#log" class="btn btn-solid" data-pt="Ver trajetória" data-en="See track record">Ver trajetória</a>
+      <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/sophie-pyxis" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
   </div>
 
-  <section id="about">
-    <div class="about-text">
-      <div class="sec-label" data-pt="// sobre mim" data-en="// about me">// sobre mim</div>
-      <h2 class="sec-title" data-pt="Quem sou <span>eu</span>" data-en="Who <span>I am</span>">Quem sou <span>eu</span></h2>
-      <p data-pt="Sou <strong>Principal AI Architect</strong> na Pupila Brand Studio, uma plataforma de branding com IA que gera ativos criativos ilimitados mantendo consistência real de marca — com mais de <strong>11 anos de experiência</strong> desenhando plataformas cloud, infraestrutura de IA e ecossistemas MLOps em ambientes altamente regulados: HMRC, ANVISA, LGPD e GDPR."
-         data-en="I am <strong>Principal AI Architect</strong> at Pupila Brand Studio, an AI-powered branding platform generating unlimited on-brand creative assets — with over <strong>11 years of experience</strong> designing cloud platforms, AI infrastructure and MLOps ecosystems in highly regulated environments: HMRC, ANVISA, LGPD and GDPR.">
-        Sou <strong>Principal AI Architect</strong> na Pupila Brand Studio, uma plataforma de branding com IA que gera ativos criativos ilimitados mantendo consistência real de marca — com mais de <strong>11 anos de experiência</strong> desenhando plataformas cloud, infraestrutura de IA e ecossistemas MLOps em ambientes altamente regulados: HMRC, ANVISA, LGPD e GDPR.
+  <!-- coluna estratigráfica: camadas que eu opero, da estratégia à infraestrutura -->
+  <div class="column" id="column">
+    <div class="column-cap" data-pt="// camadas que eu opero" data-en="// layers I operate">// camadas que eu opero</div>
+    <svg viewBox="0 0 268 340" width="100%" role="img" aria-labelledby="col-t">
+      <title id="col-t" data-pt="Coluna de camadas: estratégia, governança, IA generativa, plataforma de dados, infraestrutura" data-en="Layer column: strategy, governance, generative AI, data platform, infrastructure">Coluna de camadas</title>
+
+      <g class="band">
+        <rect x="0" y="0" width="268" height="60" fill="#1C212B"/>
+        <rect x="0" y="0" width="3" height="60" fill="#D98FA6"/>
+        <line class="band-rule" x1="0" y1="60" x2="268" y2="60"/>
+        <text class="band-label" x="16" y="26" data-pt="Estratégia" data-en="Strategy">Estratégia</text>
+        <text class="band-label" x="16" y="42" fill="#5F6979" data-pt="roadmap · investimento" data-en="roadmap · investment">roadmap · investimento</text>
+      </g>
+
+      <g class="band">
+        <rect x="0" y="60" width="268" height="64" fill="#191E27"/>
+        <rect x="0" y="60" width="3" height="64" fill="#C79BB4"/>
+        <line class="band-rule" x1="0" y1="124" x2="268" y2="124"/>
+        <text class="band-label" x="16" y="86" data-pt="Governança" data-en="Governance">Governança</text>
+        <text class="band-label" x="16" y="102" fill="#5F6979">ARB · ADR · LGPD</text>
+      </g>
+
+      <g class="band">
+        <rect x="0" y="124" width="268" height="72" fill="#1C212B"/>
+        <rect x="0" y="124" width="3" height="72" fill="#A8A7C4"/>
+        <line class="band-rule" x1="0" y1="196" x2="268" y2="196"/>
+        <text class="band-label" x="16" y="150" data-pt="IA generativa" data-en="Generative AI">IA generativa</text>
+        <text class="band-label" x="16" y="166" fill="#5F6979" data-pt="orquestração · LLMOps" data-en="orchestration · LLMOps">orquestração · LLMOps</text>
+      </g>
+
+      <g class="band">
+        <rect x="0" y="196" width="268" height="76" fill="#191E27"/>
+        <rect x="0" y="196" width="3" height="76" fill="#8FADCC"/>
+        <line class="band-rule" x1="0" y1="272" x2="268" y2="272"/>
+        <text class="band-label" x="16" y="222" data-pt="Plataforma de dados" data-en="Data platform">Plataforma de dados</text>
+        <text class="band-label" x="16" y="238" fill="#5F6979">lakehouse · MLOps</text>
+      </g>
+
+      <g class="band">
+        <rect x="0" y="272" width="268" height="68" fill="#1C212B"/>
+        <rect x="0" y="272" width="3" height="68" fill="#7FB3D5"/>
+        <text class="band-label" x="16" y="298" data-pt="Infraestrutura" data-en="Infrastructure">Infraestrutura</text>
+        <text class="band-label" x="16" y="314" fill="#5F6979">AWS · IaC · DevOps</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ══════════ MÉTRICAS ══════════ -->
+<section id="metrics">
+  <div class="grid-m">
+    <div class="metric">
+      <div class="metric-n" data-count="11" data-suffix="+">11+</div>
+      <div class="metric-l" data-pt="anos em dados, IA e arquitetura" data-en="years in data, AI and architecture">anos em dados, IA e arquitetura</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n" data-count="630" data-prefix="~">~630</div>
+      <div class="metric-l" data-pt="engenheiros sob a autoridade de arquitetura que eu detinha — Grupo Fleury" data-en="engineers under the architecture authority I held — Grupo Fleury">engenheiros sob a autoridade de arquitetura que eu detinha — Grupo Fleury</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n" data-count="7.2" data-decimals="1" data-prefix="US$" data-suffix="B">US$7.2B</div>
+      <div class="metric-l" data-pt="portfólio de marketing assessorado em 23 mercados — AB InBev" data-en="marketing portfolio advised across 23 markets — AB InBev">portfólio de marketing assessorado em 23 mercados — AB InBev</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n" data-count="1.2" data-decimals="1" data-suffix="PB">1.2PB</div>
+      <div class="metric-l" data-pt="plataforma de dados arquitetada, 1.000+ fontes" data-en="data platform architected, 1,000+ sources">plataforma de dados arquitetada, 1.000+ fontes</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n" data-count="45" data-suffix="%"><s>45%</s></div>
+      <div class="metric-l" data-pt="de redução de custo de infraestrutura via governança FinOps" data-en="infrastructure cost reduction through FinOps governance">de redução de custo de infraestrutura via governança FinOps</div>
+    </div>
+    <div class="metric">
+      <div class="metric-n" data-count="2.5" data-decimals="1" data-suffix="k+">2.5k+</div>
+      <div class="metric-l" data-pt="profissionais trans alcançados — DiversificaDev / TransDevs" data-en="trans professionals reached — DiversificaDev / TransDevs">profissionais trans alcançados — DiversificaDev / TransDevs</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SOBRE ══════════ -->
+<section class="layer" id="about" data-depth="01">
+  <div class="split">
+    <div>
+      <div class="eyebrow" data-pt="// sobre" data-en="// about">// sobre</div>
+      <h2 class="h2" data-pt="Arquitetura que o time <i>de fato segue</i>" data-en="Architecture the team <i>actually follows</i>">Arquitetura que o time <i>de fato segue</i></h2>
+      <div class="prose">
+        <p data-pt="Sou <strong>Manager de Data &amp; AI</strong> na Pupila Brand Studio, plataforma de branding com IA que gera ativos criativos ilimitados mantendo consistência real de marca. Sou dona da estratégia de dados e IA da companhia de ponta a ponta e lidero o time que a executa, reportando direto ao CTO/Head de Tecnologia e ao CEO."
+           data-en="I'm <strong>Manager, Data &amp; AI</strong> at Pupila Brand Studio, an AI-powered branding platform that generates unlimited creative assets while holding real brand consistency. I own the company's data and AI strategy end to end and lead the team that delivers it, reporting directly to the CTO/Head of Technology and the CEO.">
+          Sou <strong>Manager de Data &amp; AI</strong> na Pupila Brand Studio, plataforma de branding com IA que gera ativos criativos ilimitados mantendo consistência real de marca. Sou dona da estratégia de dados e IA da companhia de ponta a ponta e lidero o time que a executa, reportando direto ao CTO/Head de Tecnologia e ao CEO.
+        </p>
+        <p data-pt="Cheguei nessa cadeira depois de estabelecer a fundação arquitetural como Principal AI Architect. A prática segue hands-on: eu defino direção técnica, contrato, formo e desenvolvo o time — e escrevo código em produção junto com ele."
+           data-en="I stepped into this seat after establishing the architecture foundation as Principal AI Architect. The practice stays hands-on: I set technical direction, hire, mentor and grow the team — and write production code alongside them.">
+          Cheguei nessa cadeira depois de estabelecer a fundação arquitetural como Principal AI Architect. A prática segue hands-on: eu defino direção técnica, contrato, formo e desenvolvo o time — e escrevo código em produção junto com ele.
+        </p>
+        <p data-pt="Antes da Pupila, no <strong>Grupo Fleury</strong>, fui a primeira Enterprise Architect contratada para a função de IT, Digital &amp; Innovation de um dos maiores conglomerados de diagnóstico do Brasil. Construí o Architecture Review Board e a governança de ADR do zero e me tornei a autoridade primária de arquitetura para <strong>~630 engenheiros</strong>, sob mandato regulatório da ANVISA."
+           data-en="Before Pupila, at <strong>Grupo Fleury</strong>, I was the first Enterprise Architect hired into the IT, Digital &amp; Innovation function of one of Brazil's largest diagnostics conglomerates. I built the Architecture Review Board and ADR governance from zero and became the primary architecture authority for <strong>~630 engineers</strong>, under ANVISA regulatory mandate.">
+          Antes da Pupila, no <strong>Grupo Fleury</strong>, fui a primeira Enterprise Architect contratada para a função de IT, Digital &amp; Innovation de um dos maiores conglomerados de diagnóstico do Brasil. Construí o Architecture Review Board e a governança de ADR do zero e me tornei a autoridade primária de arquitetura para <strong>~630 engenheiros</strong>, sob mandato regulatório da ANVISA.
+        </p>
+        <p data-pt="Meu trabalho vive na intersecção entre <em>estratégia de dados e IA</em>, <em>liderança de time</em>, <em>arquitetura corporativa</em> e <em>governança</em> — com decisão de investimento defensável e resultado mensurável do outro lado."
+           data-en="My work lives at the intersection of <em>data and AI strategy</em>, <em>team leadership</em>, <em>enterprise architecture</em> and <em>governance</em> — with defensible investment decisions and measurable outcomes on the other side.">
+          Meu trabalho vive na intersecção entre <em>estratégia de dados e IA</em>, <em>liderança de time</em>, <em>arquitetura corporativa</em> e <em>governança</em> — com decisão de investimento defensável e resultado mensurável do outro lado.
+        </p>
+        <p data-pt="Fora da técnica, fui <strong>Diretora Executiva da DiversificaDev</strong>, ONG de 60+ voluntários: montei uma estrutura de liderança em camadas do zero e escalei o programa de formação 5x em quatro meses, à frente do TransDevs — maior comunidade trans em tecnologia do Brasil."
+           data-en="Beyond the technical, I served as <strong>Executive Director of DiversificaDev</strong>, a 60+ volunteer non-profit: I built a tiered leadership structure from scratch and scaled the training programme 5x in four months, leading TransDevs — Brazil's largest trans community in tech.">
+          Fora da técnica, fui <strong>Diretora Executiva da DiversificaDev</strong>, ONG de 60+ voluntários: montei uma estrutura de liderança em camadas do zero e escalei o programa de formação 5x em quatro meses, à frente do TransDevs — maior comunidade trans em tecnologia do Brasil.
+        </p>
+      </div>
+    </div>
+
+    <aside class="dossier">
+      <div class="dossier-t" data-pt="// ficha" data-en="// at a glance">// ficha</div>
+      <dl>
+        <div><dt data-pt="Cargo" data-en="Role">Cargo</dt><dd data-pt="Manager, Data &amp; AI" data-en="Manager, Data &amp; AI">Manager, Data &amp; AI</dd></div>
+        <div><dt data-pt="Empresa" data-en="Company">Empresa</dt><dd>Pupila Brand Studio</dd></div>
+        <div><dt data-pt="Base" data-en="Based in">Base</dt><dd data-pt="Piracicaba, SP, Brasil" data-en="Piracicaba, SP, Brazil">Piracicaba, SP, Brasil</dd></div>
+        <div><dt data-pt="Idiomas" data-en="Languages">Idiomas</dt><dd data-pt="Português nativo · Inglês C2 (EF SET)" data-en="Portuguese native · English C2 (EF SET)">Português nativo · Inglês C2 (EF SET)</dd></div>
+        <div><dt data-pt="Formação" data-en="Education">Formação</dt><dd data-pt="MBA Enterprise Architecture — Uni. Krems, Áustria · BSc Geofísica — USP" data-en="MBA Enterprise Architecture — Uni. Krems, Austria · BSc Geophysics — USP">MBA Enterprise Architecture — Uni. Krems, Áustria · BSc Geofísica — USP</dd></div>
+        <div><dt data-pt="Regulação" data-en="Regulated">Regulação</dt><dd>ANVISA · LGPD · GDPR · HMRC</dd></div>
+        <div><dt data-pt="Reconhecimento" data-en="Recognition">Reconhecimento</dt><dd data-pt="Medalha de prata nas Olimpíadas Brasileiras de Física e de Astronomia · Bolsa PIBIC/CNPq" data-en="Silver medals at the Brazilian Physics and Astronomy Olympiads · PIBIC/CNPq research grant">Medalha de prata nas Olimpíadas Brasileiras de Física e de Astronomia · Bolsa PIBIC/CNPq</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════════ LIDERANÇA ══════════ -->
+<section class="layer" id="lead" data-depth="02">
+  <div class="eyebrow" data-pt="// como eu lidero" data-en="// how i lead">// como eu lidero</div>
+  <h2 class="h2" data-pt="Quatro coisas que eu <i>não negocio</i>" data-en="Four things I <i>don't negotiate</i>">Quatro coisas que eu <i>não negocio</i></h2>
+
+  <div class="tenets">
+    <div class="tenet">
+      <div class="tenet-k" data-pt="time" data-en="team">time</div>
+      <h3 class="tenet-h" data-pt="Escopo antes de headcount" data-en="Scope before headcount">Escopo antes de headcount</h3>
+      <p class="tenet-p" data-pt="Meu time são dois engenheiros com verticais complementares: um em orquestração de IA e DevOps, outro em arquitetura de dados, engenharia de dados e MLOps. Time pequeno cobre superfície grande quando a fronteira de responsabilidade é desenhada, não improvisada."
+         data-en="My team is two engineers with complementary verticals: one on AI orchestration and DevOps, the other on data architecture, data engineering and MLOps. A small team covers a large surface when ownership boundaries are designed, not improvised.">
+        Meu time são dois engenheiros com verticais complementares: um em orquestração de IA e DevOps, outro em arquitetura de dados, engenharia de dados e MLOps. Time pequeno cobre superfície grande quando a fronteira de responsabilidade é desenhada, não improvisada.
       </p>
-      <p data-pt="Na Pupila, sou a principal referência de arquitetura e IA do time, combinando responsabilidade arquitetural com entrega hands-on, reportando diretamente ao CTO/Head de Tecnologia e ao CEO. Antes, no Grupo Fleury, fui a primeira Solutions Architect contratada na função de arquitetura corporativa, com decisões que moldaram como <strong>~630 pessoas</strong> — tech leads, engenheiros, produto e C-level — construíam e evoluíam a plataforma, sob mandato regulatório da ANVISA."
-         data-en="At Pupila, I'm the team's principal reference point for architecture and AI, combining architecture ownership with hands-on delivery, reporting directly to the CTO/Head of Technology and the CEO. Before that, at Grupo Fleury, I was the first Solutions Architect hired into the corporate architecture function, with decisions that shaped how <strong>~630 people</strong> — tech leads, engineers, product managers and C-level — built and evolved the platform, under ANVISA regulatory mandate.">
-        Na Pupila, sou a principal referência de arquitetura e IA do time, combinando responsabilidade arquitetural com entrega hands-on, reportando diretamente ao CTO/Head de Tecnologia e ao CEO. Antes, no Grupo Fleury, fui a primeira Solutions Architect contratada na função de arquitetura corporativa, com decisões que moldaram como <strong>~630 pessoas</strong> construíam e evoluíam a plataforma, sob mandato regulatório da ANVISA.
-      </p>
-      <p data-pt="Atuo na intersecção entre <em>Enterprise Architecture</em>, <em>Solutions Architecture</em>, <em>AI Governance</em> e <em>Platform Strategy</em> — traduzindo objetivos de capacidade organizacional em arquiteturas cloud-native, auditáveis e com TCO defensável. Filosofia: Compliance-by-Design, Domain-Driven Design e tomada de decisão alinhada ao TOGAF."
-         data-en="I work at the intersection of <em>Enterprise Architecture</em>, <em>Solutions Architecture</em>, <em>AI Governance</em> and <em>Platform Strategy</em> — translating organisational capability goals into cloud-native, audit-ready architectures with defensible TCO. Philosophy: Compliance-by-Design, Domain-Driven Design and TOGAF-aligned decision-making.">
-        Atuo na intersecção entre <em>Enterprise Architecture</em>, <em>Solutions Architecture</em>, <em>AI Governance</em> e <em>Platform Strategy</em> — traduzindo objetivos de capacidade organizacional em arquiteturas cloud-native, auditáveis e com TCO defensável.
-      </p>
-      <p data-pt="Além da técnica, fui <strong>Diretora Executiva da DiversificaDev</strong>, à frente do programa TransDevs — maior comunidade trans em TI do Brasil — impactando diretamente <strong>2.500+ profissionais Trans</strong> através da tecnologia."
-         data-en="Beyond the technical, I served as <strong>Executive Director of DiversificaDev</strong>, leading the TransDevs programme — Brazil's largest trans community in tech — directly impacting <strong>2,500+ trans professionals</strong> through technology.">
-        Além da técnica, fui <strong>Diretora Executiva da DiversificaDev</strong>, à frente do programa TransDevs — maior comunidade trans em TI do Brasil — impactando diretamente <strong>2.500+ profissionais Trans</strong> através da tecnologia.
+    </div>
+
+    <div class="tenet">
+      <div class="tenet-k" data-pt="decisão" data-en="decisions">decisão</div>
+      <h3 class="tenet-h" data-pt="Decisão escrita ou não aconteceu" data-en="Written or it didn't happen">Decisão escrita ou não aconteceu</h3>
+      <p class="tenet-p" data-pt="ADR para toda escolha que custa caro reverter: alternativas consideradas, drivers, consequências. Construí essa prática do zero em três organizações reguladas. Ela sobrevive à minha saída — que é o ponto."
+         data-en="An ADR for every choice that's expensive to reverse: alternatives considered, drivers, consequences. I've built this practice from zero at three regulated organisations. It survives my departure — which is the point.">
+        ADR para toda escolha que custa caro reverter: alternativas consideradas, drivers, consequências. Construí essa prática do zero em três organizações reguladas. Ela sobrevive à minha saída — que é o ponto.
       </p>
     </div>
-    <div class="about-card">
-      <div class="card-title">// info</div>
-      <div class="card-item"><span class="ic"><i class="fa fa-map-marker-alt"></i></span><div><strong data-pt="Localização" data-en="Location">Localização</strong><span data-pt="Piracicaba, SP, Brasil" data-en="Piracicaba, SP, Brazil">Piracicaba, SP, Brasil</span></div></div>
-      <div class="card-item"><span class="ic"><i class="fa fa-building"></i></span><div><strong data-pt="Empresa Atual" data-en="Current Company">Empresa Atual</strong><span>Pupila Brand Studio</span></div></div>
-      <div class="card-item"><span class="ic"><i class="fa fa-language"></i></span><div><strong data-pt="Idiomas" data-en="Languages">Idiomas</strong><span data-pt="Português (nativo) · Inglês C2" data-en="Portuguese (native) · English C2">Português (nativo) · Inglês C2</span></div></div>
-      <div class="card-item"><span class="ic"><i class="fa fa-graduation-cap"></i></span><div><strong data-pt="Formação" data-en="Education">Formação</strong><span data-pt="MBA Enterprise Architecture · Danube Krems / BSc Geofísica · USP" data-en="MBA Enterprise Architecture · Danube Krems / BSc Geophysics · USP">MBA Enterprise Architecture · Danube Krems / BSc Geofísica · USP</span></div></div>
-      <div class="card-item"><span class="ic"><i class="fa fa-certificate"></i></span><div><strong data-pt="Certificações" data-en="Certifications">Certificações</strong><span data-pt="EF SET C2 · Scrum · Medalha Olimpíadas Física & Astronomia" data-en="EF SET C2 · Scrum · Physics & Astronomy Olympiad Medal">EF SET C2 · Scrum · Medalha Olimpíadas</span></div></div>
-      <div class="card-item"><span class="ic"><i class="fa fa-heart"></i></span><div><strong data-pt="Impacto Social" data-en="Social Impact">Impacto Social</strong><span data-pt="DiversificaDev · TransDevs · 2.500+ profissionais Trans" data-en="DiversificaDev · TransDevs · 2,500+ trans professionals">DiversificaDev · TransDevs · 2.500+ Trans</span></div></div>
+
+    <div class="tenet">
+      <div class="tenet-k" data-pt="governança" data-en="governance">governança</div>
+      <h3 class="tenet-h" data-pt="Governança acelera, não trava" data-en="Governance accelerates, it doesn't block">Governança acelera, não trava</h3>
+      <p class="tenet-p" data-pt="Compliance tratado como portão vira fila. Tratado como padrão embutido na plataforma, vira velocidade: foi assim que entregamos Making Tax Digital no Dia 1 sob prazo estatutário do HMRC."
+         data-en="Compliance treated as a gate becomes a queue. Treated as a standard built into the platform, it becomes speed: that's how we shipped Making Tax Digital on day one under HMRC statutory deadlines.">
+        Compliance tratado como portão vira fila. Tratado como padrão embutido na plataforma, vira velocidade: foi assim que entregamos Making Tax Digital no Dia 1 sob prazo estatutário do HMRC.
+      </p>
     </div>
-  </section>
 
-  <section id="experience">
-    <div class="sec-label" data-pt="// trajetória" data-en="// career">// trajetória</div>
-    <h2 class="sec-title" data-pt="<span>Experiência</span>" data-en="<span>Experience</span>"><span>Experiência</span></h2>
-    <div class="timeline">
-
-      <div class="tl-item">
-        <div class="tl-period">Jul 2026 – <span data-pt="Presente" data-en="Present">Presente</span> · São Paulo, BR</div>
-        <div class="tl-company">Pupila Brand Studio</div>
-        <div class="tl-role" data-pt="Principal AI Architect" data-en="Principal AI Architect">Principal AI Architect</div>
-        <div class="tl-desc"
-          data-pt="Principal referência de arquitetura e IA para toda a organização de engenharia de uma plataforma de branding com IA que gera ativos criativos ilimitados mantendo consistência de marca. Responsabilidade arquitetural combinada com entrega hands-on: desenho da arquitetura de IA/ML da plataforma, direção técnica e boas práticas para o time de desenvolvimento, e código em produção escrito por mim. Reporte direto ao CTO/Head de Tecnologia e ao CEO. Foco em governança de IA/dados como acelerador estratégico e de compliance."
-          data-en="Principal reference point for architecture and AI across the entire engineering organisation of an AI-powered branding platform generating unlimited on-brand creative assets. Architecture ownership combined with hands-on delivery: designing the platform's AI/ML architecture, setting technical direction and best practices for the development team, and writing production code myself. Reporting directly to the CTO/Head of Technology and the CEO. Focus on AI/data governance as a strategic and compliance accelerator.">
-          Principal referência de arquitetura e IA para toda a organização de engenharia de uma plataforma de branding com IA. Responsabilidade arquitetural combinada com entrega hands-on, reportando direto ao CTO e ao CEO. Foco em governança de IA/dados como acelerador estratégico e de compliance.
-        </div>
-        <div class="tags"><span class="tag">AI/ML Architecture</span><span class="tag">Generative AI</span><span class="tag">AI Governance</span><span class="tag">Python</span><span class="tag">Cloud Architecture</span></div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-period">Jun 2025 – Jul 2026 · São Paulo, BR</div>
-        <div class="tl-company">Grupo Fleury</div>
-        <div class="tl-role" data-pt="Senior Enterprise Architect — IT, Digital &amp; Innovation" data-en="Senior Enterprise Solutions Architect — IT, Digital &amp; Innovation">Senior Enterprise Architect — IT, Digital &amp; Innovation</div>
-        <div class="tl-desc"
-          data-pt="Primeira Enterprise Architect contratada na função de arquitetura corporativa de um dos maiores conglomerados de saúde do Brasil. Construí e fui responsável pelo Architecture Review Board (ARB) e pela prática de governança de ADR do zero, definindo os princípios e arquiteturas de referência seguidos por tech leads e coordenadores de engenharia em ~630 engenheiros. Assessorei o VP Digital e stakeholders de Diretoria em capability maps, avaliações arquiteturais e roadmaps tecnológicos. Governança via ARB, ADRs e C4 Model; alinhamento TOGAF às capacidades de negócio digitais, sob mandato regulatório da ANVISA."
-          data-en="First Enterprise Architect hired into the corporate architecture function of one of Brazil's largest health conglomerates. Built and owned the Architecture Review Board (ARB) and ADR governance practice from zero, setting the architecture principles and reference architectures that tech leads and engineering coordinators across ~630 engineers followed. Advised the Digital VP and Director-level stakeholders on capability maps, architecture assessment and technology roadmaps. Governance via ARB, ADRs and C4 Model; TOGAF alignment to digital business capabilities, under ANVISA regulatory mandate.">
-          Primeira Enterprise Architect contratada na função de arquitetura corporativa da Fleury. Construí o ARB e a governança de ADR do zero, definindo padrões seguidos por tech leads e coordenadores em ~630 engenheiros. Governança via ARB, ADRs e C4 Model; alinhamento TOGAF, sob mandato ANVISA.
-        </div>
-        <div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span><span class="tag">Databricks</span><span class="tag">Terraform</span><span class="tag">Kubernetes</span><span class="tag">TOGAF</span><span class="tag">ADR</span><span class="tag">C4 Model</span><span class="tag">ANVISA</span><span class="tag">LGPD</span></div>
-      </div>
-
-
-      <div class="tl-item">
-        <div class="tl-period">Jan 2024 – Jun 2025 · Campinas, BR</div>
-        <div class="tl-company">AB InBev — Global Martech</div>
-        <div class="tl-role" data-pt="Solutions Architect — AI/ML & Data Platform" data-en="Solutions Architect — AI/ML & Data Platform">Solutions Architect — AI/ML & Data Platform</div>
-        <div class="tl-desc"
-          data-pt="Arquitetura da plataforma de dados global da operação de Martech, servindo 23 mercados e consumida por VPs de Marketing para decisões de alocação de mídia na casa dos bilhões. Medalhão Delta Lake (Bronze/Silver/Gold) com data mesh via Unity Catalog, plataforma de MLOps ponta a ponta em escala de 1,2 PB e 1.000+ fontes de dados, e 45% de redução de custo de infraestrutura via governança FinOps."
-          data-en="Architecture of the global Martech data platform, serving 23 markets and consumed by VPs of Marketing for multi-billion-dollar media allocation decisions. Delta Lake medallion (Bronze/Silver/Gold) with data mesh via Unity Catalog, end-to-end MLOps platform at 1.2PB scale across 1,000+ data sources, and 45% infrastructure cost reduction through FinOps governance.">
-          Arquitetura da plataforma de dados global da Martech, 23 mercados, consumida por VPs para decisões multi-bilionárias. Medalhão Delta Lake, data mesh via Unity Catalog, MLOps em 1,2PB e 45% de redução de custo.
-        </div>
-        <div class="tags"><span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">Unity Catalog</span><span class="tag">Snowflake</span><span class="tag">MLFlow</span><span class="tag">FastAPI</span></div>
-      </div>
-
-      <div class="tl-item">
-        <div class="tl-period">Fev 2022 – Jan 2024 · Northern Ireland, UK 🇬🇧</div>
-        <div class="tl-company">Pie</div>
-        <div class="tl-role" data-pt="Solutions Architect — AI/ML & Data Platform" data-en="Solutions Architect — AI/ML & Data Platform">Solutions Architect — AI/ML & Data Platform</div>
-        <div class="tl-desc"
-          data-pt="Arquitetura completa da plataforma AWS serverless de fintech britânica regulada pelo HMRC: reconhecimento oficial como software developer HMRC (Fev/2022), certificação de integração ITSA e capacidade SA100 em produção sob prazos estatutários (2023-2024). Compliance Making Tax Digital desde o Dia 1, com 100% de infraestrutura como código via Terraform e 95% de automação de onboarding de clientes (45 → 8 min)."
-          data-en="Full architectural ownership of the AWS serverless platform of a British fintech regulated by HMRC: official HMRC software developer recognition (Feb 2022), ITSA integration certification and production SA100 capability under statutory deadlines (2023-2024). Making Tax Digital compliance from Day 1, with 100% infrastructure as code via Terraform and 95% client onboarding automation (45 → 8 min).">
-          Arquitetura completa da plataforma AWS serverless regulada pelo HMRC: reconhecimento oficial (Fev/2022), ITSA e SA100 em produção sob prazos estatutários. MTD desde o Dia 1, 100% IaC via Terraform e 95% de automação de onboarding.
-        </div>
-        <div class="tags"><span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">DynamoDB</span><span class="tag">ECR</span><span class="tag">SageMaker</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span><span class="tag">FastAPI</span><span class="tag">HMRC</span><span class="tag">GDPR</span></div>
-      </div>
-
+    <div class="tenet">
+      <div class="tenet-k" data-pt="custo" data-en="cost">custo</div>
+      <h3 class="tenet-h" data-pt="Todo desenho tem uma fatura" data-en="Every design has an invoice">Todo desenho tem uma fatura</h3>
+      <p class="tenet-p" data-pt="Arquitetura sem racional de TCO é opinião. FinOps contínuo — política de cluster, right-sizing, Spot — cortou 45% do custo de infraestrutura de uma plataforma global e o padrão foi replicado em 23 mercados."
+         data-en="Architecture without TCO rationale is opinion. Continuous FinOps — cluster policy, right-sizing, Spot — cut 45% of infrastructure cost on a global platform, and the pattern was replicated across 23 markets.">
+        Arquitetura sem racional de TCO é opinião. FinOps contínuo — política de cluster, right-sizing, Spot — cortou 45% do custo de infraestrutura de uma plataforma global e o padrão foi replicado em 23 mercados.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="projects">
-    <div class="sec-label" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
-    <h2 class="sec-title" data-pt="<span>Projetos</span>" data-en="<span>Projects</span>"><span>Projetos</span></h2>
-    <div class="proj-grid">
+<!-- ══════════ TRAJETÓRIA ══════════ -->
+<section class="layer" id="log" data-depth="03">
+  <div class="eyebrow" data-pt="// trajetória" data-en="// track record">// trajetória</div>
+  <h2 class="h2" data-pt="Onde as decisões <i>tiveram consequência</i>" data-en="Where the decisions <i>had consequences</i>">Onde as decisões <i>tiveram consequência</i></h2>
 
-      <div class="proj-card">
-        <div class="proj-type">// <span data-pt="Arquitetura" data-en="Architecture">Arquitetura</span> · ADR · <span data-pt="Decisões" data-en="Decisions">Decisões</span></div>
-        <div class="proj-name">adr_hub</div>
-        <div class="proj-desc" data-pt="Hub centralizado de Architectural Decision Records (ADRs) documentando trade-offs e racional por trás de cada decisão significativa de cloud, MLOps e plataforma. Alinhado a TOGAF, DDD e C4 Model." data-en="Centralised hub of Architectural Decision Records (ADRs) documenting the trade-offs and rationale behind every significant cloud, MLOps and platform decision. Aligned to TOGAF, DDD and C4 Model.">Hub centralizado de Architectural Decision Records documentando trade-offs e racional por trás de decisões de cloud, MLOps e plataforma. Alinhado a TOGAF, DDD e C4 Model.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">ADR</span><span class="tag">Solutions Architecture</span><span class="tag">Enterprise Architecture</span><span class="tag">C4 Model</span><span class="tag">DDD</span></div>
-        <a href="https://github.com/sophie-pyxis/adr_hub" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
+  <div class="log">
+
+    <article class="post now">
+      <div class="post-when" data-pt="ago 2026 — presente · São Paulo, BR" data-en="Aug 2026 — present · São Paulo, BR">ago 2026 — presente · São Paulo, BR</div>
+      <div class="post-org">Pupila Brand Studio</div>
+      <div class="post-role">Manager — Data &amp; AI</div>
+      <p class="post-body"
+        data-pt="Dona da estratégia de dados e IA da companhia e líder do time que a entrega. Defino o roadmap junto ao CTO e ao CEO, traduzindo meta de produto e de qualidade de marca em capacidade de plataforma, sequenciamento e decisão de investimento. Respondo por contratação, mentoria técnica, desenvolvimento de carreira e entrega. Sou dona das decisões de arquitetura dos pipelines de IA generativa que produzem o output criativo da plataforma — da seleção de modelo e orquestração aos trade-offs de custo, latência e consistência de marca — e da camada de analytics que torna performance mensurável para produto e liderança."
+        data-en="Owner of the company's data and AI strategy and leader of the team that delivers it. I set the roadmap with the CTO and CEO, translating product and brand-quality goals into platform capability, sequencing and investment decisions. I'm accountable for hiring, technical mentoring, career development and delivery. I own the architecture decisions behind the generative AI pipelines that produce the platform's creative output — from model selection and orchestration to cost, latency and brand-consistency trade-offs — and the analytics layer that makes performance measurable for product and leadership.">
+        Dona da estratégia de dados e IA da companhia e líder do time que a entrega. Defino o roadmap junto ao CTO e ao CEO, traduzindo meta de produto e de qualidade de marca em capacidade de plataforma, sequenciamento e decisão de investimento. Respondo por contratação, mentoria técnica, desenvolvimento de carreira e entrega. Sou dona das decisões de arquitetura dos pipelines de IA generativa que produzem o output criativo da plataforma — da seleção de modelo e orquestração aos trade-offs de custo, latência e consistência de marca — e da camada de analytics que torna performance mensurável para produto e liderança.
+      </p>
+      <dl class="facts">
+        <div><dt data-pt="Reporte" data-en="Reports to">Reporte</dt><dd data-pt="CTO / Head de Tecnologia e CEO" data-en="CTO / Head of Technology and CEO">CTO / Head de Tecnologia e CEO</dd></div>
+        <div><dt data-pt="Time" data-en="Team">Time</dt><dd data-pt="2 engenheiros — orquestração de IA/DevOps e arquitetura de dados/MLOps" data-en="2 engineers — AI orchestration/DevOps and data architecture/MLOps">2 engenheiros — orquestração de IA/DevOps e arquitetura de dados/MLOps</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">AWS</span><span class="chip">Databricks</span><span class="chip">Midjourney</span><span class="chip">Metabase</span><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">Terraform</span><span class="chip">LLMOps</span><span class="chip">LGPD</span></div>
+    </article>
+
+    <article class="post">
+      <div class="post-when" data-pt="jun 2026 — ago 2026 · São Paulo, BR" data-en="Jun 2026 — Aug 2026 · São Paulo, BR">jun 2026 — ago 2026 · São Paulo, BR</div>
+      <div class="post-org">Pupila Brand Studio</div>
+      <div class="post-role">Principal AI Architect</div>
+      <p class="post-body"
+        data-pt="Cargo fundador de arquitetura, contratada como única arquiteta para estabelecer a fundação de IA/ML da plataforma. Desenhei a arquitetura de IA/ML por trás das capacidades generativas, da ingestão e representação de ativos de marca até inferência e entrega; defini a direção técnica e as boas práticas adotadas pelo time de desenvolvimento; e especifiquei a estrutura de time e o escopo técnico em torno dos quais a função de Data &amp; AI foi depois formalizada. Promovida a Manager em agosto de 2026."
+        data-en="Founding architecture role, hired as the sole architect to establish the platform's AI/ML foundation. I designed the AI/ML architecture behind its generative capabilities, from ingestion and brand-asset representation through inference and delivery; defined the technical direction and best practices the development team adopted; and specified the team structure and technical scope the Data &amp; AI function was later formalised around. Promoted to Manager in August 2026.">
+        Cargo fundador de arquitetura, contratada como única arquiteta para estabelecer a fundação de IA/ML da plataforma. Desenhei a arquitetura de IA/ML por trás das capacidades generativas, da ingestão e representação de ativos de marca até inferência e entrega; defini a direção técnica e as boas práticas adotadas pelo time de desenvolvimento; e especifiquei a estrutura de time e o escopo técnico em torno dos quais a função de Data &amp; AI foi depois formalizada. Promovida a Manager em agosto de 2026.
+      </p>
+      <div class="chips"><span class="chip">AWS</span><span class="chip">Databricks</span><span class="chip">Midjourney</span><span class="chip">Generative AI</span><span class="chip">Python</span><span class="chip">Terraform</span></div>
+    </article>
+
+    <article class="post">
+      <div class="post-when" data-pt="jun 2025 — jun 2026 · São Paulo, BR" data-en="Jun 2025 — Jun 2026 · São Paulo, BR">jun 2025 — jun 2026 · São Paulo, BR</div>
+      <div class="post-org">Grupo Fleury</div>
+      <div class="post-role">Senior Enterprise Architect — IT, Digital &amp; Innovation (B2B &amp; B2C)</div>
+      <p class="post-body"
+        data-pt="Primeira Enterprise Architect contratada para a função de IT, Digital &amp; Innovation de um dos maiores conglomerados de diagnóstico do Brasil — 200+ unidades de coleta, milhões de pacientes por ano. Construí e fui dona do Architecture Review Board e da governança de ADR do zero, definindo os princípios e as arquiteturas de referência que tech leads e coordenadores seguiam. Assessorei o VP Digital e a Diretoria em capability maps, avaliação arquitetural e roadmap tecnológico, traduzindo trade-off técnico em decisão de investimento. Revisei e desenhei solução para sistemas de IA em produção: OCR de pedidos médicos, chatbots de IA em WhatsApp e web, e check-in de paciente — todos dentro das restrições de tratamento de dados da ANVISA."
+        data-en="First Enterprise Architect hired into the IT, Digital &amp; Innovation function of one of Brazil's largest diagnostics conglomerates — 200+ collection centres, millions of patients a year. I built and owned the Architecture Review Board and ADR governance from zero, setting the principles and reference architectures tech leads and coordinators built against. I advised the Digital VP and Director-level stakeholders on capability maps, architecture assessment and technology roadmaps, translating technical trade-offs into investment decisions. I reviewed and designed solutions for AI systems in production: OCR for medical requests, WhatsApp and web AI chatbots, and patient check-in — all within ANVISA data-handling constraints.">
+        Primeira Enterprise Architect contratada para a função de IT, Digital &amp; Innovation de um dos maiores conglomerados de diagnóstico do Brasil — 200+ unidades de coleta, milhões de pacientes por ano. Construí e fui dona do Architecture Review Board e da governança de ADR do zero, definindo os princípios e as arquiteturas de referência que tech leads e coordenadores seguiam. Assessorei o VP Digital e a Diretoria em capability maps, avaliação arquitetural e roadmap tecnológico, traduzindo trade-off técnico em decisão de investimento. Revisei e desenhei solução para sistemas de IA em produção: OCR de pedidos médicos, chatbots de IA em WhatsApp e web, e check-in de paciente — todos dentro das restrições de tratamento de dados da ANVISA.
+      </p>
+      <dl class="facts">
+        <div><dt data-pt="Portfólio" data-en="Portfolio">Portfólio</dt><dd data-pt="419+ sistemas" data-en="419+ systems">419+ sistemas</dd></div>
+        <div><dt data-pt="Receita apoiada" data-en="Revenue supported">Receita apoiada</dt><dd data-pt="~USD 1,6 bi/ano" data-en="~USD 1.6bn/year">~USD 1,6 bi/ano</dd></div>
+        <div><dt data-pt="Orçamento de tech" data-en="Tech budget">Orçamento de tech</dt><dd data-pt="~USD 104 mi" data-en="~USD 104m">~USD 104 mi</dd></div>
+        <div><dt data-pt="Alcance" data-en="Reach">Alcance</dt><dd data-pt="~630 engenheiros" data-en="~630 engineers">~630 engenheiros</dd></div>
+      </dl>
+      <div class="chips"><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">GCP</span><span class="chip">Oracle</span><span class="chip">Databricks</span><span class="chip">Terraform</span><span class="chip">ArchiMate</span><span class="chip">TOGAF</span><span class="chip">C4 Model</span><span class="chip">ANVISA</span><span class="chip">LGPD</span></div>
+    </article>
+
+    <article class="post">
+      <div class="post-when" data-pt="jan 2024 — jun 2025 · Campinas, BR" data-en="Jan 2024 — Jun 2025 · Campinas, BR">jan 2024 — jun 2025 · Campinas, BR</div>
+      <div class="post-org">AB InBev — Global Martech</div>
+      <div class="post-role">Solutions Architect — AI/ML &amp; Data Platform</div>
+      <p class="post-body"
+        data-pt="Arquiteta da plataforma de dados global cloud-native da Global Martech — o backbone analítico de um investimento anual de US$ 7,2 bilhões em marketing e vendas em 23 mercados (Budweiser, Corona, Stella Artois, Brahma). Assessorei VPs globais diretamente em decisão de investimento arquitetural, via capability mapping TOGAF e ADRs. Arquitetei a plataforma de MLOps ponta a ponta para Marketing Mix Modelling, atribuição multi-touch, uplift e forecast de campanha em escala de 1,2 PB e 1.000+ fontes, e desenhei o lakehouse e o data mesh inicial (Bronze/Silver/Gold em Delta Lake) com governança por domínio via Unity Catalog. Entreguei 45% de redução de custo de infraestrutura por governança FinOps, replicada como framework único nos 23 mercados."
+        data-en="Architect of Global Martech's cloud-native global data platform — the analytical backbone behind a US$7.2 billion annual marketing and sales investment across 23 markets (Budweiser, Corona, Stella Artois, Brahma). I advised global VPs directly on architecture investment decisions through TOGAF capability mapping and ADRs. I architected the end-to-end MLOps platform for Marketing Mix Modelling, multi-touch attribution, uplift modelling and campaign forecasting at 1.2PB scale across 1,000+ sources, and designed the lakehouse and early data mesh (Bronze/Silver/Gold on Delta Lake) with domain-oriented governance via Unity Catalog. I delivered 45% infrastructure cost reduction through FinOps governance, replicated as a single framework across all 23 markets.">
+        Arquiteta da plataforma de dados global cloud-native da Global Martech — o backbone analítico de um investimento anual de US$ 7,2 bilhões em marketing e vendas em 23 mercados (Budweiser, Corona, Stella Artois, Brahma). Assessorei VPs globais diretamente em decisão de investimento arquitetural, via capability mapping TOGAF e ADRs. Arquitetei a plataforma de MLOps ponta a ponta para Marketing Mix Modelling, atribuição multi-touch, uplift e forecast de campanha em escala de 1,2 PB e 1.000+ fontes, e desenhei o lakehouse e o data mesh inicial (Bronze/Silver/Gold em Delta Lake) com governança por domínio via Unity Catalog. Entreguei 45% de redução de custo de infraestrutura por governança FinOps, replicada como framework único nos 23 mercados.
+      </p>
+      <div class="chips"><span class="chip">Azure</span><span class="chip">Databricks</span><span class="chip">PySpark</span><span class="chip">Delta Lake</span><span class="chip">Unity Catalog</span><span class="chip">Snowflake</span><span class="chip">Azure Synapse</span><span class="chip">MLflow</span><span class="chip">FastAPI</span></div>
+    </article>
+
+    <article class="post">
+      <div class="post-when" data-pt="fev 2022 — jan 2024 · Irlanda do Norte, Reino Unido" data-en="Feb 2022 — Jan 2024 · Northern Ireland, UK">fev 2022 — jan 2024 · Irlanda do Norte, Reino Unido</div>
+      <div class="post-org">Pie</div>
+      <div class="post-role">Solutions Architect — AI/ML &amp; Data Platform</div>
+      <p class="post-body"
+        data-pt="Arquiteta em fintech britânica construída para compliance com o Making Tax Digital do HMRC, com posse arquitetural completa e papel de conselheira técnica primária da liderança de engenharia e de negócio, da concepção da plataforma à produção. Conduzi a assessoria técnica do início até o reconhecimento formal pelo HMRC (fev/2022) e a entrega do SA100 em produção sob prazo estatutário. Arquitetei os sistemas de IA/ML sob esse prazo: OCR e visão computacional com 99,7% de acurácia em 250 mil documentos/ano, NLP/BERT para classificação fiscal, integração de LLM para orientação automatizada e pipelines de MLOps em SageMaker. Desenhei arquitetura serverless orientada a eventos na AWS com 100% de infraestrutura como código e automatizei 95% do onboarding de clientes, de 45 para 8 minutos."
+        data-en="Architect at a UK fintech built for HMRC Making Tax Digital compliance, with full architectural ownership and the role of primary technical advisor to engineering and business leadership, from platform inception to production. I led technical advisory from inception through formal HMRC recognition (Feb 2022) and production SA100 delivery under statutory deadlines. I architected the AI/ML systems under that deadline: OCR and computer vision at 99.7% accuracy on 250,000 documents/year, NLP/BERT for tax classification, LLM integration for automated advice, and SageMaker MLOps pipelines. I designed event-driven serverless architecture on AWS with 100% infrastructure as code and automated 95% of client onboarding, from 45 minutes to 8.">
+        Arquiteta em fintech britânica construída para compliance com o Making Tax Digital do HMRC, com posse arquitetural completa e papel de conselheira técnica primária da liderança de engenharia e de negócio, da concepção da plataforma à produção. Conduzi a assessoria técnica do início até o reconhecimento formal pelo HMRC (fev/2022) e a entrega do SA100 em produção sob prazo estatutário. Arquitetei os sistemas de IA/ML sob esse prazo: OCR e visão computacional com 99,7% de acurácia em 250 mil documentos/ano, NLP/BERT para classificação fiscal, integração de LLM para orientação automatizada e pipelines de MLOps em SageMaker. Desenhei arquitetura serverless orientada a eventos na AWS com 100% de infraestrutura como código e automatizei 95% do onboarding de clientes, de 45 para 8 minutos.
+      </p>
+      <div class="chips"><span class="chip">AWS Lambda</span><span class="chip">API Gateway</span><span class="chip">DynamoDB</span><span class="chip">SageMaker</span><span class="chip">Terraform</span><span class="chip">OpenAPI 3.0</span><span class="chip">BERT</span><span class="chip">LangChain</span><span class="chip">HMRC MTD</span><span class="chip">GDPR</span></div>
+    </article>
+
+    <div class="roots">
+      <div class="eyebrow" style="margin-bottom:1.1rem" data-pt="// fundação técnica" data-en="// technical foundation">// fundação técnica</div>
+      <div class="root">
+        <b data-pt="mar 2021 — fev 2022" data-en="Mar 2021 — Feb 2022">mar 2021 — fev 2022</b>
+        <span><i>OPT</i> · <span data-pt="Machine Learning Engineer — visão computacional ponta a ponta para a Suzano: CNN treinada em 50 mil+ imagens de drone e IoT, 96% de acurácia, contrato de R$ 1,2 mi gerado em 3 meses de MVP." data-en="Machine Learning Engineer — end-to-end computer vision for Suzano: CNN trained on 50,000+ drone and IoT images, 96% accuracy, R$1.2m contract generated within 3 months of MVP.">Machine Learning Engineer — visão computacional ponta a ponta para a Suzano: CNN treinada em 50 mil+ imagens de drone e IoT, 96% de acurácia, contrato de R$ 1,2 mi gerado em 3 meses de MVP.</span></span>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// MLOps · <span data-pt="Desafio Técnico" data-en="Technical Challenge">Desafio Técnico</span></div>
-        <div class="proj-name">mlops_engineer_test_01</div>
-        <div class="proj-desc" data-pt="API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture, CI/CD com GitHub Actions e Container Image via ECR." data-en="Serverless ML inference API with AWS Lambda, API Gateway, DynamoDB and Terraform. Clean Architecture, CI/CD with GitHub Actions and Container Image via ECR.">API Serverless de inferência de ML com AWS Lambda, API Gateway, DynamoDB e Terraform. Clean Architecture e Container Image via ECR.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">AWS</span><span class="tag">Terraform</span><span class="tag">Docker</span><span class="tag">Python</span><span class="tag">Scikit-learn</span></div>
-        <a href="https://github.com/sophie-pyxis/mlops_engineer_test_01" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
+      <div class="root">
+        <b data-pt="jan 2018 — dez 2020" data-en="Jan 2018 — Dec 2020">jan 2018 — dez 2020</b>
+        <span><i>TRGEO</i> · <span data-pt="Data Engineer — automação de ETL geoespacial em Python (GeoPandas, REST, Mapbox) e pipelines de imagem de drone (Pix4D) para modelagem 3D de terreno." data-en="Data Engineer — geospatial ETL automation in Python (GeoPandas, REST, Mapbox) and drone imagery pipelines (Pix4D) for 3D terrain modelling.">Data Engineer — automação de ETL geoespacial em Python (GeoPandas, REST, Mapbox) e pipelines de imagem de drone (Pix4D) para modelagem 3D de terreno.</span></span>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// Data Engineering · AB InBev</div>
-        <div class="proj-name">data-engineering-test-01-spark</div>
-        <div class="proj-desc" data-pt="Teste de engenharia de dados e ETL com PySpark para a AB InBev. Pipeline de processamento distribuído com Spark." data-en="Data engineering and ETL test with PySpark for AB InBev. Distributed processing pipeline with Spark.">Teste de engenharia de dados e ETL com PySpark para a AB InBev.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">PySpark</span><span class="tag">ETL</span><span class="tag">Python</span></div>
-        <a href="https://github.com/sophie-pyxis/data-engineering-test-01-spark" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
+      <div class="root">
+        <b data-pt="abr 2014 — jan 2018" data-en="Apr 2014 — Jan 2018">abr 2014 — jan 2018</b>
+        <span><i>USP · Unicamp</i> · <span data-pt="Data Researcher, bolsa CNPq PIBIC — 30 mil+ registros gravimétricos processados em Python, algoritmos legados em Fortran migrados, artigo publicado pelo CNPq e adotado como referência no IAG-USP." data-en="Data Researcher, CNPq PIBIC grant — 30,000+ gravimetric records processed in Python, legacy Fortran algorithms migrated, paper published through CNPq and adopted as a reference at IAG-USP.">Data Researcher, bolsa CNPq PIBIC — 30 mil+ registros gravimétricos processados em Python, algoritmos legados em Fortran migrados, artigo publicado pelo CNPq e adotado como referência no IAG-USP.</span></span>
       </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// Data Analyst · MarTech</div>
-        <div class="proj-name">data-analyst-test-01-martech</div>
-        <div class="proj-desc" data-pt="Análise de plataforma de anúncios com SQL e Seaborn. Usuários, transações e promoção histórica com simulação Monte Carlo." data-en="Advertising platform analysis with SQL and Seaborn. Users, transactions and historical promotion with Monte Carlo simulation.">Análise de plataforma de anúncios com SQL e Seaborn. Simulação Monte Carlo de nível de desconto.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">SQL</span><span class="tag">Seaborn</span><span class="tag">Python</span></div>
-        <a href="https://github.com/sophie-pyxis/data-analyst-test-01-martech" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// Data Scientist · Geo</div>
-        <div class="proj-name">data-scientist-test-01-geo</div>
-        <div class="proj-desc" data-pt="Análise geoespacial para suporte à decisão ambiental: hotspots de desmatamento em Minas Gerais correlacionados com população e PIB municipal." data-en="Geospatial analytics for environmental decision support: Minas Gerais deforestation hotspots correlated with municipal population and GDP.">Análise geoespacial: hotspots de desmatamento em MG correlacionados com população e PIB. GeoPandas, reprojeção EPSG, choropleth.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">GeoPandas</span><span class="tag">ML</span></div>
-        <a href="https://github.com/sophie-pyxis/data-scientist-test-01-geo" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// Data Scientist · NLP</div>
-        <div class="proj-name">data-scientist-test-02-nlp</div>
-        <div class="proj-desc" data-pt="Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico. Classificação de texto e predição de avaliação em 130k+ reviews." data-en="NLP challenge for Lexter.ai applied to the legal domain. Text classification and rating prediction over 130k+ reviews.">Desafio de NLP para a Lexter.ai aplicado ao domínio jurídico. Classificação de texto em 130k+ reviews.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">NLP</span><span class="tag">Python</span><span class="tag">ML</span></div>
-        <a href="https://github.com/sophie-pyxis/data-scientist-test-02-nlp" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// <span data-pt="Pesquisa" data-en="Research">Pesquisa</span> · USP · CNPq</div>
-        <div class="proj-name">IAG_USP-GRARED-v2</div>
-        <div class="proj-desc" data-pt="Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos publicado no CNPq, adotado como referência nas disciplinas de Gravimetria do IAG-USP." data-en="PIBIC project at IAG-USP. Gravimetric data reduction software published at CNPq, adopted as a reference in IAG-USP Gravimetry courses.">Projeto PIBIC do IAG-USP. Software de redução de dados gravimétricos (CNPq), adotado como referência nas disciplinas de Gravimetria.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">Geofísica</span><span class="tag">CNPq</span></div>
-        <a href="https://github.com/sophie-pyxis/IAG_USP-GRARED-v2" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// <span data-pt="Comunidade" data-en="Community">Comunidade</span> · TransDevs</div>
-        <div class="proj-name">aulas_transdevs</div>
-        <div class="proj-desc" data-pt="Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ profissionais impactados." data-en="TransDevs lesson notebooks — Brazil's largest trans community in tech. 2,500+ professionals impacted.">Notebooks das aulas do TransDevs — maior comunidade trans em TI do Brasil. 2.500+ impactados.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">DE&I</span></div>
-        <a href="https://github.com/sophie-pyxis/aulas_transdevs" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
-      <div class="proj-card">
-        <div class="proj-type">// <span data-pt="Dados & ML" data-en="Data & ML">Dados & ML</span> · Games</div>
-        <div class="proj-name">dados_de_fato-predict_lol</div>
-        <div class="proj-desc" data-pt="Projeto colaborativo da comunidade Dados de Fato. Predição de resultados em League of Legends." data-en="Collaborative project from the Dados de Fato community. Match result prediction in League of Legends.">Projeto colaborativo Dados de Fato. Predição de resultados em League of Legends.</div>
-        <div class="tags" style="margin-bottom:.9rem"><span class="tag">Python</span><span class="tag">ML</span><span class="tag">EDA</span></div>
-        <a href="https://github.com/sophie-pyxis/dados_de_fato-predict_lol" target="_blank" class="proj-link"><i class="fab fa-github"></i> <span data-pt="Ver Repositório" data-en="View Repository">Ver Repositório</span></a>
-      </div>
-
     </div>
-  </section>
 
-  <section id="stack">
-    <div class="sec-label" data-pt="// tecnologias" data-en="// technologies">// tecnologias</div>
-    <h2 class="sec-title">Stack</h2>
-    <div class="stack-groups">
-      <div><div class="sg-title">☁️ Cloud & IaC</div><div class="sg-items"><span class="si">AWS</span><span class="si">Microsoft Azure</span><span class="si">GCP</span><span class="si">Terraform</span><span class="si">Docker</span><span class="si">Kubernetes</span><span class="si">Linux</span></div></div>
-      <div><div class="sg-title">⚙️ AWS Services</div><div class="sg-items"><span class="si">Lambda</span><span class="si">API Gateway</span><span class="si">DynamoDB</span><span class="si">ECR</span><span class="si">CloudWatch</span><span class="si">S3</span><span class="si">ECS</span><span class="si">EKS</span><span class="si">Bedrock</span></div></div>
-      <div><div class="sg-title">🤖 MLOps & <span data-pt="Plataforma AI" data-en="AI Platform">Plataforma AI</span></div><div class="sg-items"><span class="si">Databricks</span><span class="si">MLFlow</span><span class="si">Unity Catalog</span><span class="si">Delta Lake</span><span class="si">PySpark</span><span class="si">Azure Data Factory</span><span class="si">LangChain</span><span class="si">Amazon Bedrock</span><span class="si">Vertex AI</span></div></div>
-      <div><div class="sg-title">🧠 Machine Learning & IA</div><div class="sg-items"><span class="si">Scikit-learn</span><span class="si">TensorFlow</span><span class="si">Keras</span><span class="si">XGBoost</span><span class="si">BERT / NLP</span><span class="si">Computer Vision</span><span class="si">Generative AI</span><span class="si">RAG</span></div></div>
-      <div><div class="sg-title">🐍 Python & <span data-pt="Engenharia" data-en="Engineering">Engenharia</span></div><div class="sg-items"><span class="si">Python</span><span class="si">FastAPI</span><span class="si">Pandas</span><span class="si">NumPy</span><span class="si">OpenAPI 3.0</span><span class="si">Jupyter</span></div></div>
-      <div><div class="sg-title">🔁 CI/CD & DevOps</div><div class="sg-items"><span class="si">GitHub Actions</span><span class="si">Jenkins</span><span class="si">Azure DevOps</span><span class="si">Bitbucket</span><span class="si">SonarQube</span><span class="si">Snyk</span><span class="si">PyTest</span></div></div>
-      <div><div class="sg-title">📊 <span data-pt="Observabilidade" data-en="Observability">Observabilidade</span></div><div class="sg-items"><span class="si">Datadog</span><span class="si">Grafana</span><span class="si">OpenTelemetry</span><span class="si">CloudWatch</span></div></div>
-      <div><div class="sg-title">🏛️ <span data-pt="Arquitetura" data-en="Architecture">Arquitetura</span></div><div class="sg-items"><span class="si">TOGAF</span><span class="si">C4 Model</span><span class="si">DDD</span><span class="si">ADR Governance</span><span class="si">Clean Architecture</span><span class="si">Medallion Architecture</span><span class="si">Event-Driven</span><span class="si">Serverless</span></div></div>
+  </div>
+</section>
+
+<!-- ══════════ PROJETOS ══════════ -->
+<section class="layer" id="works" data-depth="04">
+  <div class="eyebrow" data-pt="// repositórios" data-en="// repositories">// repositórios</div>
+  <h2 class="h2" data-pt="O trabalho, <i>aberto</i>" data-en="The work, <i>in the open</i>">O trabalho, <i>aberto</i></h2>
+
+  <div class="works">
+
+    <article class="work">
+      <div class="work-k" data-pt="governança · adr" data-en="governance · adr">governança · adr</div>
+      <div class="work-n">adr_hub</div>
+      <p class="work-p" data-pt="Hub central de Architectural Decision Records: alternativas, drivers, consequências e histórico de revisão por trás de cada decisão relevante de cloud, MLOps e plataforma. Alinhado a TOGAF, DDD e C4 Model — é a referência de como eu opero governança na prática." data-en="Central hub of Architectural Decision Records: alternatives, drivers, consequences and review history behind every significant cloud, MLOps and platform decision. Aligned to TOGAF, DDD and C4 Model — the reference for how I run governance in practice.">Hub central de Architectural Decision Records: alternativas, drivers, consequências e histórico de revisão por trás de cada decisão relevante de cloud, MLOps e plataforma. Alinhado a TOGAF, DDD e C4 Model — é a referência de como eu opero governança na prática.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/adr_hub" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">mlops · aws</div>
+      <div class="work-n">mlops_engineer_test_01</div>
+      <p class="work-p" data-pt="API serverless de inferência de ML completa: Lambda em container via ECR, API Gateway, DynamoDB, IaC em Terraform, Clean Architecture em 4 camadas, CI/CD em GitHub Actions, OpenAPI 3.0 e IAM de menor privilégio." data-en="Complete serverless ML inference API: Lambda as a container image via ECR, API Gateway, DynamoDB, Terraform IaC, Clean Architecture in 4 layers, CI/CD via GitHub Actions, OpenAPI 3.0 and least-privilege IAM.">API serverless de inferência de ML completa: Lambda em container via ECR, API Gateway, DynamoDB, IaC em Terraform, Clean Architecture em 4 camadas, CI/CD em GitHub Actions, OpenAPI 3.0 e IAM de menor privilégio.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/mlops_engineer_test_01" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">data engineering · spark</div>
+      <div class="work-n">data-engineering-test-01-spark</div>
+      <p class="work-p" data-pt="Pipeline de ETL distribuído em PySpark, aplicando padrões de processamento distribuído do Apache Spark." data-en="Distributed ETL pipeline in PySpark, applying Apache Spark distributed processing patterns.">Pipeline de ETL distribuído em PySpark, aplicando padrões de processamento distribuído do Apache Spark.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/data-engineering-test-01-spark" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">analytics · martech</div>
+      <div class="work-n">data-analyst-test-01-martech</div>
+      <p class="work-p" data-pt="Análise comportamental de plataforma de anúncios em SQL e Seaborn: coortes de usuários, transações e impacto histórico de promoção, com simulação Monte Carlo de nível de desconto." data-en="Behavioural analysis of an advertising platform in SQL and Seaborn: user cohorts, transactions and historical promotion impact, with a Monte Carlo discount-level simulation.">Análise comportamental de plataforma de anúncios em SQL e Seaborn: coortes de usuários, transações e impacto histórico de promoção, com simulação Monte Carlo de nível de desconto.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/data-analyst-test-01-martech" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">data science · geo</div>
+      <div class="work-n">data-scientist-test-01-geo</div>
+      <p class="work-p" data-pt="Analytics geoespacial para decisão ambiental: hotspots de desmatamento em Minas Gerais correlacionados a população e PIB municipal. GeoPandas, reprojeção EPSG, coroplético." data-en="Geospatial analytics for environmental decisions: Minas Gerais deforestation hotspots correlated with municipal population and GDP. GeoPandas, EPSG reprojection, choropleth.">Analytics geoespacial para decisão ambiental: hotspots de desmatamento em Minas Gerais correlacionados a população e PIB municipal. GeoPandas, reprojeção EPSG, coroplético.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/data-scientist-test-01-geo" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">data science · nlp</div>
+      <div class="work-n">data-scientist-test-02-nlp</div>
+      <p class="work-p" data-pt="Desafio de NLP aplicado ao domínio jurídico: classificação de texto e predição de avaliação em 130 mil+ reviews de clientes." data-en="NLP challenge applied to the legal domain: text classification and rating prediction over 130,000+ customer reviews.">Desafio de NLP aplicado ao domínio jurídico: classificação de texto e predição de avaliação em 130 mil+ reviews de clientes.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/data-scientist-test-02-nlp" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k" data-pt="pesquisa · cnpq" data-en="research · cnpq">pesquisa · cnpq</div>
+      <div class="work-n">IAG_USP-GRARED-v2</div>
+      <p class="work-p" data-pt="Projeto PIBIC no IAG-USP: software em Python para redução de dados gravimétricos, publicado pelo CNPq e adotado como referência nas disciplinas de Gravimetria do IAG-USP." data-en="PIBIC project at IAG-USP: Python software for gravimetric data reduction, published through CNPq and adopted as a reference in IAG-USP Gravimetry courses.">Projeto PIBIC no IAG-USP: software em Python para redução de dados gravimétricos, publicado pelo CNPq e adotado como referência nas disciplinas de Gravimetria do IAG-USP.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/IAG_USP-GRARED-v2" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k" data-pt="comunidade · ensino" data-en="community · teaching">comunidade · ensino</div>
+      <div class="work-n">aulas_transdevs</div>
+      <p class="work-p" data-pt="Notebooks das aulas do TransDevs, maior comunidade trans em tecnologia do Brasil. 2.500+ profissionais alcançados." data-en="Lesson notebooks from TransDevs, Brazil's largest trans community in tech. 2,500+ professionals reached.">Notebooks das aulas do TransDevs, maior comunidade trans em tecnologia do Brasil. 2.500+ profissionais alcançados.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/aulas_transdevs" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+    <article class="work">
+      <div class="work-k">ml · games</div>
+      <div class="work-n">dados_de_fato-predict_lol</div>
+      <p class="work-p" data-pt="Projeto colaborativo da comunidade Dados de Fato: predição de resultado de partidas em League of Legends." data-en="Collaborative project from the Dados de Fato community: match outcome prediction in League of Legends.">Projeto colaborativo da comunidade Dados de Fato: predição de resultado de partidas em League of Legends.</p>
+      <a class="work-a" href="https://github.com/sophie-pyxis/dados_de_fato-predict_lol" target="_blank" rel="noopener" data-pt="Abrir repositório →" data-en="Open repository →">Abrir repositório →</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══════════ STACK ══════════ -->
+<section class="layer" id="stack" data-depth="05">
+  <div class="eyebrow" data-pt="// ferramental" data-en="// tooling">// ferramental</div>
+  <h2 class="h2" data-pt="Stack <i>em uso</i>" data-en="Stack <i>in use</i>">Stack <i>em uso</i></h2>
+
+  <div class="kits">
+    <div>
+      <div class="kit-h" data-pt="Na Pupila, hoje" data-en="At Pupila, today">Na Pupila, hoje</div>
+      <div class="kit-i"><span class="tool">AWS</span><span class="tool">Databricks</span><span class="tool">Midjourney</span><span class="tool">Metabase</span><span class="tool">Python</span><span class="tool">TypeScript</span><span class="tool">Terraform</span><span class="tool">Docker</span></div>
     </div>
-  </section>
+    <div>
+      <div class="kit-h" data-pt="Cloud e infraestrutura" data-en="Cloud and infrastructure">Cloud e infraestrutura</div>
+      <div class="kit-i"><span class="tool">AWS</span><span class="tool">Azure</span><span class="tool">GCP</span><span class="tool">Oracle</span><span class="tool">Kubernetes</span><span class="tool">Lambda</span><span class="tool">API Gateway</span><span class="tool">DynamoDB</span><span class="tool">S3</span><span class="tool">EKS</span><span class="tool">Linux</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="IA, MLOps e LLMOps" data-en="AI, MLOps and LLMOps">IA, MLOps e LLMOps</div>
+      <div class="kit-i"><span class="tool">MLflow</span><span class="tool">Unity Catalog</span><span class="tool">Delta Lake</span><span class="tool">SageMaker</span><span class="tool">Bedrock</span><span class="tool">Vertex AI</span><span class="tool">LangChain</span><span class="tool">Multi-agent</span><span class="tool">RAG</span><span class="tool">Generative AI</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="Dados e analytics" data-en="Data and analytics">Dados e analytics</div>
+      <div class="kit-i"><span class="tool">PySpark</span><span class="tool">Snowflake</span><span class="tool">BigQuery</span><span class="tool">Azure Synapse</span><span class="tool">Azure Data Factory</span><span class="tool">Kafka</span><span class="tool">SQL</span><span class="tool">Metabase</span><span class="tool">Power BI</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="Machine learning" data-en="Machine learning">Machine learning</div>
+      <div class="kit-i"><span class="tool">Scikit-learn</span><span class="tool">TensorFlow</span><span class="tool">Keras</span><span class="tool">XGBoost</span><span class="tool">BERT / NLP</span><span class="tool">Computer Vision</span><span class="tool">Pandas</span><span class="tool">NumPy</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="Engenharia e entrega" data-en="Engineering and delivery">Engenharia e entrega</div>
+      <div class="kit-i"><span class="tool">FastAPI</span><span class="tool">OpenAPI 3.0</span><span class="tool">GitHub Actions</span><span class="tool">Azure DevOps</span><span class="tool">Jenkins</span><span class="tool">SonarQube</span><span class="tool">Snyk</span><span class="tool">PyTest</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="Observabilidade" data-en="Observability">Observabilidade</div>
+      <div class="kit-i"><span class="tool">Datadog</span><span class="tool">Grafana</span><span class="tool">OpenTelemetry</span><span class="tool">CloudWatch</span></div>
+    </div>
+    <div>
+      <div class="kit-h" data-pt="Arquitetura e governança" data-en="Architecture and governance">Arquitetura e governança</div>
+      <div class="kit-i"><span class="tool">TOGAF</span><span class="tool">ArchiMate</span><span class="tool">C4 Model</span><span class="tool">ADR</span><span class="tool">ARB</span><span class="tool">DDD</span><span class="tool">Clean Architecture</span><span class="tool">Data Mesh</span><span class="tool">Medallion</span><span class="tool">Event-Driven</span><span class="tool">FinOps</span></div>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="sec-label" data-pt="// contato" data-en="// contact">// contato</div>
-    <h2 class="sec-title" data-pt="Vamos <span>conversar</span>" data-en="Let's <span>connect</span>">Vamos <span>conversar</span></h2>
-    <p class="contact-intro"
-      data-pt="Disponível para colaborações técnicas, mentorias e iniciativas de DE&I. Encontre meu trabalho no GitHub ou conecte-se no LinkedIn."
-      data-en="Available for technical collaborations, mentoring and DE&I initiatives. Find my work on GitHub or connect on LinkedIn.">
-      Disponível para colaborações técnicas, mentorias e iniciativas de DE&I. Encontre meu trabalho no GitHub ou conecte-se no LinkedIn.
+<!-- ══════════ CONTATO ══════════ -->
+<section class="layer" id="reach" data-depth="06">
+  <div class="eyebrow" data-pt="// contato" data-en="// contact">// contato</div>
+  <h2 class="h2" data-pt="Vamos <i>conversar</i>" data-en="Let's <i>talk</i>">Vamos <i>conversar</i></h2>
+  <div class="prose">
+    <p data-pt="Aberta a conversas sobre liderança em dados e IA, arquitetura em ambiente regulado, mentoria e iniciativas de diversidade em tecnologia. Respondo mais rápido no LinkedIn."
+       data-en="Open to conversations about data and AI leadership, architecture in regulated environments, mentoring and diversity initiatives in tech. LinkedIn gets the fastest reply.">
+      Aberta a conversas sobre liderança em dados e IA, arquitetura em ambiente regulado, mentoria e iniciativas de diversidade em tecnologia. Respondo mais rápido no LinkedIn.
     </p>
-    <div class="contact-links">
-      <a class="contact-item" href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a class="contact-item" href="https://github.com/sophie-pyxis" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a class="contact-item" href="https://dev.to/sophie-pyxis" target="_blank"><i class="fab fa-dev"></i> Dev.to</a>
-      <a class="contact-item" href="mailto:sophia.helena.paula@gmail.com"><i class="fa fa-envelope"></i> sophia.helena.paula@gmail.com</a>
-    </div>
-    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" class="btn btn-primary">
-      <i class="fab fa-linkedin"></i>
-      <span data-pt="Conectar no LinkedIn" data-en="Connect on LinkedIn">Conectar no LinkedIn</span>
-    </a>
-  </section>
+  </div>
+  <div class="reach">
+    <a href="https://www.linkedin.com/in/sophie-pyxis/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/sophie-pyxis" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://dev.to/sophie-pyxis" target="_blank" rel="noopener">Dev.to</a>
+    <a href="mailto:sophia.helena.paula@gmail.com">sophia.helena.paula@gmail.com</a>
+  </div>
+</section>
 
 </main>
 
-<footer>
+<footer class="foot">
   <span>sophie-pyxis.github.io</span>
-  <span data-pt="// HTML + CSS + JS · sem frameworks" data-en="// HTML + CSS + JS · no frameworks">// HTML + CSS + JS · sem frameworks</span>
+  <span data-pt="// HTML, CSS e JS · sem frameworks" data-en="// HTML, CSS and JS · no frameworks">// HTML, CSS e JS · sem frameworks</span>
   <span>🏳️‍⚧️ trans rights are human rights</span>
 </footer>
 
 <script>
-  let lang = 'pt';
+/* ── idioma ── */
+let lang='pt';
+function setLang(l){
+  lang=l;
+  document.getElementById('b-pt').classList.toggle('on',l==='pt');
+  document.getElementById('b-en').classList.toggle('on',l==='en');
+  document.documentElement.lang=l==='pt'?'pt-BR':'en-GB';
+  document.querySelectorAll('[data-pt]').forEach(el=>{
+    const v=l==='pt'?el.dataset.pt:el.dataset.en;
+    if(v!==undefined) el.innerHTML=v;
+  });
+}
 
-  function setLang(l) {
-    lang = l;
-    document.getElementById('btn-pt').classList.toggle('active', l === 'pt');
-    document.getElementById('btn-en').classList.toggle('active', l === 'en');
-    document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en-GB';
-    document.querySelectorAll('[data-pt]').forEach(el => {
-      const v = l === 'pt' ? el.dataset.pt : el.dataset.en;
-      if (v !== undefined) el.innerHTML = v;
-    });
-    startTyping();
-  }
+/* ── barra de profundidade ── */
+const depth=document.getElementById('depth');
+function trackDepth(){
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  depth.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+}
+window.addEventListener('scroll',trackDepth,{passive:true});
+trackDepth();
 
-  const roles = {
-    pt: ['Principal AI Architect', 'Enterprise & Solutions Architect', 'AI Platform Architect', 'Cloud & MLOps Architect', 'FinOps & Governance Architect', 'AI Governance Lead'],
-    en: ['Principal AI Architect', 'Enterprise & Solutions Architect', 'AI Platform Architect', 'Cloud & MLOps Architect', 'FinOps & Governance Architect', 'AI Governance Lead']
-  };
+/* ── revelar em scroll ── */
+const reveal=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('seen'); reveal.unobserve(e.target); } });
+},{threshold:.12});
+document.querySelectorAll('.post,.work').forEach(el=>reveal.observe(el));
 
-  let ri = 0, ci = 0, del = false, tt;
+/* ── contagem das métricas ── */
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function fmt(n,d){ return d?n.toFixed(d).replace('.',lang==='pt'?',':'.'):Math.round(n).toLocaleString(lang==='pt'?'pt-BR':'en-GB'); }
+const counters=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    counters.unobserve(e.target);
+    const el=e.target, target=parseFloat(el.dataset.count), d=parseInt(el.dataset.decimals||0);
+    const pre=el.dataset.prefix||'', suf=el.dataset.suffix||'', wrap=el.querySelector('s');
+    const paint=v=>{ const t=pre+fmt(v,d)+suf; if(wrap){wrap.textContent=t;} else {el.textContent=t;} };
+    if(reduce){ paint(target); return; }
+    const dur=900, t0=performance.now();
+    (function step(now){
+      const p=Math.min((now-t0)/dur,1), eased=1-Math.pow(1-p,3);
+      paint(target*eased);
+      if(p<1) requestAnimationFrame(step);
+    })(t0);
+  });
+},{threshold:.5});
+document.querySelectorAll('.metric-n').forEach(el=>counters.observe(el));
 
-  function startTyping() {
-    ri = 0; ci = 0; del = false;
-    clearTimeout(tt);
-    document.getElementById('typing-text').textContent = '';
-    type();
-  }
+/* ── seção ativa no menu ── */
+const links=document.querySelectorAll('.menu a');
+const active=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id));
+  });
+},{rootMargin:'-45% 0px -45% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>active.observe(s));
 
-  function type() {
-    const list = roles[lang];
-    const cur = list[ri];
-    if (del) ci--; else ci++;
-    document.getElementById('typing-text').textContent = cur.substring(0, ci);
-    let d = del ? 38 : 75;
-    if (!del && ci === cur.length) { d = 1900; del = true; }
-    else if (del && ci === 0) { del = false; ri = (ri + 1) % list.length; d = 380; }
-    tt = setTimeout(type, d);
-  }
-
-  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
-  document.querySelectorAll('.tl-item, .proj-card').forEach(el => obs.observe(el));
-
-  const secs = document.querySelectorAll('section[id]');
-  const nls = document.querySelectorAll('.nav-links a');
-  const sObs = new IntersectionObserver(
-    es => es.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        nls.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-      }
-    }),
-    { rootMargin: '-40% 0px -40% 0px' }
-  );
-  secs.forEach(s => sObs.observe(s));
-
-  setLang('pt');
+/* ── sequência de carga ── */
+requestAnimationFrame(()=>document.getElementById('column').classList.add('loaded'));
 </script>
 
 </body>
